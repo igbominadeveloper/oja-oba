@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(7);
-var isBuffer = __webpack_require__(19);
+var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
 
@@ -377,137 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(21);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(8);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-   * timeout is not created.
-   */
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -612,6 +481,137 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(22);
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(8);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(8);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
 /* 4 */
@@ -14207,7 +14207,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(16).setImmediate))
 
 /***/ }),
 /* 6 */
@@ -14425,12 +14425,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(22);
-var buildURL = __webpack_require__(24);
-var parseHeaders = __webpack_require__(25);
-var isURLSameOrigin = __webpack_require__(26);
+var settle = __webpack_require__(23);
+var buildURL = __webpack_require__(25);
+var parseHeaders = __webpack_require__(26);
+var isURLSameOrigin = __webpack_require__(27);
 var createError = __webpack_require__(9);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -14527,7 +14527,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(28);
+      var cookies = __webpack_require__(29);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -14611,7 +14611,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(23);
+var enhanceError = __webpack_require__(24);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -14668,22 +14668,23 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(13);
-module.exports = __webpack_require__(49);
+__webpack_require__(14);
+module.exports = __webpack_require__(56);
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_index__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_index__ = __webpack_require__(54);
 
 
 
@@ -14695,14 +14696,14 @@ new Vue({
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 
 
@@ -14723,7 +14724,7 @@ if (token) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -14779,7 +14780,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(16);
+__webpack_require__(17);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -14790,10 +14791,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -14983,16 +14984,16 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(18);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)))
 
 /***/ }),
 /* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(19);
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15000,8 +15001,8 @@ module.exports = __webpack_require__(18);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(7);
-var Axios = __webpack_require__(20);
-var defaults = __webpack_require__(2);
+var Axios = __webpack_require__(21);
+var defaults = __webpack_require__(3);
 
 /**
  * Create an instance of Axios
@@ -15035,14 +15036,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(11);
-axios.CancelToken = __webpack_require__(34);
+axios.CancelToken = __webpack_require__(35);
 axios.isCancel = __webpack_require__(10);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(35);
+axios.spread = __webpack_require__(36);
 
 module.exports = axios;
 
@@ -15051,7 +15052,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /*!
@@ -15078,16 +15079,16 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var defaults = __webpack_require__(2);
+var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(29);
-var dispatchRequest = __webpack_require__(30);
+var InterceptorManager = __webpack_require__(30);
+var dispatchRequest = __webpack_require__(31);
 
 /**
  * Create a new instance of Axios
@@ -15164,7 +15165,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15183,7 +15184,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15216,7 +15217,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15244,7 +15245,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15317,7 +15318,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15377,7 +15378,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15452,7 +15453,7 @@ module.exports = (
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15495,7 +15496,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15555,7 +15556,7 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15614,18 +15615,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(31);
+var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(2);
-var isAbsoluteURL = __webpack_require__(32);
-var combineURLs = __webpack_require__(33);
+var defaults = __webpack_require__(3);
+var isAbsoluteURL = __webpack_require__(33);
+var combineURLs = __webpack_require__(34);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -15707,7 +15708,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15734,7 +15735,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15755,7 +15756,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15776,7 +15777,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15840,7 +15841,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15874,7 +15875,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15883,30 +15884,51 @@ module.exports = function spread(callback) {
 
 var routes = [{
     path: '/',
-    component: __webpack_require__(37)
+    component: __webpack_require__(61)
 }, {
     path: '/auth',
-    component: __webpack_require__(40)
+    component: __webpack_require__(43)
+}, {
+    path: '/wishlist',
+    component: __webpack_require__(48)
+}, {
+    path: '/cart',
+    component: __webpack_require__(73)
+}, {
+    path: '/orders',
+    component: __webpack_require__(49)
+}, {
+    path: '/account',
+    component: __webpack_require__(63)
+}, {
+    path: '/account/edit',
+    component: __webpack_require__(65)
 }, {
     path: '/shop',
-    component: __webpack_require__(45)
+    component: __webpack_require__(52)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     routes: routes,
-    mode: 'history'
+    // mode: 'history',
+    linkActiveClass: 'is-active'
 }));
 
 /***/ }),
-/* 37 */
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(38)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(39)
+var __vue_template__ = __webpack_require__(47)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -15923,7 +15945,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\views\\Home.vue"
+Component.options.__file = "resources\\assets\\js\\views\\auth\\Authentication.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -15932,9 +15954,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-11c5acec", Component.options)
+    hotAPI.createRecord("data-v-44c09a6f", Component.options)
   } else {
-    hotAPI.reload("data-v-11c5acec", Component.options)
+    hotAPI.reload("data-v-44c09a6f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -15945,2614 +15967,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    computed: {
-        products: function products() {
-            return this.$store.getters.products;
-        }
-    },
-    created: function created() {
-        this.$store.dispatch('fetchProducts');
-    }
-});
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "pageloader" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "infraloader is-active" }),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _c("div", { staticClass: "category-quickview" }, [
-      _c("div", { staticClass: "inner" }, [
-        _c("ul", { staticClass: "category-menu" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("House")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M458.667,0H53.333C23.893,0.035,0.035,23.893,0,53.333v405.333C0.035,488.107,23.893,511.965,53.333,512h405.333\n                                             c29.441-0.035,53.298-23.893,53.333-53.333V53.333C511.965,23.893,488.107,0.035,458.667,0z M490.667,458.667\n                                             c0,17.673-14.327,32-32,32H53.333c-17.673,0-32-14.327-32-32V53.333c0-17.673,14.327-32,32-32h405.333c17.673,0,32,14.327,32,32\n                                             V458.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "245.333",
-                          y: "42.667",
-                          width: "21.333",
-                          height: "352"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M320,181.333h-21.333v21.333H320V224h-21.333v21.333H320c0.295,0.006,0.589,0.006,0.884,0\n                                             c11.538-0.244,20.693-9.795,20.449-21.333v-21.333c0.006-0.295,0.006-0.589,0-0.884C341.089,190.245,331.538,181.089,320,181.333z\n                                             "
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M213.333,202.667v-21.333H192c-0.295-0.006-0.589-0.006-0.884,0c-11.538,0.244-20.693,9.795-20.449,21.333V224\n                                             c-0.006,0.295-0.006,0.589,0,0.884c0.244,11.538,9.795,20.693,21.333,20.449h21.333V224H192v-21.333H213.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.667",
-                          y: "384",
-                          width: "426.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "234.667",
-                          y: "437.333",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("Office")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M458.667,202.667h-64c-5.891,0-10.667,4.776-10.667,10.667v53.333c0,5.891,4.776,10.667,10.667,10.667h64\n                                             c5.891,0,10.667-4.776,10.667-10.667v-53.333C469.333,207.442,464.558,202.667,458.667,202.667z M448,256h-42.667v-32H448V256z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M405.333,106.667c-9.604-1.077-18.042-6.864-22.507-15.435l-19.093,9.536c8.062,15.807,23.888,26.167,41.6,27.232\n                                             c0.634-0.062,1.273-0.062,1.907,0c5.365,0.526,9.287,5.302,8.76,10.667v74.667h21.333v-74.667c0.018-0.606,0.018-1.213,0-1.819\n                                             C436.831,119.677,422.504,106.164,405.333,106.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M458.667,128c-0.808-0.024-1.617-0.024-2.425,0c-22.895,0.67-40.911,19.772-40.242,42.667h21.333\n                                             c-0.056-0.866-0.056-1.735,0-2.602c0.718-11.064,10.27-19.45,21.333-18.732H480V128H458.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M394.667,138.667h-21.333V160h21.333c11.029,0,19.712,18.315,21.888,24.725l20.235-6.763\n                                             C435.445,173.941,422.88,138.667,394.667,138.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M501.333,256H10.667C4.776,256,0,260.776,0,266.667v42.667C0,315.224,4.776,320,10.667,320h490.667\n                                             c5.891,0,10.667-4.776,10.667-10.667v-42.667C512,260.776,507.224,256,501.333,256z M490.667,298.667H21.333v-21.333h469.333\n                                             V298.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M469.333,341.333v96c0,5.891-4.776,10.667-10.667,10.667H53.333c-5.891,0-10.667-4.776-10.667-10.667v-96H21.333v96\n                                             c0,17.673,14.327,32,32,32h405.333c17.673,0,32-14.327,32-32v-96H469.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M96,448H53.333c-5.891,0-10.667,4.776-10.667,10.667v42.667c0,5.891,4.776,10.667,10.667,10.667H96\n                                             c5.891,0,10.667-4.776,10.667-10.667v-42.667C106.667,452.776,101.891,448,96,448z M85.333,490.667H64v-21.333h21.333V490.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M458.667,448H416c-5.891,0-10.667,4.776-10.667,10.667v42.667c0,5.891,4.776,10.667,10.667,10.667h42.667\n                                             c5.891,0,10.667-4.776,10.667-10.667v-42.667C469.333,452.776,464.558,448,458.667,448z M448,490.667h-21.333v-21.333H448V490.667\n                                             z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "245.333",
-                          y: "341.333",
-                          width: "21.333",
-                          height: "85.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "298.667",
-                          y: "373.333",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "170.667",
-                          y: "373.333",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M426.667,0H85.333C73.551,0,64,9.551,64,21.333v192c0,11.782,9.551,21.333,21.333,21.333h277.333v-21.333H85.333v-192\n                                             h341.333v64H448v-64C448,9.551,438.449,0,426.667,0z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "213.333",
-                          y: "224",
-                          width: "21.333",
-                          height: "42.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "224",
-                          width: "21.333",
-                          height: "42.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "106.667",
-                          y: "170.667",
-                          width: "256",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("For kids")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M501.333,160H416v21.333h74.667V224H416v21.333h85.333c5.891,0,10.667-4.776,10.667-10.667v-64\n                                             C512,164.776,507.224,160,501.333,160z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M74.667,181.333h170.667V160h-160V10.667C85.333,4.776,80.558,0,74.667,0h-64C4.776,0,0,4.776,0,10.667v224\n                                             c0,5.891,4.776,10.667,10.667,10.667h234.667V224h-224V21.333H64v149.333C64,176.558,68.776,181.333,74.667,181.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "74.667",
-                          y: "117.333",
-                          width: "170.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M501.333,53.333h-64c-5.891,0-10.667,4.776-10.667,10.667v53.333H416v21.333h21.333c5.891,0,10.667-4.776,10.667-10.667\n                                             V74.667h42.667v64H512V64C512,58.109,507.224,53.333,501.333,53.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M170.667,64h-96v21.333h95.872c0.657-0.071,1.32-0.075,1.978-0.012c5.383,0.514,9.331,5.295,8.817,10.678h21.333\n                                             c0.018-0.606,0.018-1.213,0-1.819C202.164,77.01,187.838,63.498,170.667,64z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.667",
-                          y: "160",
-                          width: "32",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M501.333,426.667H416V448h74.667v42.667H416V512h85.333c5.891,0,10.667-4.776,10.667-10.667v-64\n                                             C512,431.442,507.224,426.667,501.333,426.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M74.667,448h170.667v-21.333h-160V277.333c0-5.891-4.776-10.667-10.667-10.667h-64C4.776,266.667,0,271.442,0,277.333v224\n                                             C0,507.224,4.776,512,10.667,512h234.667v-21.333h-224V288H64v149.333C64,443.224,68.776,448,74.667,448z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "74.667",
-                          y: "384",
-                          width: "170.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M501.333,320h-64c-5.891,0-10.667,4.776-10.667,10.667V384H416v21.333h21.333c5.891,0,10.667-4.776,10.667-10.667v-53.333\n                                             h42.667v64H512v-74.667C512,324.776,507.224,320,501.333,320z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M170.667,330.667h-96V352h95.872c0.657-0.071,1.32-0.075,1.978-0.012c5.383,0.514,9.331,5.295,8.817,10.678h21.333\n                                             c0.018-0.606,0.018-1.213,0-1.819C202.164,343.677,187.838,330.164,170.667,330.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.667",
-                          y: "426.667",
-                          width: "32",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          y: "234.667",
-                          width: "21.333",
-                          height: "42.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "490.667",
-                          y: "234.667",
-                          width: "21.333",
-                          height: "96"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "266.667",
-                          y: "85.333",
-                          width: "21.333",
-                          height: "426.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "373.333",
-                          y: "85.333",
-                          width: "21.333",
-                          height: "426.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "128",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "192",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "256",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "320",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "384",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "277.333",
-                          y: "448",
-                          width: "106.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("Kitchen")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M458.667,0H53.333C23.893,0.035,0.035,23.893,0,53.333v405.333C0.035,488.107,23.893,511.965,53.333,512h405.333\n                                             c29.441-0.035,53.298-23.893,53.333-53.333V53.333C511.965,23.893,488.107,0.035,458.667,0z M490.667,458.667\n                                             c0,17.673-14.327,32-32,32H53.333c-17.673,0-32-14.327-32-32V53.333c0-17.673,14.327-32,32-32h405.333c17.673,0,32,14.327,32,32\n                                             V458.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "245.333",
-                          y: "362.667",
-                          width: "21.333",
-                          height: "106.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "245.333",
-                          y: "42.667",
-                          width: "21.333",
-                          height: "106.667"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.667",
-                          y: "352",
-                          width: "426.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.667",
-                          y: "138.667",
-                          width: "426.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M298.667,192c-9.584-1.094-17.999-6.878-22.453-15.435l-19.093,9.536c8.062,15.783,23.858,26.136,41.547,27.232\n                                             c0.634-0.062,1.273-0.062,1.907,0c5.365,0.527,9.286,5.302,8.76,10.667v74.667h21.333V224c0.018-0.606,0.018-1.213,0-1.819\n                                             C330.164,205.01,315.838,191.498,298.667,192z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M352,213.333c-0.815-0.024-1.631-0.024-2.447,0c-22.888,0.676-40.896,19.778-40.22,42.667h21.333\n                                             c-0.055-0.859-0.055-1.72,0-2.579c0.712-11.07,10.263-19.467,21.333-18.754h21.333v-21.333H352z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M288,224h-21.333v21.333H288c11.019,0,19.723,18.315,21.888,24.725l20.224-6.763C328.779,259.275,316.213,224,288,224z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M352,288h-64c-5.891,0-10.667,4.776-10.667,10.667v64c0,5.891,4.776,10.667,10.667,10.667h64\n                                             c5.891,0,10.667-4.776,10.667-10.667v-64C362.667,292.776,357.891,288,352,288z M341.333,352h-42.667v-42.667h42.667V352z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "352",
-                          y: "74.667",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "117.333",
-                          y: "74.667",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "352",
-                          y: "416",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "117.333",
-                          y: "416",
-                          width: "42.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M170.667,288h-32c-5.891,0-10.667,4.776-10.667,10.667v64c0,5.891,4.776,10.667,10.667,10.667h32\n                                             c5.891,0,10.667-4.776,10.667-10.667v-64C181.333,292.776,176.558,288,170.667,288z M160,352h-10.667v-42.667H160V352z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M245.333,330.667v-32c0-5.891-4.776-10.667-10.667-10.667h-32c-5.891,0-10.667,4.776-10.667,10.667v64\n                                             c0,5.891,4.776,10.667,10.667,10.667h32V352h-21.333v-42.667H224v21.333H245.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M202.667,309.333h-32c-5.891,0-10.667,4.776-10.667,10.667v42.667c0,5.891,4.776,10.667,10.667,10.667h32\n                                             c5.891,0,10.667-4.776,10.667-10.667V320C213.333,314.109,208.558,309.333,202.667,309.333z M192,352h-10.667v-21.333H192V352z"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("Accessories")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: { y: "32", width: "512", height: "21.333" }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M480,32H32c-5.891,0-10.667,4.776-10.667,10.667v42.667C21.333,91.224,26.109,96,32,96h448\n                                             c5.891,0,10.667-4.776,10.667-10.667V42.667C490.667,36.776,485.891,32,480,32z M469.333,74.667H42.667V53.333h426.667V74.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "245.333",
-                          y: "160",
-                          width: "21.333",
-                          height: "53.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M309.333,74.667H202.667c-5.891,0-10.667,4.776-10.667,10.667V128c0,5.891,4.776,10.667,10.667,10.667h106.667\n                                             c5.891,0,10.667-4.776,10.667-10.667V85.333C320,79.442,315.224,74.667,309.333,74.667z M298.667,117.333h-85.333V96h85.333\n                                             V117.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M320,202.667H192c-17.673,0-32,14.327-32,32v202.667c0,5.891,4.776,10.667,10.667,10.667h170.667\n                                             c5.891,0,10.667-4.776,10.667-10.667V234.667C352,216.994,337.673,202.667,320,202.667z M330.667,426.667H181.333v-192\n                                             c0-5.891,4.776-10.667,10.667-10.667h128c5.891,0,10.667,4.776,10.667,10.667V426.667z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "138.667",
-                          y: "384",
-                          width: "234.667",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M213.333,245.333c-5.891,0-10.667,4.776-10.667,10.667v32H224v-21.333h21.333v-21.333H213.333z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M277.333,437.333c0,11.782-9.551,21.333-21.333,21.333s-21.333-9.551-21.333-21.333h-21.333\n                                             C213.333,460.898,232.436,480,256,480s42.667-19.102,42.667-42.667H277.333z"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "products.html" } }, [
-              _c("span", [_vm._v("View All")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticStyle: {
-                    "enable-background": "new 0 0 512.027 512.027"
-                  },
-                  attrs: {
-                    version: "1.1",
-                    id: "Capa_1",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512.027 512.027",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M405.347,0.013H106.68c-17.673,0-32,14.327-32,32v85.333h21.333V32.013c0-5.891,4.776-10.667,10.667-10.667h298.667\n                                             c5.891,0,10.667,4.776,10.667,10.667v85.333h21.333V32.013C437.347,14.34,423.02,0.013,405.347,0.013z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M74.68,437.347H32.013c-5.891,0-10.667,4.776-10.667,10.667v53.333c0,5.891,4.776,10.667,10.667,10.667H74.68\n                                             c5.891,0,10.667-4.776,10.667-10.667v-53.333C85.347,442.122,80.571,437.347,74.68,437.347z M64.013,490.68H42.68v-32h21.333\n                                             V490.68z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M480.013,437.347h-42.667c-5.891,0-10.667,4.776-10.667,10.667v53.333c0,5.891,4.776,10.667,10.667,10.667h42.667\n                                             c5.891,0,10.667-4.776,10.667-10.667v-53.333C490.68,442.122,485.904,437.347,480.013,437.347z M469.347,490.68h-21.333v-32\n                                             h21.333V490.68z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "42.68",
-                          y: "362.68",
-                          width: "53.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "416.013",
-                          y: "362.68",
-                          width: "53.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M245.347,42.68v187.584l-28.875,28.875l15.083,15.083l32-32c2-2,3.125-4.713,3.125-7.541v-192H245.347z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "261.354",
-                          y: "228.052",
-                          transform:
-                            "matrix(0.7071 -0.7071 0.7071 0.7071 -97.5854 265.771)",
-                          width: "21.333",
-                          height: "45.259"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "170.68",
-                          y: "53.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "192.013",
-                          y: "74.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "149.347",
-                          y: "74.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "170.68",
-                          y: "96.013",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "320.013",
-                          y: "53.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "341.347",
-                          y: "74.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "298.68",
-                          y: "74.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "320.013",
-                          y: "96.013",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "320.013",
-                          y: "160.013",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "341.347",
-                          y: "181.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "298.68",
-                          y: "181.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "320.013",
-                          y: "202.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "170.68",
-                          y: "160.013",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "192.013",
-                          y: "181.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "149.347",
-                          y: "181.347",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("rect", {
-                        attrs: {
-                          x: "170.68",
-                          y: "202.68",
-                          width: "21.333",
-                          height: "21.333"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M384.013,309.347h-256c-0.808-0.024-1.617-0.024-2.425,0c-22.895,0.67-40.911,19.772-40.242,42.667h21.333\n                                             c-0.055-0.859-0.055-1.72,0-2.579c0.712-11.07,10.263-19.467,21.333-18.754h256c0.859-0.055,1.72-0.055,2.579,0\n                                             c11.07,0.712,19.467,10.263,18.755,21.333h21.333c0.024-0.808,0.024-1.617,0-2.425\n                                             C426.01,326.694,406.908,308.677,384.013,309.347z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M512.013,426.68v-224c0-35.346-28.654-64-64-64c-35.346,0-64,28.654-64,64c-0.024,18.146,7.745,35.429,21.333,47.456\n                                             V362.68H106.68V250.136c13.588-12.027,21.357-29.31,21.333-47.456c0-35.346-28.654-64-64-64s-64,28.654-64,64\n                                             c0.031,1.871,0.188,3.739,0.469,5.589l0.171,1.301c-0.256,9.557-0.459,48.181-0.64,217.109c-0.018,0.606-0.018,1.213,0,1.819\n                                             c0.502,17.171,14.829,30.684,32,30.181h448c0.606,0.018,1.213,0.018,1.819,0C499.003,458.178,512.516,443.851,512.013,426.68z\n                                             M490.68,428.587c-0.527,5.365-5.302,9.286-10.667,8.76h-448c-0.642,0.064-1.289,0.064-1.93,0\n                                             c-5.358-0.533-9.269-5.309-8.736-10.667c0.096-83.701,0.309-210.005,0.565-217.312c0.053-0.672,0.042-1.346-0.032-2.016\n                                             l-0.267-1.973c-0.144-0.893-0.233-1.794-0.267-2.699c0-23.564,19.103-42.667,42.667-42.667s42.667,19.103,42.667,42.667\n                                             c-0.013,13.361-6.341,25.93-17.067,33.899c-2.686,2.014-4.267,5.176-4.267,8.533v128.235c0,5.891,4.776,10.667,10.667,10.667h320\n                                             c5.891,0,10.667-4.776,10.667-10.667V245.133c0-3.357-1.581-6.519-4.267-8.533c-10.731-7.973-17.06-20.551-17.067-33.92\n                                             c0-23.564,19.102-42.667,42.667-42.667c23.564,0,42.667,19.103,42.667,42.667v224C490.742,427.314,490.742,427.953,490.68,428.587\n                                             z"
-                        }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(3),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass: "navbar mobile-navbar is-hidden-desktop is-hidden-tablet",
-        attrs: { "aria-label": "main navigation" }
-      },
-      [
-        _c("div", { staticClass: "navbar-brand" }, [
-          _c(
-            "a",
-            { staticClass: "navbar-item", attrs: { href: "home.html" } },
-            [
-              _c("img", {
-                attrs: { src: "assets/images/logo/nephos.svg", alt: "" }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "navbar-item is-icon is-sidebar-toggler",
-              attrs: { id: "sidebar-mode", href: "javascript:void(0);" }
-            },
-            [_c("i", { attrs: { "data-feather": "sidebar" } })]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "navbar-burger" }, [
-            _c("span"),
-            _vm._v(" "),
-            _c("span"),
-            _vm._v(" "),
-            _c("span")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "navbar-menu" }, [
-          _c("div", { staticClass: "navbar-item has-dropdown" }, [
-            _c(
-              "a",
-              { staticClass: "navbar-link", attrs: { href: "account.html" } },
-              [
-                _c("img", {
-                  attrs: { src: "assets/images/avatars/altvatar.png", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "is-heading" }, [
-                  _vm._v("Welcome, Guest")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "navbar-dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item is-flex",
-                  attrs: { href: "cart-empty.html" }
-                },
-                [
-                  _c("span", [_vm._v("Cart")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "menu-badge" }, [_vm._v("0")])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "authentication.html" }
-                },
-                [_vm._v("Log in")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "authentication.html" }
-                },
-                [_vm._v("Register")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "navbar-item has-dropdown" }, [
-            _c("a", { staticClass: "navbar-link" }, [
-              _c("i", { attrs: { "data-feather": "grid" } }),
-              _vm._v(" "),
-              _c("span", { staticClass: "is-heading" }, [_vm._v("Categories")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "navbar-dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "products.html" }
-                },
-                [_vm._v("House")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "products.html" }
-                },
-                [_vm._v("Office")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "products.html" }
-                },
-                [_vm._v("Kids")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "products.html" }
-                },
-                [_vm._v("Kitchen")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-item",
-                  attrs: { href: "products.html" }
-                },
-                [_vm._v("Accessories")]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-sidebar" }, [
-      _c("div", { staticClass: "sidebar-brand" }, [
-        _c("a", { attrs: { href: "index.html" } }, [
-          _c("img", {
-            attrs: { src: "assets/images/logo/nephos.svg", alt: "" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sidebar-inner" }, [
-        _c("ul", { staticClass: "icon-menu" }, [
-          _c("li", [
-            _c(
-              "a",
-              { attrs: { href: "javascript:void(0);", id: "open-shop" } },
-              [_c("i", { attrs: { "data-feather": "home" } })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c(
-              "a",
-              { attrs: { href: "javascript:void(0);", id: "open-cart" } },
-              [_c("i", { attrs: { "data-feather": "shopping-cart" } })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c(
-              "a",
-              { attrs: { href: "javascript:void(0);", id: "open-search" } },
-              [_c("i", { attrs: { "data-feather": "search" } })]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "is-hidden is-inactive",
-                attrs: { href: "javascript:void(0);", id: "close-search" }
-              },
-              [_c("i", { attrs: { "data-feather": "x" } })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "is-hidden-desktop is-hidden-tablet" }, [
-            _c(
-              "a",
-              { attrs: { href: "javascript:void(0);", id: "mobile-mode" } },
-              [_c("i", { attrs: { "data-feather": "smartphone" } })]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "bottom-menu is-hidden-mobile" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "authentication.html" } }, [
-              _c("i", { attrs: { "data-feather": "user" } })
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "menu-fab is-hidden-mobile",
-        attrs: { id: "quickview-trigger" }
-      },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "hamburger-btn",
-            attrs: { href: "javascript:void(0);" }
-          },
-          [
-            _c("span", { staticClass: "menu-toggle" }, [
-              _c("span", { staticClass: "icon-box-toggle" }, [
-                _c("span", { staticClass: "rotate" }, [
-                  _c("i", { staticClass: "icon-line-top" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-line-center" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-line-bottom" })
-                ])
-              ])
-            ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "shop-quickview has-background-image",
-        attrs: { "data-background": "assets/images/bg/sidebar.jpeg" }
-      },
-      [
-        _c("div", { staticClass: "inner" }, [
-          _c("div", { staticClass: "quickview-header" }, [
-            _c("h2", [_vm._v("Nephos")]),
-            _vm._v(" "),
-            _c("span", { attrs: { id: "close-shop-sidebar" } }, [
-              _c("i", { attrs: { "data-feather": "x" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "shop-menu" }, [
-            _c("li", [
-              _c("a", { attrs: { href: "shop.html" } }, [
-                _c("span", [_vm._v("Shop")]),
-                _vm._v(" "),
-                _c("i", { attrs: { "data-feather": "grid" } })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "account.html" } }, [
-                _c("span", [_vm._v("My Account")]),
-                _vm._v(" "),
-                _c("i", { attrs: { "data-feather": "user" } })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "orders.html" } }, [
-                _c("span", [_vm._v("My Orders")]),
-                _vm._v(" "),
-                _c("i", { attrs: { "data-feather": "credit-card" } })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "wishlist.html" } }, [
-                _c("span", [_vm._v("My Wishlists")]),
-                _vm._v(" "),
-                _c("i", { attrs: { "data-feather": "heart" } })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "user-profile" }, [
-            _c("li", [
-              _c("a", { attrs: { href: "account.html" } }, [
-                _c("img", {
-                  attrs: { src: "assets/images/avatars/altvatar.png", alt: "" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "user" }, [
-                  _c("span", [_vm._v("Guest")]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("0 "),
-                    _c("small", [_vm._v("Items in Cart")])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cart-quickview" }, [
-      _c("div", { staticClass: "inner" }, [
-        _c("div", { staticClass: "quickview-header" }, [
-          _c("h2", [_vm._v("Quick Cart")]),
-          _vm._v(" "),
-          _c("span", { attrs: { id: "close-cart-sidebar" } }, [
-            _c("i", { attrs: { "data-feather": "x" } })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "cart-body" }, [
-          _c("div", { staticClass: "empty-cart has-text-centered" }, [
-            _c("h3", [_vm._v("Your cart is empty")]),
-            _vm._v(" "),
-            _c("img", {
-              attrs: { src: "assets/images/icons/new-cart.svg", alt: "" }
-            }),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "button big-button rounded",
-                attrs: { href: "shop.html" }
-              },
-              [_vm._v("Start Shopping")]
-            ),
-            _vm._v(" "),
-            _c("small", [_vm._v("You can create your account later")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "shop-wrapper has-background-image" }, [
-      _c("div", { staticClass: "search-overlay" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "search-input-wrapper is-desktop is-hidden" }, [
-        _c("div", { staticClass: "field" }, [
-          _c("div", { staticClass: "control" }, [
-            _c("input", {
-              attrs: {
-                type: "text",
-                name: "search",
-                autofocus: "",
-                required: ""
-              }
-            }),
-            _vm._v(" "),
-            _c("span", { attrs: { id: "clear-search", role: "button" } }, [
-              _c("i", { attrs: { "data-feather": "x" } })
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "search-help" }, [
-              _vm._v("Type the name of the product you are looking for")
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "background-caption" }, [
-        _c("h1", [_vm._v("NEPHOS")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "hero-caption" }, [
-        _c("h1", [_vm._v("NEPHOS")]),
-        _vm._v(" "),
-        _c("h2", [_vm._v("MODERN SHOP TEMPLATE")]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "button big-button primary-button upper-button rounded raised",
-            attrs: { href: "shop.html" }
-          },
-          [_vm._v("Start shopping")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "slider-wrapper" }, [
-        _c("div", { staticClass: "fullscreen-slick" }, [
-          _c("div", {
-            staticClass: "full-slide has-background-image",
-            attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "full-slide has-background-image",
-            attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "full-slide has-background-image",
-            attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "full-slide has-background-image",
-            attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-          })
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-11c5acec", module.exports)
-  }
-}
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(41)
-/* template */
-var __vue_template__ = __webpack_require__(44)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\views\\Authentication.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d86b9076", Component.options)
-  } else {
-    hotAPI.reload("data-v-d86b9076", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Form_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Form_js__ = __webpack_require__(45);
 //
 //
 //
@@ -18689,11 +16109,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(46);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18743,7 +16163,7 @@ var Form = function () {
 /* harmony default export */ __webpack_exports__["a"] = (Form);
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18803,7 +16223,7 @@ var Errors = function () {
 /* harmony default export */ __webpack_exports__["a"] = (Errors);
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19137,20 +16557,20 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d86b9076", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-44c09a6f", module.exports)
   }
 }
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(72)
 /* template */
-var __vue_template__ = __webpack_require__(46)
+var __vue_template__ = __webpack_require__(71)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -19167,7 +16587,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\views\\Shop.vue"
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Wishlist.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -19176,9 +16596,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1a2baf83", Component.options)
+    hotAPI.createRecord("data-v-4b9ec3ee", Component.options)
   } else {
-    hotAPI.reload("data-v-1a2baf83", Component.options)
+    hotAPI.reload("data-v-4b9ec3ee", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -19189,7 +16609,107 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(78)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(76)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Orders.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e4699d64", Component.options)
+  } else {
+    hotAPI.reload("data-v-e4699d64", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */,
+/* 51 */,
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(53)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Shop.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9e4ecdc2", Component.options)
+  } else {
+    hotAPI.reload("data-v-9e4ecdc2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19636,17 +17156,17 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1a2baf83", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9e4ecdc2", module.exports)
   }
 }
 
 /***/ }),
-/* 47 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
 
@@ -19681,7 +17201,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
 });
 
 /***/ }),
-/* 48 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20626,10 +18146,10254 @@ var index_esm = {
 
 
 /***/ }),
-/* 49 */
+/* 56 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 57 */,
+/* 58 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\Home.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-11c5acec", Component.options)
+  } else {
+    hotAPI.reload("data-v-11c5acec", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "shop-wrapper has-background-image" }, [
+        _c("div", { staticClass: "search-overlay" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "search-input-wrapper is-desktop is-hidden" },
+          [
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  attrs: {
+                    type: "text",
+                    name: "search",
+                    autofocus: "",
+                    required: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { attrs: { id: "clear-search", role: "button" } }, [
+                  _c("i", { attrs: { "data-feather": "x" } })
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "search-help" }, [
+                  _vm._v("Type the name of the product you are looking for")
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "background-caption" }, [
+          _c("h1", [_vm._v("NEPHOS")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "hero-caption" }, [
+          _c("h1", [_vm._v("NEPHOS")]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("MODERN SHOP TEMPLATE")]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "button big-button primary-button upper-button rounded raised",
+              attrs: { href: "shop.html" }
+            },
+            [_vm._v("Start shopping")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "slider-wrapper" }, [
+          _c("div", { staticClass: "fullscreen-slick" }, [
+            _c("div", {
+              staticClass: "full-slide has-background-image",
+              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "full-slide has-background-image",
+              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "full-slide has-background-image",
+              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "full-slide has-background-image",
+              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+            })
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-11c5acec", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(70)
+/* template */
+var __vue_template__ = __webpack_require__(64)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\auth\\Account.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-745699c6", Component.options)
+  } else {
+    hotAPI.reload("data-v-745699c6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "section" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "columns account-header" }, [
+          _c(
+            "div",
+            {
+              staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("account-tabs"),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "columns is-account-grid is-multiline" },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-7" }, [
+                    _c(
+                      "div",
+                      { staticClass: "flat-card profile-info-card is-auto" },
+                      [
+                        _c("div", { staticClass: "card-title" }, [
+                          _c("h3", [_vm._v("Account details")]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "edit-account has-simple-popover popover-hidden-mobile",
+                              attrs: {
+                                "data-content": "Edit Account",
+                                "data-placement": "top"
+                              }
+                            },
+                            [
+                              _c(
+                                "router-link",
+                                { attrs: { to: "/account/edit" } },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "feather feather-settings feather-icons",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "24",
+                                        height: "24",
+                                        viewBox: "0 0 24 24",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    },
+                                    [
+                                      _c("circle", {
+                                        attrs: { cx: "12", cy: "12", r: "3" }
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "card-bg",
+                          attrs: {
+                            src: "assets/images/logo/nephos-greyscale.svg",
+                            alt: ""
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "flat-card profile-info-card is-auto" },
+                      [
+                        _c("div", { staticClass: "card-title" }, [
+                          _c("h3", [_vm._v("Billing address")]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "edit-account is-vhidden" },
+                            [
+                              _c(
+                                "a",
+                                { attrs: { href: "account-edit.html" } },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "feather feather-settings feather-icons",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "24",
+                                        height: "24",
+                                        viewBox: "0 0 24 24",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2",
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round"
+                                      }
+                                    },
+                                    [
+                                      _c("circle", {
+                                        attrs: { cx: "12", cy: "12", r: "3" }
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3)
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("ACCOUNT")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column is-5" }, [
+      _c("div", { staticClass: "flat-card profile-card is-auto" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "profile-image" }, [
+            _c("img", {
+              attrs: { src: "assets/images/avatars/elie.jpg", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "username has-text-centered" }, [
+            _c("span", [_vm._v("Elie Daniels")]),
+            _vm._v(" "),
+            _c("small", [_vm._v("Member since Sep 23 2017")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "profile-footer has-text-centered" }, [
+          _c("span", { staticClass: "achievement-title" }, [
+            _vm._v("Next Achievement")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "count" }, [
+            _vm._v(
+              "\n                                    24/150\n                                "
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flat-card profile-info-card is-auto is-dark is-achievement"
+        },
+        [
+          _c("div", { staticClass: "card-body" }, [
+            _c("img", {
+              attrs: { src: "assets/images/logo/nephos-gold.svg", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "achievement-name" }, [
+              _c("span", { staticClass: "is-gold" }, [
+                _vm._v("Nephos Gold Customer")
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  "As a Gold Customer, you have a permanent 10% discount on all your purchases."
+                )
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flat-card profile-info-card is-auto is-dark is-achievement"
+        },
+        [
+          _c("div", { staticClass: "card-body" }, [
+            _c("img", {
+              attrs: { src: "assets/images/logo/nephos-referral.svg", alt: "" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "achievement-name" }, [
+              _c("span", { staticClass: "is-green" }, [
+                _vm._v("Nephos Referer")
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v("You have referred "),
+                _c("b", [_vm._v("30+")]),
+                _vm._v(
+                  " customers. You get a 2.5% discount on all your purchases."
+                )
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("First Name")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("Elie")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [
+              _vm._v("eliedaniels@gmail.com")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Last Name")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("Daniels")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Phone")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [
+              _vm._v("+1 555 623 568")
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Number")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("23, Block C2")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("City")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("Los Angeles")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("State")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("CA")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Street")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [
+              _vm._v("Church Street")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Postal Code")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [_vm._v("100065")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Country")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "label-value" }, [
+              _vm._v("United States")
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-745699c6", module.exports)
+  }
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(67)
+/* template */
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\auth\\AccountEdit.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-59c30ff0", Component.options)
+  } else {
+    hotAPI.reload("data-v-59c30ff0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          { staticClass: "column is-10 is-offset-1" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-4" }, [
+                _c("div", { staticClass: "flat-card upload-card is-auto" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "avatar-wrapper has-simple-popover",
+                        attrs: {
+                          id: "avatar-upload",
+                          "data-content": "Change profile picture",
+                          "data-placement": "top",
+                          "data-target": "webuiPopover3"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "profile-pic",
+                          attrs: {
+                            src:
+                              "https://image.ibb.co/b04PYv/placeholder_w.jpg",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "upload-button" }, [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "feather feather-plus upload-icon",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "aria-hidden": "true"
+                              }
+                            },
+                            [
+                              _c("line", {
+                                attrs: { x1: "12", y1: "5", x2: "12", y2: "19" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "5", y1: "12", x2: "19", y2: "12" }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "file-upload",
+                          attrs: { type: "file", accept: "image/*" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-8" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card profile-info-card is-auto" },
+                  [
+                    _c("div", { staticClass: "card-title" }, [
+                      _c("h3", [_vm._v("Contact info")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "confirm-button" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "has-simple-popover",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              role: "button",
+                              "data-content": "Save Contact info",
+                              "data-placement": "top",
+                              "data-target": "webuiPopover4"
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "feather feather-check feather-icons",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("polyline", {
+                                  attrs: { points: "20 6 9 17 4 12" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3)
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flat-card profile-info-card is-auto has-overflow"
+                  },
+                  [
+                    _c("div", { staticClass: "card-title" }, [
+                      _c("h3", [_vm._v("Billing Address")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "confirm-button" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "has-simple-popover",
+                            attrs: {
+                              href: "javascript:void(0);",
+                              role: "button",
+                              "data-content": "Save Addresses",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass:
+                                  "feather feather-check feather-icons",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("polyline", {
+                                  attrs: { points: "20 6 9 17 4 12" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(5)
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("EDIT ACCOUNT")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "username has-text-centered" }, [
+      _c("span", [_vm._v("Elie Daniels")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("eliedaniels@gmail.com")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "has-text-centered" }, [
+      _c(
+        "button",
+        { staticClass: "button feather-button secondary-button will-upload" },
+        [
+          _vm._v(
+            "\r\n                            Save picture\r\n                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("First Name")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "Elie" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "email", value: "eliedaniels@gmail.com" }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Last Name")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "Daniels" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Phone")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "+1 555 623 568" }
+              })
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Number")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "23, Block C2" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("City")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "Los Angeles" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("State")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "CA" }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-6" }, [
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Street")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "Church Street" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Postal Code")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                staticClass: "input is-default",
+                attrs: { type: "text", value: "100065" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-block" }, [
+            _c("span", { staticClass: "label-text" }, [_vm._v("Country")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c(
+                "select",
+                {
+                  staticClass: "chosen-select",
+                  staticStyle: { display: "none" }
+                },
+                [
+                  _c("option", { attrs: { value: "United States" } }, [
+                    _vm._v("United States")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "United Kingdom" } }, [
+                    _vm._v("United Kingdom")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Afghanistan" } }, [
+                    _vm._v("Afghanistan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Albania" } }, [
+                    _vm._v("Albania")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Algeria" } }, [
+                    _vm._v("Algeria")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "American Samoa" } }, [
+                    _vm._v("American Samoa")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Andorra" } }, [
+                    _vm._v("Andorra")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Angola" } }, [
+                    _vm._v("Angola")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Anguilla" } }, [
+                    _vm._v("Anguilla")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Antarctica" } }, [
+                    _vm._v("Antarctica")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Antigua and Barbuda" } }, [
+                    _vm._v("Antigua and Barbuda")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Argentina" } }, [
+                    _vm._v("Argentina")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Armenia" } }, [
+                    _vm._v("Armenia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Aruba" } }, [
+                    _vm._v("Aruba")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Australia" } }, [
+                    _vm._v("Australia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Austria" } }, [
+                    _vm._v("Austria")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Azerbaijan" } }, [
+                    _vm._v("Azerbaijan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bahamas" } }, [
+                    _vm._v("Bahamas")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bahrain" } }, [
+                    _vm._v("Bahrain")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bangladesh" } }, [
+                    _vm._v("Bangladesh")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Barbados" } }, [
+                    _vm._v("Barbados")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Belarus" } }, [
+                    _vm._v("Belarus")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Belgium" } }, [
+                    _vm._v("Belgium")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Belize" } }, [
+                    _vm._v("Belize")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Benin" } }, [
+                    _vm._v("Benin")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bermuda" } }, [
+                    _vm._v("Bermuda")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bhutan" } }, [
+                    _vm._v("Bhutan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bolivia" } }, [
+                    _vm._v("Bolivia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bosnia and Herzegovina" } }, [
+                    _vm._v("Bosnia and Herzegovina")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Botswana" } }, [
+                    _vm._v("Botswana")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bouvet Island" } }, [
+                    _vm._v("Bouvet Island")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Brazil" } }, [
+                    _vm._v("Brazil")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "British Indian Ocean Territory" } },
+                    [_vm._v("British Indian Ocean Territory")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Brunei Darussalam" } }, [
+                    _vm._v("Brunei Darussalam")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Bulgaria" } }, [
+                    _vm._v("Bulgaria")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Burkina Faso" } }, [
+                    _vm._v("Burkina Faso")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Burundi" } }, [
+                    _vm._v("Burundi")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cambodia" } }, [
+                    _vm._v("Cambodia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cameroon" } }, [
+                    _vm._v("Cameroon")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Canada" } }, [
+                    _vm._v("Canada")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cape Verde" } }, [
+                    _vm._v("Cape Verde")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cayman Islands" } }, [
+                    _vm._v("Cayman Islands")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Central African Republic" } },
+                    [_vm._v("Central African Republic")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Chad" } }, [_vm._v("Chad")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Chile" } }, [
+                    _vm._v("Chile")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "China" } }, [
+                    _vm._v("China")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Christmas Island" } }, [
+                    _vm._v("Christmas Island")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Cocos (Keeling) Islands" } },
+                    [_vm._v("Cocos (Keeling) Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Colombia" } }, [
+                    _vm._v("Colombia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Comoros" } }, [
+                    _vm._v("Comoros")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Congo" } }, [
+                    _vm._v("Congo")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "Congo, The Democratic Republic of The" }
+                    },
+                    [_vm._v("Congo, The Democratic Republic of The")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cook Islands" } }, [
+                    _vm._v("Cook Islands")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Costa Rica" } }, [
+                    _vm._v("Costa Rica")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cote D'ivoire" } }, [
+                    _vm._v("Cote D'ivoire")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Croatia" } }, [
+                    _vm._v("Croatia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cuba" } }, [_vm._v("Cuba")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Cyprus" } }, [
+                    _vm._v("Cyprus")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Czech Republic" } }, [
+                    _vm._v("Czech Republic")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Denmark" } }, [
+                    _vm._v("Denmark")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Djibouti" } }, [
+                    _vm._v("Djibouti")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Dominica" } }, [
+                    _vm._v("Dominica")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Dominican Republic" } }, [
+                    _vm._v("Dominican Republic")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ecuador" } }, [
+                    _vm._v("Ecuador")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Egypt" } }, [
+                    _vm._v("Egypt")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "El Salvador" } }, [
+                    _vm._v("El Salvador")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Equatorial Guinea" } }, [
+                    _vm._v("Equatorial Guinea")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Eritrea" } }, [
+                    _vm._v("Eritrea")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Estonia" } }, [
+                    _vm._v("Estonia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ethiopia" } }, [
+                    _vm._v("Ethiopia")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Falkland Islands (Malvinas)" } },
+                    [_vm._v("Falkland Islands (Malvinas)")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Faroe Islands" } }, [
+                    _vm._v("Faroe Islands")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Fiji" } }, [_vm._v("Fiji")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Finland" } }, [
+                    _vm._v("Finland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "France" } }, [
+                    _vm._v("France")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "French Guiana" } }, [
+                    _vm._v("French Guiana")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "French Polynesia" } }, [
+                    _vm._v("French Polynesia")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "French Southern Territories" } },
+                    [_vm._v("French Southern Territories")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Gabon" } }, [
+                    _vm._v("Gabon")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Gambia" } }, [
+                    _vm._v("Gambia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Georgia" } }, [
+                    _vm._v("Georgia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Germany" } }, [
+                    _vm._v("Germany")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ghana" } }, [
+                    _vm._v("Ghana")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Gibraltar" } }, [
+                    _vm._v("Gibraltar")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Greece" } }, [
+                    _vm._v("Greece")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Greenland" } }, [
+                    _vm._v("Greenland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Grenada" } }, [
+                    _vm._v("Grenada")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guadeloupe" } }, [
+                    _vm._v("Guadeloupe")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guam" } }, [_vm._v("Guam")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guatemala" } }, [
+                    _vm._v("Guatemala")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guinea" } }, [
+                    _vm._v("Guinea")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guinea-bissau" } }, [
+                    _vm._v("Guinea-bissau")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Guyana" } }, [
+                    _vm._v("Guyana")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Haiti" } }, [
+                    _vm._v("Haiti")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Heard Island and Mcdonald Islands" } },
+                    [_vm._v("Heard Island and Mcdonald Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Holy See (Vatican City State)" } },
+                    [_vm._v("Holy See (Vatican City State)")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Honduras" } }, [
+                    _vm._v("Honduras")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Hong Kong" } }, [
+                    _vm._v("Hong Kong")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Hungary" } }, [
+                    _vm._v("Hungary")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Iceland" } }, [
+                    _vm._v("Iceland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "India" } }, [
+                    _vm._v("India")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Indonesia" } }, [
+                    _vm._v("Indonesia")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Iran, Islamic Republic of" } },
+                    [_vm._v("Iran, Islamic Republic of")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Iraq" } }, [_vm._v("Iraq")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ireland" } }, [
+                    _vm._v("Ireland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Israel" } }, [
+                    _vm._v("Israel")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Italy" } }, [
+                    _vm._v("Italy")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Jamaica" } }, [
+                    _vm._v("Jamaica")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Japan" } }, [
+                    _vm._v("Japan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Jordan" } }, [
+                    _vm._v("Jordan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kazakhstan" } }, [
+                    _vm._v("Kazakhstan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kenya" } }, [
+                    _vm._v("Kenya")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kiribati" } }, [
+                    _vm._v("Kiribati")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "Korea, Democratic People's Republic of" }
+                    },
+                    [_vm._v("Korea, Democratic People's Republic of")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Korea, Republic of" } }, [
+                    _vm._v("Korea, Republic of")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kuwait" } }, [
+                    _vm._v("Kuwait")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Kyrgyzstan" } }, [
+                    _vm._v("Kyrgyzstan")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Lao People's Democratic Republic" } },
+                    [_vm._v("Lao People's Democratic Republic")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Latvia" } }, [
+                    _vm._v("Latvia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Lebanon" } }, [
+                    _vm._v("Lebanon")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Lesotho" } }, [
+                    _vm._v("Lesotho")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Liberia" } }, [
+                    _vm._v("Liberia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Libyan Arab Jamahiriya" } }, [
+                    _vm._v("Libyan Arab Jamahiriya")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Liechtenstein" } }, [
+                    _vm._v("Liechtenstein")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Lithuania" } }, [
+                    _vm._v("Lithuania")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Luxembourg" } }, [
+                    _vm._v("Luxembourg")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Macao" } }, [
+                    _vm._v("Macao")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: {
+                        value: "Macedonia, The Former Yugoslav Republic of"
+                      }
+                    },
+                    [_vm._v("Macedonia, The Former Yugoslav Republic of")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Madagascar" } }, [
+                    _vm._v("Madagascar")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Malawi" } }, [
+                    _vm._v("Malawi")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Malaysia" } }, [
+                    _vm._v("Malaysia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Maldives" } }, [
+                    _vm._v("Maldives")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mali" } }, [_vm._v("Mali")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Malta" } }, [
+                    _vm._v("Malta")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Marshall Islands" } }, [
+                    _vm._v("Marshall Islands")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Martinique" } }, [
+                    _vm._v("Martinique")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mauritania" } }, [
+                    _vm._v("Mauritania")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mauritius" } }, [
+                    _vm._v("Mauritius")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mayotte" } }, [
+                    _vm._v("Mayotte")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mexico" } }, [
+                    _vm._v("Mexico")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Micronesia, Federated States of" } },
+                    [_vm._v("Micronesia, Federated States of")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Moldova, Republic of" } }, [
+                    _vm._v("Moldova, Republic of")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Monaco" } }, [
+                    _vm._v("Monaco")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mongolia" } }, [
+                    _vm._v("Mongolia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Montserrat" } }, [
+                    _vm._v("Montserrat")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Morocco" } }, [
+                    _vm._v("Morocco")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Mozambique" } }, [
+                    _vm._v("Mozambique")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Myanmar" } }, [
+                    _vm._v("Myanmar")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Namibia" } }, [
+                    _vm._v("Namibia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Nauru" } }, [
+                    _vm._v("Nauru")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Nepal" } }, [
+                    _vm._v("Nepal")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Netherlands" } }, [
+                    _vm._v("Netherlands")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Netherlands Antilles" } }, [
+                    _vm._v("Netherlands Antilles")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "New Caledonia" } }, [
+                    _vm._v("New Caledonia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "New Zealand" } }, [
+                    _vm._v("New Zealand")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Nicaragua" } }, [
+                    _vm._v("Nicaragua")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Niger" } }, [
+                    _vm._v("Niger")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Nigeria" } }, [
+                    _vm._v("Nigeria")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Niue" } }, [_vm._v("Niue")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Norfolk Island" } }, [
+                    _vm._v("Norfolk Island")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Northern Mariana Islands" } },
+                    [_vm._v("Northern Mariana Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Norway" } }, [
+                    _vm._v("Norway")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Oman" } }, [_vm._v("Oman")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Pakistan" } }, [
+                    _vm._v("Pakistan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Palau" } }, [
+                    _vm._v("Palau")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Palestinian Territory, Occupied" } },
+                    [_vm._v("Palestinian Territory, Occupied")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Panama" } }, [
+                    _vm._v("Panama")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Papua New Guinea" } }, [
+                    _vm._v("Papua New Guinea")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Paraguay" } }, [
+                    _vm._v("Paraguay")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Peru" } }, [_vm._v("Peru")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Philippines" } }, [
+                    _vm._v("Philippines")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Pitcairn" } }, [
+                    _vm._v("Pitcairn")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Poland" } }, [
+                    _vm._v("Poland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Portugal" } }, [
+                    _vm._v("Portugal")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Puerto Rico" } }, [
+                    _vm._v("Puerto Rico")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Qatar" } }, [
+                    _vm._v("Qatar")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Reunion" } }, [
+                    _vm._v("Reunion")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Romania" } }, [
+                    _vm._v("Romania")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Russian Federation" } }, [
+                    _vm._v("Russian Federation")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Rwanda" } }, [
+                    _vm._v("Rwanda")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Saint Helena" } }, [
+                    _vm._v("Saint Helena")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Saint Kitts and Nevis" } }, [
+                    _vm._v("Saint Kitts and Nevis")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Saint Lucia" } }, [
+                    _vm._v("Saint Lucia")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Saint Pierre and Miquelon" } },
+                    [_vm._v("Saint Pierre and Miquelon")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Saint Vincent and The Grenadines" } },
+                    [_vm._v("Saint Vincent and The Grenadines")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Samoa" } }, [
+                    _vm._v("Samoa")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "San Marino" } }, [
+                    _vm._v("San Marino")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Sao Tome and Principe" } }, [
+                    _vm._v("Sao Tome and Principe")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Saudi Arabia" } }, [
+                    _vm._v("Saudi Arabia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Senegal" } }, [
+                    _vm._v("Senegal")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Serbia and Montenegro" } }, [
+                    _vm._v("Serbia and Montenegro")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Seychelles" } }, [
+                    _vm._v("Seychelles")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Sierra Leone" } }, [
+                    _vm._v("Sierra Leone")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Singapore" } }, [
+                    _vm._v("Singapore")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Slovakia" } }, [
+                    _vm._v("Slovakia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Slovenia" } }, [
+                    _vm._v("Slovenia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Solomon Islands" } }, [
+                    _vm._v("Solomon Islands")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Somalia" } }, [
+                    _vm._v("Somalia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "South Africa" } }, [
+                    _vm._v("South Africa")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: {
+                        value: "South Georgia and The South Sandwich Islands"
+                      }
+                    },
+                    [_vm._v("South Georgia and The South Sandwich Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Spain" } }, [
+                    _vm._v("Spain")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Sri Lanka" } }, [
+                    _vm._v("Sri Lanka")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Sudan" } }, [
+                    _vm._v("Sudan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Suriname" } }, [
+                    _vm._v("Suriname")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Svalbard and Jan Mayen" } }, [
+                    _vm._v("Svalbard and Jan Mayen")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Swaziland" } }, [
+                    _vm._v("Swaziland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Sweden" } }, [
+                    _vm._v("Sweden")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Switzerland" } }, [
+                    _vm._v("Switzerland")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Syrian Arab Republic" } }, [
+                    _vm._v("Syrian Arab Republic")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Taiwan, Province of China" } },
+                    [_vm._v("Taiwan, Province of China")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Tajikistan" } }, [
+                    _vm._v("Tajikistan")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Tanzania, United Republic of" } },
+                    [_vm._v("Tanzania, United Republic of")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Thailand" } }, [
+                    _vm._v("Thailand")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Timor-leste" } }, [
+                    _vm._v("Timor-leste")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Togo" } }, [_vm._v("Togo")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Tokelau" } }, [
+                    _vm._v("Tokelau")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Tonga" } }, [
+                    _vm._v("Tonga")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Trinidad and Tobago" } }, [
+                    _vm._v("Trinidad and Tobago")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Tunisia" } }, [
+                    _vm._v("Tunisia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Turkey" } }, [
+                    _vm._v("Turkey")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Turkmenistan" } }, [
+                    _vm._v("Turkmenistan")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Turks and Caicos Islands" } },
+                    [_vm._v("Turks and Caicos Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Tuvalu" } }, [
+                    _vm._v("Tuvalu")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Uganda" } }, [
+                    _vm._v("Uganda")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ukraine" } }, [
+                    _vm._v("Ukraine")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "United Arab Emirates" } }, [
+                    _vm._v("United Arab Emirates")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "United Kingdom" } }, [
+                    _vm._v("United Kingdom")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "United States" } }, [
+                    _vm._v("United States")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "United States Minor Outlying Islands" }
+                    },
+                    [_vm._v("United States Minor Outlying Islands")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Uruguay" } }, [
+                    _vm._v("Uruguay")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Uzbekistan" } }, [
+                    _vm._v("Uzbekistan")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Vanuatu" } }, [
+                    _vm._v("Vanuatu")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Venezuela" } }, [
+                    _vm._v("Venezuela")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Viet Nam" } }, [
+                    _vm._v("Viet Nam")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    { attrs: { value: "Virgin Islands, British" } },
+                    [_vm._v("Virgin Islands, British")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Virgin Islands, U.S." } }, [
+                    _vm._v("Virgin Islands, U.S.")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Wallis and Futuna" } }, [
+                    _vm._v("Wallis and Futuna")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Western Sahara" } }, [
+                    _vm._v("Western Sahara")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Yemen" } }, [
+                    _vm._v("Yemen")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Zambia" } }, [
+                    _vm._v("Zambia")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Zimbabwe" } }, [
+                    _vm._v("Zimbabwe")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "chosen-container chosen-container-single",
+                  staticStyle: { width: "100%" },
+                  attrs: { title: "" }
+                },
+                [
+                  _c("a", { staticClass: "chosen-single" }, [
+                    _c("input", {
+                      staticClass: "chosen-search-input",
+                      attrs: { type: "text", autocomplete: "off" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("United States")]),
+                    _vm._v(" "),
+                    _c("div", [_c("b")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chosen-drop" }, [
+                    _c("div", { staticClass: "chosen-search" }),
+                    _vm._v(" "),
+                    _c("ul", { staticClass: "chosen-results" })
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flat-card profile-info-card is-auto has-overflow" },
+      [
+        _c("div", { staticClass: "card-title" }, [
+          _c("h3", [_vm._v("Shipping Address")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "switch-wrapper has-simple-popover",
+              attrs: {
+                "data-content":
+                  "Enable if you need a different shipping address",
+                "data-placement": "top"
+              }
+            },
+            [
+              _c("label", { staticClass: "form-switch" }, [
+                _c("input", {
+                  staticClass: "is-switch",
+                  attrs: { type: "checkbox" }
+                }),
+                _vm._v(" "),
+                _c("i")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body is-disabled" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c("div", { staticClass: "column is-6" }, [
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [_vm._v("Number")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-default",
+                    attrs: { type: "text", value: "23, Block C2" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [_vm._v("City")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-default",
+                    attrs: { type: "text", value: "Los Angeles" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [_vm._v("State")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-default",
+                    attrs: { type: "text", value: "CA" }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-6" }, [
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [_vm._v("Street")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-default",
+                    attrs: { type: "text", value: "Church Street" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [
+                  _vm._v("Postal Code")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-default",
+                    attrs: { type: "text", value: "100065" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-block" }, [
+                _c("span", { staticClass: "label-text" }, [_vm._v("Country")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c(
+                    "select",
+                    {
+                      staticClass: "chosen-select",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c("option", { attrs: { value: "United States" } }, [
+                        _vm._v("United States")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "United Kingdom" } }, [
+                        _vm._v("United Kingdom")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Afghanistan" } }, [
+                        _vm._v("Afghanistan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Albania" } }, [
+                        _vm._v("Albania")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Algeria" } }, [
+                        _vm._v("Algeria")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "American Samoa" } }, [
+                        _vm._v("American Samoa")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Andorra" } }, [
+                        _vm._v("Andorra")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Angola" } }, [
+                        _vm._v("Angola")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Anguilla" } }, [
+                        _vm._v("Anguilla")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Antarctica" } }, [
+                        _vm._v("Antarctica")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Antigua and Barbuda" } },
+                        [_vm._v("Antigua and Barbuda")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Argentina" } }, [
+                        _vm._v("Argentina")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Armenia" } }, [
+                        _vm._v("Armenia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Aruba" } }, [
+                        _vm._v("Aruba")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Australia" } }, [
+                        _vm._v("Australia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Austria" } }, [
+                        _vm._v("Austria")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Azerbaijan" } }, [
+                        _vm._v("Azerbaijan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bahamas" } }, [
+                        _vm._v("Bahamas")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bahrain" } }, [
+                        _vm._v("Bahrain")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bangladesh" } }, [
+                        _vm._v("Bangladesh")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Barbados" } }, [
+                        _vm._v("Barbados")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Belarus" } }, [
+                        _vm._v("Belarus")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Belgium" } }, [
+                        _vm._v("Belgium")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Belize" } }, [
+                        _vm._v("Belize")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Benin" } }, [
+                        _vm._v("Benin")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bermuda" } }, [
+                        _vm._v("Bermuda")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bhutan" } }, [
+                        _vm._v("Bhutan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bolivia" } }, [
+                        _vm._v("Bolivia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Bosnia and Herzegovina" } },
+                        [_vm._v("Bosnia and Herzegovina")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Botswana" } }, [
+                        _vm._v("Botswana")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bouvet Island" } }, [
+                        _vm._v("Bouvet Island")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Brazil" } }, [
+                        _vm._v("Brazil")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "British Indian Ocean Territory" } },
+                        [_vm._v("British Indian Ocean Territory")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Brunei Darussalam" } }, [
+                        _vm._v("Brunei Darussalam")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Bulgaria" } }, [
+                        _vm._v("Bulgaria")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Burkina Faso" } }, [
+                        _vm._v("Burkina Faso")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Burundi" } }, [
+                        _vm._v("Burundi")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cambodia" } }, [
+                        _vm._v("Cambodia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cameroon" } }, [
+                        _vm._v("Cameroon")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Canada" } }, [
+                        _vm._v("Canada")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cape Verde" } }, [
+                        _vm._v("Cape Verde")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cayman Islands" } }, [
+                        _vm._v("Cayman Islands")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Central African Republic" } },
+                        [_vm._v("Central African Republic")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Chad" } }, [
+                        _vm._v("Chad")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Chile" } }, [
+                        _vm._v("Chile")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "China" } }, [
+                        _vm._v("China")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Christmas Island" } }, [
+                        _vm._v("Christmas Island")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Cocos (Keeling) Islands" } },
+                        [_vm._v("Cocos (Keeling) Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Colombia" } }, [
+                        _vm._v("Colombia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Comoros" } }, [
+                        _vm._v("Comoros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Congo" } }, [
+                        _vm._v("Congo")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: {
+                            value: "Congo, The Democratic Republic of The"
+                          }
+                        },
+                        [_vm._v("Congo, The Democratic Republic of The")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cook Islands" } }, [
+                        _vm._v("Cook Islands")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Costa Rica" } }, [
+                        _vm._v("Costa Rica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cote D'ivoire" } }, [
+                        _vm._v("Cote D'ivoire")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Croatia" } }, [
+                        _vm._v("Croatia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cuba" } }, [
+                        _vm._v("Cuba")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cyprus" } }, [
+                        _vm._v("Cyprus")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Czech Republic" } }, [
+                        _vm._v("Czech Republic")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Denmark" } }, [
+                        _vm._v("Denmark")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Djibouti" } }, [
+                        _vm._v("Djibouti")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Dominica" } }, [
+                        _vm._v("Dominica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Dominican Republic" } }, [
+                        _vm._v("Dominican Republic")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ecuador" } }, [
+                        _vm._v("Ecuador")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Egypt" } }, [
+                        _vm._v("Egypt")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "El Salvador" } }, [
+                        _vm._v("El Salvador")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Equatorial Guinea" } }, [
+                        _vm._v("Equatorial Guinea")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Eritrea" } }, [
+                        _vm._v("Eritrea")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Estonia" } }, [
+                        _vm._v("Estonia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ethiopia" } }, [
+                        _vm._v("Ethiopia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Falkland Islands (Malvinas)" } },
+                        [_vm._v("Falkland Islands (Malvinas)")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Faroe Islands" } }, [
+                        _vm._v("Faroe Islands")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Fiji" } }, [
+                        _vm._v("Fiji")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Finland" } }, [
+                        _vm._v("Finland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "France" } }, [
+                        _vm._v("France")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "French Guiana" } }, [
+                        _vm._v("French Guiana")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "French Polynesia" } }, [
+                        _vm._v("French Polynesia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "French Southern Territories" } },
+                        [_vm._v("French Southern Territories")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Gabon" } }, [
+                        _vm._v("Gabon")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Gambia" } }, [
+                        _vm._v("Gambia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Georgia" } }, [
+                        _vm._v("Georgia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Germany" } }, [
+                        _vm._v("Germany")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ghana" } }, [
+                        _vm._v("Ghana")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Gibraltar" } }, [
+                        _vm._v("Gibraltar")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Greece" } }, [
+                        _vm._v("Greece")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Greenland" } }, [
+                        _vm._v("Greenland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Grenada" } }, [
+                        _vm._v("Grenada")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guadeloupe" } }, [
+                        _vm._v("Guadeloupe")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guam" } }, [
+                        _vm._v("Guam")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guatemala" } }, [
+                        _vm._v("Guatemala")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guinea" } }, [
+                        _vm._v("Guinea")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guinea-bissau" } }, [
+                        _vm._v("Guinea-bissau")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guyana" } }, [
+                        _vm._v("Guyana")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Haiti" } }, [
+                        _vm._v("Haiti")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: { value: "Heard Island and Mcdonald Islands" }
+                        },
+                        [_vm._v("Heard Island and Mcdonald Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Holy See (Vatican City State)" } },
+                        [_vm._v("Holy See (Vatican City State)")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Honduras" } }, [
+                        _vm._v("Honduras")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Hong Kong" } }, [
+                        _vm._v("Hong Kong")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Hungary" } }, [
+                        _vm._v("Hungary")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Iceland" } }, [
+                        _vm._v("Iceland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "India" } }, [
+                        _vm._v("India")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Indonesia" } }, [
+                        _vm._v("Indonesia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Iran, Islamic Republic of" } },
+                        [_vm._v("Iran, Islamic Republic of")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Iraq" } }, [
+                        _vm._v("Iraq")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ireland" } }, [
+                        _vm._v("Ireland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Israel" } }, [
+                        _vm._v("Israel")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Italy" } }, [
+                        _vm._v("Italy")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Jamaica" } }, [
+                        _vm._v("Jamaica")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Japan" } }, [
+                        _vm._v("Japan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Jordan" } }, [
+                        _vm._v("Jordan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kazakhstan" } }, [
+                        _vm._v("Kazakhstan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kenya" } }, [
+                        _vm._v("Kenya")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kiribati" } }, [
+                        _vm._v("Kiribati")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: {
+                            value: "Korea, Democratic People's Republic of"
+                          }
+                        },
+                        [_vm._v("Korea, Democratic People's Republic of")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Korea, Republic of" } }, [
+                        _vm._v("Korea, Republic of")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kuwait" } }, [
+                        _vm._v("Kuwait")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kyrgyzstan" } }, [
+                        _vm._v("Kyrgyzstan")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: { value: "Lao People's Democratic Republic" }
+                        },
+                        [_vm._v("Lao People's Democratic Republic")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Latvia" } }, [
+                        _vm._v("Latvia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Lebanon" } }, [
+                        _vm._v("Lebanon")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Lesotho" } }, [
+                        _vm._v("Lesotho")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Liberia" } }, [
+                        _vm._v("Liberia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Libyan Arab Jamahiriya" } },
+                        [_vm._v("Libyan Arab Jamahiriya")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Liechtenstein" } }, [
+                        _vm._v("Liechtenstein")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Lithuania" } }, [
+                        _vm._v("Lithuania")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Luxembourg" } }, [
+                        _vm._v("Luxembourg")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Macao" } }, [
+                        _vm._v("Macao")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: {
+                            value: "Macedonia, The Former Yugoslav Republic of"
+                          }
+                        },
+                        [_vm._v("Macedonia, The Former Yugoslav Republic of")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Madagascar" } }, [
+                        _vm._v("Madagascar")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malawi" } }, [
+                        _vm._v("Malawi")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malaysia" } }, [
+                        _vm._v("Malaysia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Maldives" } }, [
+                        _vm._v("Maldives")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mali" } }, [
+                        _vm._v("Mali")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malta" } }, [
+                        _vm._v("Malta")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Marshall Islands" } }, [
+                        _vm._v("Marshall Islands")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Martinique" } }, [
+                        _vm._v("Martinique")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mauritania" } }, [
+                        _vm._v("Mauritania")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mauritius" } }, [
+                        _vm._v("Mauritius")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mayotte" } }, [
+                        _vm._v("Mayotte")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mexico" } }, [
+                        _vm._v("Mexico")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Micronesia, Federated States of" } },
+                        [_vm._v("Micronesia, Federated States of")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Moldova, Republic of" } },
+                        [_vm._v("Moldova, Republic of")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Monaco" } }, [
+                        _vm._v("Monaco")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mongolia" } }, [
+                        _vm._v("Mongolia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Montserrat" } }, [
+                        _vm._v("Montserrat")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Morocco" } }, [
+                        _vm._v("Morocco")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Mozambique" } }, [
+                        _vm._v("Mozambique")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Myanmar" } }, [
+                        _vm._v("Myanmar")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Namibia" } }, [
+                        _vm._v("Namibia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Nauru" } }, [
+                        _vm._v("Nauru")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Nepal" } }, [
+                        _vm._v("Nepal")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Netherlands" } }, [
+                        _vm._v("Netherlands")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Netherlands Antilles" } },
+                        [_vm._v("Netherlands Antilles")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "New Caledonia" } }, [
+                        _vm._v("New Caledonia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "New Zealand" } }, [
+                        _vm._v("New Zealand")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Nicaragua" } }, [
+                        _vm._v("Nicaragua")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Niger" } }, [
+                        _vm._v("Niger")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Nigeria" } }, [
+                        _vm._v("Nigeria")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Niue" } }, [
+                        _vm._v("Niue")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Norfolk Island" } }, [
+                        _vm._v("Norfolk Island")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Northern Mariana Islands" } },
+                        [_vm._v("Northern Mariana Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Norway" } }, [
+                        _vm._v("Norway")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Oman" } }, [
+                        _vm._v("Oman")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pakistan" } }, [
+                        _vm._v("Pakistan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Palau" } }, [
+                        _vm._v("Palau")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Palestinian Territory, Occupied" } },
+                        [_vm._v("Palestinian Territory, Occupied")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Panama" } }, [
+                        _vm._v("Panama")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Papua New Guinea" } }, [
+                        _vm._v("Papua New Guinea")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Paraguay" } }, [
+                        _vm._v("Paraguay")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Peru" } }, [
+                        _vm._v("Peru")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Philippines" } }, [
+                        _vm._v("Philippines")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pitcairn" } }, [
+                        _vm._v("Pitcairn")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Poland" } }, [
+                        _vm._v("Poland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Portugal" } }, [
+                        _vm._v("Portugal")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Puerto Rico" } }, [
+                        _vm._v("Puerto Rico")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Qatar" } }, [
+                        _vm._v("Qatar")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Reunion" } }, [
+                        _vm._v("Reunion")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Romania" } }, [
+                        _vm._v("Romania")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Russian Federation" } }, [
+                        _vm._v("Russian Federation")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Rwanda" } }, [
+                        _vm._v("Rwanda")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Saint Helena" } }, [
+                        _vm._v("Saint Helena")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Saint Kitts and Nevis" } },
+                        [_vm._v("Saint Kitts and Nevis")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Saint Lucia" } }, [
+                        _vm._v("Saint Lucia")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Saint Pierre and Miquelon" } },
+                        [_vm._v("Saint Pierre and Miquelon")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: { value: "Saint Vincent and The Grenadines" }
+                        },
+                        [_vm._v("Saint Vincent and The Grenadines")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Samoa" } }, [
+                        _vm._v("Samoa")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "San Marino" } }, [
+                        _vm._v("San Marino")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Sao Tome and Principe" } },
+                        [_vm._v("Sao Tome and Principe")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Saudi Arabia" } }, [
+                        _vm._v("Saudi Arabia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Senegal" } }, [
+                        _vm._v("Senegal")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Serbia and Montenegro" } },
+                        [_vm._v("Serbia and Montenegro")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Seychelles" } }, [
+                        _vm._v("Seychelles")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sierra Leone" } }, [
+                        _vm._v("Sierra Leone")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Singapore" } }, [
+                        _vm._v("Singapore")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Slovakia" } }, [
+                        _vm._v("Slovakia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Slovenia" } }, [
+                        _vm._v("Slovenia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Solomon Islands" } }, [
+                        _vm._v("Solomon Islands")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Somalia" } }, [
+                        _vm._v("Somalia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "South Africa" } }, [
+                        _vm._v("South Africa")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: {
+                            value:
+                              "South Georgia and The South Sandwich Islands"
+                          }
+                        },
+                        [_vm._v("South Georgia and The South Sandwich Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Spain" } }, [
+                        _vm._v("Spain")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sri Lanka" } }, [
+                        _vm._v("Sri Lanka")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sudan" } }, [
+                        _vm._v("Sudan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Suriname" } }, [
+                        _vm._v("Suriname")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Svalbard and Jan Mayen" } },
+                        [_vm._v("Svalbard and Jan Mayen")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Swaziland" } }, [
+                        _vm._v("Swaziland")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sweden" } }, [
+                        _vm._v("Sweden")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Switzerland" } }, [
+                        _vm._v("Switzerland")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Syrian Arab Republic" } },
+                        [_vm._v("Syrian Arab Republic")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Taiwan, Province of China" } },
+                        [_vm._v("Taiwan, Province of China")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Tajikistan" } }, [
+                        _vm._v("Tajikistan")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Tanzania, United Republic of" } },
+                        [_vm._v("Tanzania, United Republic of")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Thailand" } }, [
+                        _vm._v("Thailand")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Timor-leste" } }, [
+                        _vm._v("Timor-leste")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Togo" } }, [
+                        _vm._v("Togo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Tokelau" } }, [
+                        _vm._v("Tokelau")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Tonga" } }, [
+                        _vm._v("Tonga")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Trinidad and Tobago" } },
+                        [_vm._v("Trinidad and Tobago")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Tunisia" } }, [
+                        _vm._v("Tunisia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Turkey" } }, [
+                        _vm._v("Turkey")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Turkmenistan" } }, [
+                        _vm._v("Turkmenistan")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Turks and Caicos Islands" } },
+                        [_vm._v("Turks and Caicos Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Tuvalu" } }, [
+                        _vm._v("Tuvalu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Uganda" } }, [
+                        _vm._v("Uganda")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ukraine" } }, [
+                        _vm._v("Ukraine")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "United Arab Emirates" } },
+                        [_vm._v("United Arab Emirates")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "United Kingdom" } }, [
+                        _vm._v("United Kingdom")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "United States" } }, [
+                        _vm._v("United States")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          attrs: {
+                            value: "United States Minor Outlying Islands"
+                          }
+                        },
+                        [_vm._v("United States Minor Outlying Islands")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Uruguay" } }, [
+                        _vm._v("Uruguay")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Uzbekistan" } }, [
+                        _vm._v("Uzbekistan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Vanuatu" } }, [
+                        _vm._v("Vanuatu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Venezuela" } }, [
+                        _vm._v("Venezuela")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Viet Nam" } }, [
+                        _vm._v("Viet Nam")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Virgin Islands, British" } },
+                        [_vm._v("Virgin Islands, British")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Virgin Islands, U.S." } },
+                        [_vm._v("Virgin Islands, U.S.")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Wallis and Futuna" } }, [
+                        _vm._v("Wallis and Futuna")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Western Sahara" } }, [
+                        _vm._v("Western Sahara")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Yemen" } }, [
+                        _vm._v("Yemen")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Zambia" } }, [
+                        _vm._v("Zambia")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Zimbabwe" } }, [
+                        _vm._v("Zimbabwe")
+                      ])
+                    ]
+                  ),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "chosen-container chosen-container-single",
+                      staticStyle: { width: "100%" },
+                      attrs: { title: "" }
+                    },
+                    [
+                      _c("a", { staticClass: "chosen-single" }, [
+                        _c("input", {
+                          staticClass: "chosen-search-input",
+                          attrs: { type: "text", autocomplete: "off" }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("United States")]),
+                        _vm._v(" "),
+                        _c("div", [_c("b")])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chosen-drop" }, [
+                        _c("div", { staticClass: "chosen-search" }),
+                        _vm._v(" "),
+                        _c("ul", { staticClass: "chosen-results" })
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-59c30ff0", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(68)
+    }
+});
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(69)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\auth\\AccountTabs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-757c0938", Component.options)
+  } else {
+    hotAPI.reload("data-v-757c0938", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs account-tabs" }, [
+    _c(
+      "ul",
+      [
+        _c("router-link", { attrs: { tag: "li", to: "/account" } }, [
+          _c("a", [_vm._v("\n         \tAccount")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/wishlist" } }, [
+          _c("a", [_vm._v("Wishlist")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/cart" } }, [
+          _c("a", [_vm._v("Cart")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/orders" } }, [
+          _c("a", [_vm._v("Orders")])
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-757c0938", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(68)
+    }
+});
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-4" }, [
+                _c("div", { staticClass: "flat-card is-auto menu-card" }, [
+                  _c("div", { staticClass: "card-title" }, [
+                    _c("h3", [_vm._v("Add Wishlist")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "edit-account" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "modal-trigger has-simple-popover",
+                          attrs: {
+                            href: "javascript:void(0);",
+                            "data-modal": "new-wishlist",
+                            "data-content": "Add a New Wishlist",
+                            "data-placement": "top",
+                            "data-target": "webuiPopover4"
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "feather feather-plus feather-icons",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("line", {
+                                attrs: { x1: "12", y1: "5", x2: "12", y2: "19" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "5", y1: "12", x2: "19", y2: "12" }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-8" }, [
+                _c("div", { staticClass: "flat-card wishlist-card is-auto" }, [
+                  _c("ul", { staticClass: "wishlist" }, [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/office6.png",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/office7.gif",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/access1.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/kids5.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/modern-bed.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(7)
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("WISHLIST")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "wishlists" }, [
+      _c("li", { staticClass: "is-active" }, [_c("a", [_vm._v("Main List")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Couches")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Tables")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Accessories")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Conqueror")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Gentleman")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Styled Lamp")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Accessories")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Treasure Chest")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("For Kids")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Modern Bed")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("House")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wishlist-pagination" }, [
+      _c("ul", [
+        _c("li", { staticClass: "is-active" }, [_c("span", [_vm._v("1")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("2")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("3")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("4")])])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4b9ec3ee", module.exports)
+  }
+}
+
+/***/ }),
+/* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	components: {
+		'account-tabs': __webpack_require__(68)
+	}
+});
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Cart.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-745dd76e", Component.options)
+  } else {
+    hotAPI.reload("data-v-745dd76e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(68)
+    }
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-12" }, [
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/office6.png",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/office7.gif",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/kids7.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _vm._m(10),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/access4.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _vm._m(12),
+                      _vm._v(" "),
+                      _vm._m(13),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns category-header low-padding" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(14),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "columns no-controls is-product-grid is-multiline"
+              },
+              [
+                _c("div", { staticClass: "column is-9" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(15),
+                    _vm._v(" "),
+                    _vm._m(16),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(17),
+                    _vm._v(" "),
+                    _vm._m(18),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(19),
+                    _vm._v(" "),
+                    _vm._m(20),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(21),
+                    _vm._v(" "),
+                    _vm._m(22),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(23),
+                    _vm._v(" "),
+                    _vm._m(24),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-6" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(25),
+                    _vm._v(" "),
+                    _vm._m(26),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-6" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(27),
+                    _vm._v(" "),
+                    _vm._m(28),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(29)
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("MY CART")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cart-summary" }, [
+      _c("span", { staticClass: "cart-total" }, [
+        _vm._v("\r\n                        1521,94 "),
+        _c("small", [_vm._v("5 "), _c("span", [_vm._v("items in cart")])])
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "button feather-button is-bold primary-button raised",
+          attrs: { href: "checkout-step1.html" }
+        },
+        [_vm._v("\r\n                        CHECKOUT\r\n                    ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Conqueror")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("385,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Gentleman")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("329,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Child Desk")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Kids")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("278,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Design Shelf")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("House")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("529,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "category-title" }, [
+      _c("h2", { staticClass: "is-small" }, [_vm._v("RECENTLY VIEWED")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/red-seat.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured" }, [
+          _vm._v("Red Alcove")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    90,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/cosy-red-seat.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Red Seat")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    75,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office4.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Executive")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    125,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office5.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Cosy chair")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    88,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Ambassador")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    480,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office6.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Conqueror")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    590,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office7.gif", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Gentleman")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    375,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "show-more" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Show more products")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-745dd76e", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "listing-controls" }, [
+              _c("div", { staticClass: "layout-controls" }, [
+                _c("a", { attrs: { href: "orders.html" } }, [
+                  _c("span", { staticClass: "is-active" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-grid",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("rect", {
+                          attrs: { x: "3", y: "3", width: "7", height: "7" }
+                        }),
+                        _c("rect", {
+                          attrs: { x: "14", y: "3", width: "7", height: "7" }
+                        }),
+                        _c("rect", {
+                          attrs: { x: "14", y: "14", width: "7", height: "7" }
+                        }),
+                        _c("rect", {
+                          attrs: { x: "3", y: "14", width: "7", height: "7" }
+                        })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "orders-list.html" } }, [
+                  _c("span", [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-list",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("line", {
+                          attrs: { x1: "8", y1: "6", x2: "21", y2: "6" }
+                        }),
+                        _c("line", {
+                          attrs: { x1: "8", y1: "12", x2: "21", y2: "12" }
+                        }),
+                        _c("line", {
+                          attrs: { x1: "8", y1: "18", x2: "21", y2: "18" }
+                        }),
+                        _c("line", {
+                          attrs: { x1: "3", y1: "6", x2: "3", y2: "6" }
+                        }),
+                        _c("line", {
+                          attrs: { x1: "3", y1: "12", x2: "3", y2: "12" }
+                        }),
+                        _c("line", {
+                          attrs: { x1: "3", y1: "18", x2: "3", y2: "18" }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#0023ff",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "66,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-truck",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                x: "1",
+                                y: "3",
+                                width: "15",
+                                height: "13"
+                              }
+                            }),
+                            _c("polygon", {
+                              attrs: {
+                                points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                              }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(7)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#00b289",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "33,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-package",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"
+                              }
+                            }),
+                            _c("polyline", {
+                              attrs: { points: "2.32 6.16 12 11 21.68 6.16" }
+                            }),
+                            _c("line", {
+                              attrs: {
+                                x1: "12",
+                                y1: "22.76",
+                                x2: "12",
+                                y2: "11"
+                              }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "7", y1: "3.5", x2: "17", y2: "8.5" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(9)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(11)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(12)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(13)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _vm._m(14),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#eda514",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "10,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-dollar-sign",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("line", {
+                              attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(15)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(16),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(17)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(18)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(19)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flat-card order-card has-popover-top",
+                    attrs: { "data-target": "webuiPopover3" }
+                  },
+                  [
+                    _vm._m(20),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#FF7273",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "40,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-alert-octagon",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("polygon", {
+                              attrs: {
+                                points:
+                                  "7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"
+                              }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "12", y1: "8", x2: "12", y2: "12" }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "12", y1: "16", x2: "12", y2: "16" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(21)
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _vm._m(22),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#0023ff",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "100,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-award",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "12", cy: "8", r: "7" }
+                            }),
+                            _c("polyline", {
+                              attrs: {
+                                points:
+                                  "8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(23)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(24),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(25)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(26)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(27)
+                  ])
+                ])
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("MY ORDERS")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sort-box" }, [
+      _c("div", { staticClass: "sort-box-select" }, [
+        _c(
+          "select",
+          {
+            staticClass: "chosen-select-no-single",
+            staticStyle: { display: "none" },
+            attrs: { "data-placeholder": "Default order" }
+          },
+          [
+            _c("option", [_vm._v("All Orders")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Pending")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("In Progress")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("Complete")])
+          ]
+        ),
+        _c(
+          "div",
+          {
+            staticClass:
+              "chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
+            staticStyle: { width: "100%" },
+            attrs: { title: "" }
+          },
+          [
+            _c("a", { staticClass: "chosen-single" }, [
+              _c("input", {
+                staticClass: "chosen-search-input",
+                attrs: { type: "text", autocomplete: "off", readonly: "" }
+              }),
+              _vm._v(" "),
+              _c("span", [_vm._v("All Orders")]),
+              _vm._v(" "),
+              _c("div", [_c("b")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "chosen-drop" }, [
+              _c("div", { staticClass: "chosen-search" }),
+              _vm._v(" "),
+              _c("ul", { staticClass: "chosen-results" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "active-result result-selected",
+                    attrs: { "data-option-array-index": "0" }
+                  },
+                  [_vm._v("All Orders")]
+                ),
+                _c(
+                  "li",
+                  {
+                    staticClass: "active-result",
+                    attrs: { "data-option-array-index": "1" }
+                  },
+                  [_vm._v("Pending")]
+                ),
+                _c(
+                  "li",
+                  {
+                    staticClass: "active-result",
+                    attrs: { "data-option-array-index": "2" }
+                  },
+                  [_vm._v("In Progress")]
+                ),
+                _c(
+                  "li",
+                  {
+                    staticClass: "active-result result-selected",
+                    attrs: { "data-option-array-index": "3" }
+                  },
+                  [_vm._v("Complete")]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-info" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "invoice.html", onclick: "return true" } }, [
+          _vm._v("ORDER-46895")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag is-primary" }, [_vm._v("Shipping")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("66% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Jane Smith")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("mar 23th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$378,85")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("UPS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-info" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-46878")])
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag is-success" }, [_vm._v("Preparing")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("33% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/marc.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Marc Korsky")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("mar 15th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$58,49")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Drone")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-info" }, [
+      _c("span", [
+        _c(
+          "a",
+          { staticClass: "is-disabled", attrs: { href: "invoice.html" } },
+          [_vm._v("ORDER-42135")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag is-warning" }, [_vm._v("Pending")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("10% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Janet Smith")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("feb 26th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$188,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("FedEx")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-info" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-39456")])
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag is-danger" }, [_vm._v("Has issue")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("40% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-info" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-38246")])
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "tag is-primary" }, [_vm._v("Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("100% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/nicole.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Nicole Rogers")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("feb 5th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$29,22")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("UPS")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e4699d64", module.exports)
+  }
+}
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			active: false
+		};
+	},
+
+	components: {
+		'account-tabs': __webpack_require__(68)
+	}
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(79);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(80)("03cd34e7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(58)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.display:{\n\tdisplay: block;\n}\n.hidden{\n\tdisplay: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(81)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
 
 /***/ })
 /******/ ]);

@@ -23,6 +23,6 @@ export const store = new Vuex.Store({
  				commit('setProducts',response.data)
  			})
  			.catch(error => console.log(error.response))
- 	}
+ 	},
  }
 });
