@@ -22,7 +22,7 @@
         <div class="hero-caption">
             <h1>NEPHOS</h1>
             <h2>MODERN SHOP TEMPLATE</h2>
-            <a href="shop.html" class="button big-button primary-button upper-button rounded raised">Start shopping</a>
+            <router-link to="/shop" class="button big-button primary-button upper-button rounded raised">Start shopping</router-link>
         </div>
 
         <!-- Fullscreen Slick SLider -->

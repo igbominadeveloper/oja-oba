@@ -1,0 +1,180 @@
+<template>
+	<div class="section">
+  <!-- Container -->
+    <div class="container">
+
+        <!-- Invoice Layout -->
+        <div class="columns account-header">
+            <div class="column is-8 is-offset-2 invoice-wrap is-invoice-landscape-padded">
+                <!-- Invoice controls -->
+                <div class="invoice-controls">
+                    <router-link to="/orders" class="button feather-button is-bold primary-button raised">Back</router-link>
+                    <a href="javascript:void(0);" class="button feather-button is-bold secondary-button raised">Download</a>
+                </div>
+                <!-- Invoice -->
+                <div class="invoice">
+                    <div class="columns is-flex-mobile">
+                        <!-- Invoice Brand -->
+                        <div class="column is-7">
+                            <img src="assets/images/logo/nephos.svg" class="logo" alt="">
+                        </div>
+                        <!-- Invoice Meta -->
+                        <div class="column is-5">
+                            <p class="invoice-meta has-text-right">
+                                <span>Invoice N° <small>2018/754</small></span>
+                                <br>
+                                <span>Order N° <small>48771</small></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <!-- Supplier Info -->
+                        <div class="column is-7">
+                            <p class="seller">
+                                <span>Nephos Ltd.</span><br>
+                                168, Church Street, Brenning DC<br>
+                                48506 NY City
+                            </p>
+                            <br>
+                            <!-- Invoice date -->
+                            <p class="invoice-meta has-text-left">
+                                <span>Issued on : <small class="date">mar 23 2018</small></span>
+                            </p>
+                        </div>
+                        <!-- Customer Info -->
+                        <div class="column is-5">
+                            <p class="buyer has-text-right">
+                                <span>Elie Daniels</span><br>
+                                eliedaniels@gmail.com<br>
+                                12, Armory Street<br>
+                                54250 Seattle
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Row -->
+                    <div class="columns">
+                        <div class="column">
+                            <!-- Purchased Products -->
+                            <table class="table table-striped responsive-table">
+                                <!-- Header -->
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th class="has-text-centered">Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Product -->
+                                    <tr>
+                                        <td>
+                                            <span class="product">Shipping</span> 
+                                            <br>
+                                            <span class="sku">UPS Delivery</span>
+                                        </td>
+                                        <td class="has-text-centered">
+                                            <span class="quantity">1</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="unit-price">80,00</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="total-price">80,00</span>
+                                        </td>
+                                    </tr>
+                                    <!-- Product -->
+                                    <tr>
+                                        <td>
+                                            <span class="product">The Conqueror</span> 
+                                            <br>
+                                            <span class="sku">SKU-778</span>
+                                        </td>
+                                        <td class="has-text-centered">
+                                            <span class="quantity">1</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="unit-price">395,00</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="total-price">395,00</span>
+                                        </td>
+                                    </tr>
+                                    <!-- Product -->
+                                    <tr>
+                                        <td>
+                                            <span class="product">The Gentleman</span> 
+                                            <br>
+                                            <span class="sku">SKU-429</span>
+                                        </td>
+                                        <td class="has-text-centered">
+                                            <span class="quantity">1</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="unit-price">285,00</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="total-price">285,00</span>
+                                        </td>
+                                    </tr>
+                                    <!-- Product -->
+                                    <tr>
+                                        <td>
+                                            <span class="product">Styled Lamp</span> 
+                                            <br>
+                                            <span class="sku">SKU-117</span>
+                                        </td>
+                                        <td class="has-text-centered">
+                                            <span class="quantity">2</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="unit-price">43,45</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="total-price">86,90</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-7">
+                        </div>
+                        <!-- Total subtable -->
+                        <div class="column is-5">
+                            <table class="table table-sm sub-table text-right">
+                                <tr>
+                                    <td><span class="subtotal">Subtotal</span></td>
+                                    <td class="text-right"><span class="subtotal-value">481,90</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="vat">VAT (20%)</span></td>
+                                    <td class="text-right"><span class="vat-value">96,38</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="total">Total</span></td>
+                                    <td class="text-right"><span class="total-value">578,28</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Company Bank Account Info -->
+                    <p class="bottom-page has-text-right">
+                        <span class="company">NEPHOS LTD</span> <br>
+                        <span class="id">ID° 80897753200015 NY</span><br>
+                        <span class="url">nephos.com/customers</span><br>
+                        <span class="code">IBAN FR76 1470 7034 0031 4211 7882 825</span><br> 
+                        <span class="code">SWIFT CCBPFRPPMTZ</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Container -->
+</div>
+<!-- /Main section -->
+</template>

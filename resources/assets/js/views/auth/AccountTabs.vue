@@ -1,6 +1,6 @@
  <template>	
  <!-- Account tabs -->
-  <div class="tabs account-tabs">
+  <div class="tabs account-tabs has-controls">
       <ul>	
           <router-link tag="li" to="/account"><a>
           	Account</a>

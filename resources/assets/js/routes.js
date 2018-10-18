@@ -24,6 +24,16 @@ const routes = [
         component: require('./views/shop/Orders.vue')
     },
     {
+        path:'/orders-list',
+        component: require('./views/shop/OrderList.vue')
+    },
+
+    {
+        path:'/invoice',
+        component: require('./views/shop/Invoice.vue')
+    },
+    
+    {
         path:'/account',
         component: require('./views/auth/Account.vue')
     },

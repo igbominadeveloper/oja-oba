@@ -24,20 +24,20 @@
     <div class="navbar-menu">
         <!-- Account -->
         <div class="navbar-item has-dropdown">
-            <a href="account.html" class="navbar-link">
+            <router-link to="/account" class="navbar-link">
                 <img src="assets/images/avatars/altvatar.png" alt="">
                 <span class="is-heading">Welcome, Guest</span>
-            </a>
+            </router-link>
 
             <!-- Mobile Dropdown -->
             <div class="navbar-dropdown">
-                <a href="cart-empty.html" class="navbar-item is-flex">
+                <router-link to="/cart-empty" class="navbar-item is-flex">
                     <span>Cart</span>
                     <!-- Number of items in Cart -->
                     <span class="menu-badge">0</span>
-                </a>
-                <a href="authentication.html" class="navbar-item">Log in</a>
-                <a href="authentication.html" class="navbar-item">Register</a>
+                </router-link>
+                <router-link to="/auth" class="navbar-item">Log in</router-link>
+                <router-link to="/auth" class="navbar-item">Register</router-link>
             </div>
         </div>
 
@@ -712,7 +712,7 @@
             <div class="empty-cart has-text-centered">
                 <h3>Your cart is empty</h3>
                 <img src="assets/images/icons/new-cart.svg" alt="">
-                <a href="shop.html" class="button big-button rounded">Start Shopping</a>
+                <router-link to="/shop" class="button big-button rounded">Start Shopping</router-link>
                 <small>You can create your account later</small>
             </div>
         </div>

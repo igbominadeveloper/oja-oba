@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
@@ -484,6 +484,53 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(47)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\auth\\AccountTabs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-757c0938", Component.options)
+  } else {
+    hotAPI.reload("data-v-757c0938", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 var g;
@@ -510,7 +557,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -533,10 +580,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(9);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(9);
   }
   return adapter;
 }
@@ -611,10 +658,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3244,7 +3291,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14207,10 +14254,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(16).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(16).setImmediate))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14400,7 +14447,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14418,7 +14465,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14429,7 +14476,7 @@ var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(25);
 var parseHeaders = __webpack_require__(26);
 var isURLSameOrigin = __webpack_require__(27);
-var createError = __webpack_require__(9);
+var createError = __webpack_require__(10);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
@@ -14605,7 +14652,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14630,7 +14677,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14642,7 +14689,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14668,12 +14715,11 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 12 */,
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(56);
+module.exports = __webpack_require__(73);
 
 
 /***/ }),
@@ -14684,7 +14730,7 @@ module.exports = __webpack_require__(56);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_index__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_index__ = __webpack_require__(71);
 
 
 
@@ -14700,8 +14746,8 @@ new Vue({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
@@ -14791,7 +14837,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 17 */
@@ -14984,7 +15030,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(7)))
 
 /***/ }),
 /* 18 */
@@ -15000,9 +15046,9 @@ module.exports = __webpack_require__(19);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(7);
+var bind = __webpack_require__(8);
 var Axios = __webpack_require__(21);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Create an instance of Axios
@@ -15035,9 +15081,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(11);
+axios.Cancel = __webpack_require__(12);
 axios.CancelToken = __webpack_require__(35);
-axios.isCancel = __webpack_require__(10);
+axios.isCancel = __webpack_require__(11);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -15085,7 +15131,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(30);
 var dispatchRequest = __webpack_require__(31);
@@ -15190,7 +15236,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(9);
+var createError = __webpack_require__(10);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -15623,8 +15669,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(32);
-var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(3);
+var isCancel = __webpack_require__(11);
+var defaults = __webpack_require__(4);
 var isAbsoluteURL = __webpack_require__(33);
 var combineURLs = __webpack_require__(34);
 
@@ -15783,7 +15829,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(11);
+var Cancel = __webpack_require__(12);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -15879,33 +15925,39 @@ module.exports = function spread(callback) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(5);
 
 
 var routes = [{
     path: '/',
-    component: __webpack_require__(61)
+    component: __webpack_require__(38)
 }, {
     path: '/auth',
-    component: __webpack_require__(43)
+    component: __webpack_require__(40)
 }, {
     path: '/wishlist',
-    component: __webpack_require__(48)
+    component: __webpack_require__(45)
 }, {
     path: '/cart',
-    component: __webpack_require__(73)
+    component: __webpack_require__(49)
 }, {
     path: '/orders',
-    component: __webpack_require__(49)
+    component: __webpack_require__(52)
+}, {
+    path: '/orders-list',
+    component: __webpack_require__(60)
+}, {
+    path: '/invoice',
+    component: __webpack_require__(77)
 }, {
     path: '/account',
     component: __webpack_require__(63)
 }, {
     path: '/account/edit',
-    component: __webpack_require__(65)
+    component: __webpack_require__(66)
 }, {
     path: '/shop',
-    component: __webpack_require__(52)
+    component: __webpack_require__(69)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -15915,20 +15967,181 @@ var routes = [{
 }));
 
 /***/ }),
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(39)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\Home.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-11c5acec", Component.options)
+  } else {
+    hotAPI.reload("data-v-11c5acec", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "shop-wrapper has-background-image" }, [
+      _c("div", { staticClass: "search-overlay" }),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "hero-caption" },
+        [
+          _c("h1", [_vm._v("NEPHOS")]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("MODERN SHOP TEMPLATE")]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "button big-button primary-button upper-button rounded raised",
+              attrs: { to: "/shop" }
+            },
+            [_vm._v("Start shopping")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "search-input-wrapper is-desktop is-hidden" },
+      [
+        _c("div", { staticClass: "field" }, [
+          _c("div", { staticClass: "control" }, [
+            _c("input", {
+              attrs: {
+                type: "text",
+                name: "search",
+                autofocus: "",
+                required: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("span", { attrs: { id: "clear-search", role: "button" } }, [
+              _c("i", { attrs: { "data-feather": "x" } })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "search-help" }, [
+              _vm._v("Type the name of the product you are looking for")
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "background-caption" }, [
+      _c("h1", [_vm._v("NEPHOS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "slider-wrapper" }, [
+      _c("div", { staticClass: "fullscreen-slick" }, [
+        _c("div", {
+          staticClass: "full-slide has-background-image",
+          attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "full-slide has-background-image",
+          attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "full-slide has-background-image",
+          attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "full-slide has-background-image",
+          attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-11c5acec", module.exports)
+  }
+}
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(41)
+/* template */
+var __vue_template__ = __webpack_require__(44)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -15967,12 +16180,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Form_js__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Form_js__ = __webpack_require__(42);
 //
 //
 //
@@ -16109,11 +16322,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Errors__ = __webpack_require__(43);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16163,7 +16376,7 @@ var Form = function () {
 /* harmony default export */ __webpack_exports__["a"] = (Form);
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16223,7 +16436,7 @@ var Errors = function () {
 /* harmony default export */ __webpack_exports__["a"] = (Errors);
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16562,15 +16775,15 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(72)
+var __vue_script__ = __webpack_require__(46)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16609,19 +16822,3868 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	components: {
+		'account-tabs': __webpack_require__(2)
+	}
+});
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs account-tabs has-controls" }, [
+    _c(
+      "ul",
+      [
+        _c("router-link", { attrs: { tag: "li", to: "/account" } }, [
+          _c("a", [_vm._v("\n         \tAccount")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/wishlist" } }, [
+          _c("a", [_vm._v("Wishlist")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/cart" } }, [
+          _c("a", [_vm._v("Cart")])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { tag: "li", to: "/orders" } }, [
+          _c("a", [_vm._v("Orders")])
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-757c0938", module.exports)
+  }
+}
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-4" }, [
+                _c("div", { staticClass: "flat-card is-auto menu-card" }, [
+                  _c("div", { staticClass: "card-title" }, [
+                    _c("h3", [_vm._v("Add Wishlist")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "edit-account" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "modal-trigger has-simple-popover",
+                          attrs: {
+                            href: "javascript:void(0);",
+                            "data-modal": "new-wishlist",
+                            "data-content": "Add a New Wishlist",
+                            "data-placement": "top",
+                            "data-target": "webuiPopover4"
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "feather feather-plus feather-icons",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                width: "24",
+                                height: "24",
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round"
+                              }
+                            },
+                            [
+                              _c("line", {
+                                attrs: { x1: "12", y1: "5", x2: "12", y2: "19" }
+                              }),
+                              _c("line", {
+                                attrs: { x1: "5", y1: "12", x2: "19", y2: "12" }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-8" }, [
+                _c("div", { staticClass: "flat-card wishlist-card is-auto" }, [
+                  _c("ul", { staticClass: "wishlist" }, [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/office6.png",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/office7.gif",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/access1.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/kids5.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "wishlist-item",
+                        attrs: { onclick: "return true" }
+                      },
+                      [
+                        _c("div", { staticClass: "item-wrapper" }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/images/products/modern-bed.jpg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "action" }, [
+                            _c("div", { staticClass: "dropdown is-right" }, [
+                              _c("span", { staticClass: "dropdown-trigger" }, [
+                                _c("span", { staticClass: "dropdown-button" }, [
+                                  _c(
+                                    "a",
+                                    { attrs: { href: "javascript:void(0);" } },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "feather feather-chevron-down feather-icons",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            "stroke-width": "2",
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round"
+                                          }
+                                        },
+                                        [
+                                          _c("polyline", {
+                                            attrs: { points: "6 9 12 15 18 9" }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "dropdown-menu",
+                                  attrs: { role: "menu" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "dropdown-content" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-list feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "6",
+                                                  x2: "21",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "12",
+                                                  x2: "21",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "8",
+                                                  y1: "18",
+                                                  x2: "21",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "6",
+                                                  x2: "3",
+                                                  y2: "6"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "12",
+                                                  x2: "3",
+                                                  y2: "12"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "3",
+                                                  y1: "18",
+                                                  x2: "3",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Move to List")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        { staticClass: "dropdown-item" },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-eye feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "12",
+                                                  cy: "12",
+                                                  r: "3"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("View Product")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-shopping-cart feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "9",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("circle", {
+                                                attrs: {
+                                                  cx: "20",
+                                                  cy: "21",
+                                                  r: "1"
+                                                }
+                                              }),
+                                              _c("path", {
+                                                attrs: {
+                                                  d:
+                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Add to Cart")])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("hr", {
+                                        staticClass: "dropdown-divider"
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "dropdown-item",
+                                          attrs: { href: "#" }
+                                        },
+                                        [
+                                          _c(
+                                            "svg",
+                                            {
+                                              staticClass:
+                                                "feather feather-x feather-icons",
+                                              attrs: {
+                                                xmlns:
+                                                  "http://www.w3.org/2000/svg",
+                                                width: "24",
+                                                height: "24",
+                                                viewBox: "0 0 24 24",
+                                                fill: "none",
+                                                stroke: "currentColor",
+                                                "stroke-width": "2",
+                                                "stroke-linecap": "round",
+                                                "stroke-linejoin": "round"
+                                              }
+                                            },
+                                            [
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "18",
+                                                  y1: "6",
+                                                  x2: "6",
+                                                  y2: "18"
+                                                }
+                                              }),
+                                              _c("line", {
+                                                attrs: {
+                                                  x1: "6",
+                                                  y1: "6",
+                                                  x2: "18",
+                                                  y2: "18"
+                                                }
+                                              })
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("span", [_vm._v("Remove")])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(7)
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("WISHLIST")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "wishlists" }, [
+      _c("li", { staticClass: "is-active" }, [_c("a", [_vm._v("Main List")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Couches")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Tables")])]),
+      _vm._v(" "),
+      _c("li", [_c("a", [_vm._v("Accessories")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Conqueror")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Gentleman")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Styled Lamp")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Accessories")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Treasure Chest")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("For Kids")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Modern Bed")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("House")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wishlist-pagination" }, [
+      _c("ul", [
+        _c("li", { staticClass: "is-active" }, [_c("span", [_vm._v("1")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("2")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("3")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("4")])])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4b9ec3ee", module.exports)
+  }
+}
+
+/***/ }),
 /* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(50)
+/* template */
+var __vue_template__ = __webpack_require__(51)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Cart.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-745dd76e", Component.options)
+  } else {
+    hotAPI.reload("data-v-745dd76e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(2)
+    }
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-12" }, [
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/office6.png",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/office7.gif",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/kids7.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _vm._m(10),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
+                  _c("ul", { staticClass: "cart-content" }, [
+                    _c("li", [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/images/products/access4.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _vm._m(12),
+                      _vm._v(" "),
+                      _vm._m(13),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "action" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-like has-simple-popover",
+                            attrs: {
+                              "data-content": "Add to Wishlist",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-heart feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "action-link is-remove has-simple-popover",
+                            attrs: {
+                              "data-content": "Remove from Cart",
+                              "data-placement": "top"
+                            }
+                          },
+                          [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass:
+                                    "feather feather-x feather-icons",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    width: "24",
+                                    height: "24",
+                                    viewBox: "0 0 24 24",
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                  }
+                                },
+                                [
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "18",
+                                      y1: "6",
+                                      x2: "6",
+                                      y2: "18"
+                                    }
+                                  }),
+                                  _c("line", {
+                                    attrs: {
+                                      x1: "6",
+                                      y1: "6",
+                                      x2: "18",
+                                      y2: "18"
+                                    }
+                                  })
+                                ]
+                              )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns category-header low-padding" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(14),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "columns no-controls is-product-grid is-multiline"
+              },
+              [
+                _c("div", { staticClass: "column is-9" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(15),
+                    _vm._v(" "),
+                    _vm._m(16),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(17),
+                    _vm._v(" "),
+                    _vm._m(18),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(19),
+                    _vm._v(" "),
+                    _vm._m(20),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-3" }, [
+                  _c("div", { staticClass: "flat-card" }, [
+                    _vm._m(21),
+                    _vm._v(" "),
+                    _vm._m(22),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(23),
+                    _vm._v(" "),
+                    _vm._m(24),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-6" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(25),
+                    _vm._v(" "),
+                    _vm._m(26),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-6" }, [
+                  _c("div", { staticClass: "flat-card is-long" }, [
+                    _vm._m(27),
+                    _vm._v(" "),
+                    _vm._m(28),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "actions" }, [
+                      _c("div", { staticClass: "add" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-shopping-cart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "9", cy: "21", r: "1" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "20", cy: "21", r: "1" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "like" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-heart",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(29)
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("MY CART")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cart-summary" }, [
+      _c("span", { staticClass: "cart-total" }, [
+        _vm._v("\r\n                        1521,94 "),
+        _c("small", [_vm._v("5 "), _c("span", [_vm._v("items in cart")])])
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "button feather-button is-bold primary-button raised",
+          attrs: { href: "checkout-step1.html" }
+        },
+        [_vm._v("\r\n                        CHECKOUT\r\n                    ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Conqueror")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("385,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("The Gentleman")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Office")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("329,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Child Desk")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Kids")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("278,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-info" }, [
+      _c("span", [_vm._v("Design Shelf")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("House")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-price" }, [
+      _c("span", [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("529,00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "product-quantity" }, [
+      _c("span", [_vm._v("Qty")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "control" }, [
+        _c("input", {
+          staticClass: "input",
+          attrs: { type: "number", value: "1" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "category-title" }, [
+      _c("h2", { staticClass: "is-small" }, [_vm._v("RECENTLY VIEWED")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/red-seat.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured" }, [
+          _vm._v("Red Alcove")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    90,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/cosy-red-seat.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Red Seat")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    75,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office4.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Executive")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    125,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "image" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office5.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info has-text-centered" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name" }, [_vm._v("Cosy chair")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    88,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office3.jpg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Ambassador")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    480,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office6.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Conqueror")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    590,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "left-image is-md" }, [
+      _c("img", {
+        attrs: { src: "assets/images/products/office7.gif", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-info" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("h3", { staticClass: "product-name featured-md" }, [
+          _vm._v("Gentleman")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-description" }, [
+        _vm._v("Lorem ipsum sit dolor amet")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "product-price" }, [
+        _vm._v(
+          "\r\n                                    375,00\r\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "show-more" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Show more products")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-745dd76e", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(78)
+  __webpack_require__(53)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(77)
+var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16660,1500 +20722,47 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(53)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\views\\shop\\Shop.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9e4ecdc2", Component.options)
-  } else {
-    hotAPI.reload("data-v-9e4ecdc2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "columns category-header" }, [
-    _c(
-      "div",
-      { staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "is-categories-grid" }, [
-          _c("div", { staticClass: "tile is-ancestor" }, [
-            _c("div", { staticClass: "tile is-vertical is-8" }, [
-              _c("div", { staticClass: "tile" }, [
-                _c("div", { staticClass: "tile is-parent is-vertical" }, [
-                  _c(
-                    "article",
-                    {
-                      staticClass: "tile is-child has-background-image",
-                      staticStyle: {
-                        "background-image":
-                          'url("assets/images/bg/accessories.jpeg")'
-                      },
-                      attrs: {
-                        "data-background": "assets/images/bg/accessories.jpeg",
-                        onclick: "return true"
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "tile-content is-small" }, [
-                        _c("h2", { staticClass: "shop-category is-small" }, [
-                          _vm._v("Accessories")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "divider" }),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Inner Comfort")]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "is-italic" }, [
-                          _vm._v(
-                            "Finest products collected amongst the countrie's best artisans."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "action",
-                            attrs: { href: "products.html" }
-                          },
-                          [
-                            _c("span", [_vm._v("Discover")]),
-                            _vm._v(" "),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-chevron-right",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("polyline", {
-                                  attrs: { points: "9 18 15 12 9 6" }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "tile-overlay" })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "article",
-                    {
-                      staticClass: "tile is-child has-background-image",
-                      staticStyle: {
-                        "background-image":
-                          'url("assets/images/bg/kitchen.jpeg")'
-                      },
-                      attrs: {
-                        "data-background": "assets/images/bg/kitchen.jpeg",
-                        onclick: "return true"
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "tile-content is-small" }, [
-                        _c("h2", { staticClass: "shop-category is-small" }, [
-                          _vm._v("Kitchen")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "divider" }),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Inner Comfort")]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "is-italic" }, [
-                          _vm._v(
-                            "Finest products collected amongst the countrie's best artisans."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "action",
-                            attrs: { href: "products.html" }
-                          },
-                          [
-                            _c("span", [_vm._v("Discover")]),
-                            _vm._v(" "),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-chevron-right",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("polyline", {
-                                  attrs: { points: "9 18 15 12 9 6" }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "tile-overlay" })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "tile is-parent" }, [
-                  _c(
-                    "article",
-                    {
-                      staticClass:
-                        "tile is-child has-min-height has-background-image",
-                      staticStyle: {
-                        "background-image": 'url("assets/images/bg/house.jpeg")'
-                      },
-                      attrs: {
-                        "data-background": "assets/images/bg/house.jpeg",
-                        onclick: "return true"
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "tile-content" }, [
-                        _c("h2", { staticClass: "shop-category" }, [
-                          _vm._v("House")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "divider" }),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Inner Comfort")]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "is-italic" }, [
-                          _vm._v(
-                            "Finest products collected amongst the countrie's best artisans."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "action",
-                            attrs: { href: "products.html" }
-                          },
-                          [
-                            _c("span", [_vm._v("Discover")]),
-                            _vm._v(" "),
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "feather feather-chevron-right",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  width: "24",
-                                  height: "24",
-                                  viewBox: "0 0 24 24",
-                                  fill: "none",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("polyline", {
-                                  attrs: { points: "9 18 15 12 9 6" }
-                                })
-                              ]
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "tile-overlay" })
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "tile is-parent" }, [
-                _c(
-                  "article",
-                  {
-                    staticClass:
-                      "tile is-child is-danger has-min-height has-background-image",
-                    staticStyle: {
-                      "background-image": 'url("assets/images/bg/kids.jpg")'
-                    },
-                    attrs: {
-                      "data-background": "assets/images/bg/kids.jpg",
-                      onclick: "return true"
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "tile-content" }, [
-                      _c("h2", { staticClass: "shop-category" }, [
-                        _vm._v("For kids")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "divider" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Their Playground")]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "is-italic" }, [
-                        _vm._v(
-                          "Finest products collected amongst the countrie's best artisans."
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "action",
-                          attrs: { href: "products.html" }
-                        },
-                        [
-                          _c("span", [_vm._v("Discover")]),
-                          _vm._v(" "),
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "feather feather-chevron-right",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                width: "24",
-                                height: "24",
-                                viewBox: "0 0 24 24",
-                                fill: "none",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                              }
-                            },
-                            [
-                              _c("polyline", {
-                                attrs: { points: "9 18 15 12 9 6" }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "tile-overlay" })
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tile is-parent" }, [
-              _c(
-                "article",
-                {
-                  staticClass: "tile is-child has-background-image",
-                  staticStyle: {
-                    "background-image": 'url("assets/images/bg/office.jpeg")'
-                  },
-                  attrs: {
-                    "data-background": "assets/images/bg/office.jpeg",
-                    onclick: "return true"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "tile-content" }, [
-                    _c("h2", { staticClass: "shop-category" }, [
-                      _vm._v("Office")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "divider" }),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Premium Office furniture")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "is-italic" }, [
-                      _vm._v(
-                        "Finest products collected amongst the countrie's best artisans."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "action",
-                        attrs: { href: "products.html" }
-                      },
-                      [
-                        _c("span", [_vm._v("Discover")]),
-                        _vm._v(" "),
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-chevron-right",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("polyline", {
-                              attrs: { points: "9 18 15 12 9 6" }
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tile-overlay" })
-                ]
-              )
-            ])
-          ])
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "category-title no-border is-padded" }, [
-      _c("h2", [_vm._v("SHOP")]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "brand-filigrane",
-        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products is-absolute" }, [
-      _vm._v("\n                                        119 "),
-      _c("span", [_vm._v("Products")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products is-absolute" }, [
-      _vm._v("\n                                        187 "),
-      _c("span", [_vm._v("Products")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products" }, [
-      _vm._v("\n                                        268 "),
-      _c("span", [_vm._v("Products")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products" }, [
-      _vm._v("\n                                    376 "),
-      _c("span", [_vm._v("Products")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "products" }, [
-      _vm._v("\n                                391 "),
-      _c("span", [_vm._v("Products")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9e4ecdc2", module.exports)
-  }
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(54);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(56)("03cd34e7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
 }
 
 /***/ }),
 /* 54 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+exports = module.exports = __webpack_require__(55)(false);
+// imports
 
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */]);
+// module
+exports.push([module.i, "\n.display:{\n\tdisplay: block;\n}\n.hidden{\n\tdisplay: none;\n}\n", ""]);
 
-var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
-	state: {
-		products: []
-	},
-	getters: {
-		products: function products(state) {
-			return state.products;
-		}
-	},
-	mutations: {
-		setProducts: function setProducts(state, products) {
-			state.products = products;
-		}
-	},
-	actions: {
-		fetchProducts: function fetchProducts(_ref) {
-			var commit = _ref.commit;
+// exports
 
-			axios.get('/api/products').then(function (response) {
-				commit('setProducts', response.data);
-			}).catch(function (error) {
-				return console.log(error.response);
-			});
-		}
-	}
-});
 
 /***/ }),
 /* 55 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Store */
-/* unused harmony export install */
-/* unused harmony export mapState */
-/* unused harmony export mapMutations */
-/* unused harmony export mapGetters */
-/* unused harmony export mapActions */
-/* unused harmony export createNamespacedHelpers */
-/**
- * vuex v3.0.1
- * (c) 2017 Evan You
- * @license MIT
- */
-var applyMixin = function (Vue) {
-  var version = Number(Vue.version.split('.')[0]);
-
-  if (version >= 2) {
-    Vue.mixin({ beforeCreate: vuexInit });
-  } else {
-    // override init and inject vuex init procedure
-    // for 1.x backwards compatibility.
-    var _init = Vue.prototype._init;
-    Vue.prototype._init = function (options) {
-      if ( options === void 0 ) options = {};
-
-      options.init = options.init
-        ? [vuexInit].concat(options.init)
-        : vuexInit;
-      _init.call(this, options);
-    };
-  }
-
-  /**
-   * Vuex init hook, injected into each instances init hooks list.
-   */
-
-  function vuexInit () {
-    var options = this.$options;
-    // store injection
-    if (options.store) {
-      this.$store = typeof options.store === 'function'
-        ? options.store()
-        : options.store;
-    } else if (options.parent && options.parent.$store) {
-      this.$store = options.parent.$store;
-    }
-  }
-};
-
-var devtoolHook =
-  typeof window !== 'undefined' &&
-  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-function devtoolPlugin (store) {
-  if (!devtoolHook) { return }
-
-  store._devtoolHook = devtoolHook;
-
-  devtoolHook.emit('vuex:init', store);
-
-  devtoolHook.on('vuex:travel-to-state', function (targetState) {
-    store.replaceState(targetState);
-  });
-
-  store.subscribe(function (mutation, state) {
-    devtoolHook.emit('vuex:mutation', mutation, state);
-  });
-}
-
-/**
- * Get the first item that pass the test
- * by second argument function
- *
- * @param {Array} list
- * @param {Function} f
- * @return {*}
- */
-/**
- * Deep copy the given object considering circular structure.
- * This function caches all nested objects and its copies.
- * If it detects circular structure, use cached copy to avoid infinite loop.
- *
- * @param {*} obj
- * @param {Array<Object>} cache
- * @return {*}
- */
-
-
-/**
- * forEach for object
- */
-function forEachValue (obj, fn) {
-  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
-}
-
-function isObject (obj) {
-  return obj !== null && typeof obj === 'object'
-}
-
-function isPromise (val) {
-  return val && typeof val.then === 'function'
-}
-
-function assert (condition, msg) {
-  if (!condition) { throw new Error(("[vuex] " + msg)) }
-}
-
-var Module = function Module (rawModule, runtime) {
-  this.runtime = runtime;
-  this._children = Object.create(null);
-  this._rawModule = rawModule;
-  var rawState = rawModule.state;
-  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
-};
-
-var prototypeAccessors$1 = { namespaced: { configurable: true } };
-
-prototypeAccessors$1.namespaced.get = function () {
-  return !!this._rawModule.namespaced
-};
-
-Module.prototype.addChild = function addChild (key, module) {
-  this._children[key] = module;
-};
-
-Module.prototype.removeChild = function removeChild (key) {
-  delete this._children[key];
-};
-
-Module.prototype.getChild = function getChild (key) {
-  return this._children[key]
-};
-
-Module.prototype.update = function update (rawModule) {
-  this._rawModule.namespaced = rawModule.namespaced;
-  if (rawModule.actions) {
-    this._rawModule.actions = rawModule.actions;
-  }
-  if (rawModule.mutations) {
-    this._rawModule.mutations = rawModule.mutations;
-  }
-  if (rawModule.getters) {
-    this._rawModule.getters = rawModule.getters;
-  }
-};
-
-Module.prototype.forEachChild = function forEachChild (fn) {
-  forEachValue(this._children, fn);
-};
-
-Module.prototype.forEachGetter = function forEachGetter (fn) {
-  if (this._rawModule.getters) {
-    forEachValue(this._rawModule.getters, fn);
-  }
-};
-
-Module.prototype.forEachAction = function forEachAction (fn) {
-  if (this._rawModule.actions) {
-    forEachValue(this._rawModule.actions, fn);
-  }
-};
-
-Module.prototype.forEachMutation = function forEachMutation (fn) {
-  if (this._rawModule.mutations) {
-    forEachValue(this._rawModule.mutations, fn);
-  }
-};
-
-Object.defineProperties( Module.prototype, prototypeAccessors$1 );
-
-var ModuleCollection = function ModuleCollection (rawRootModule) {
-  // register root module (Vuex.Store options)
-  this.register([], rawRootModule, false);
-};
-
-ModuleCollection.prototype.get = function get (path) {
-  return path.reduce(function (module, key) {
-    return module.getChild(key)
-  }, this.root)
-};
-
-ModuleCollection.prototype.getNamespace = function getNamespace (path) {
-  var module = this.root;
-  return path.reduce(function (namespace, key) {
-    module = module.getChild(key);
-    return namespace + (module.namespaced ? key + '/' : '')
-  }, '')
-};
-
-ModuleCollection.prototype.update = function update$1 (rawRootModule) {
-  update([], this.root, rawRootModule);
-};
-
-ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
-    var this$1 = this;
-    if ( runtime === void 0 ) runtime = true;
-
-  if (true) {
-    assertRawModule(path, rawModule);
-  }
-
-  var newModule = new Module(rawModule, runtime);
-  if (path.length === 0) {
-    this.root = newModule;
-  } else {
-    var parent = this.get(path.slice(0, -1));
-    parent.addChild(path[path.length - 1], newModule);
-  }
-
-  // register nested modules
-  if (rawModule.modules) {
-    forEachValue(rawModule.modules, function (rawChildModule, key) {
-      this$1.register(path.concat(key), rawChildModule, runtime);
-    });
-  }
-};
-
-ModuleCollection.prototype.unregister = function unregister (path) {
-  var parent = this.get(path.slice(0, -1));
-  var key = path[path.length - 1];
-  if (!parent.getChild(key).runtime) { return }
-
-  parent.removeChild(key);
-};
-
-function update (path, targetModule, newModule) {
-  if (true) {
-    assertRawModule(path, newModule);
-  }
-
-  // update target module
-  targetModule.update(newModule);
-
-  // update nested modules
-  if (newModule.modules) {
-    for (var key in newModule.modules) {
-      if (!targetModule.getChild(key)) {
-        if (true) {
-          console.warn(
-            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
-            'manual reload is needed'
-          );
-        }
-        return
-      }
-      update(
-        path.concat(key),
-        targetModule.getChild(key),
-        newModule.modules[key]
-      );
-    }
-  }
-}
-
-var functionAssert = {
-  assert: function (value) { return typeof value === 'function'; },
-  expected: 'function'
-};
-
-var objectAssert = {
-  assert: function (value) { return typeof value === 'function' ||
-    (typeof value === 'object' && typeof value.handler === 'function'); },
-  expected: 'function or object with "handler" function'
-};
-
-var assertTypes = {
-  getters: functionAssert,
-  mutations: functionAssert,
-  actions: objectAssert
-};
-
-function assertRawModule (path, rawModule) {
-  Object.keys(assertTypes).forEach(function (key) {
-    if (!rawModule[key]) { return }
-
-    var assertOptions = assertTypes[key];
-
-    forEachValue(rawModule[key], function (value, type) {
-      assert(
-        assertOptions.assert(value),
-        makeAssertionMessage(path, key, type, value, assertOptions.expected)
-      );
-    });
-  });
-}
-
-function makeAssertionMessage (path, key, type, value, expected) {
-  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
-  if (path.length > 0) {
-    buf += " in module \"" + (path.join('.')) + "\"";
-  }
-  buf += " is " + (JSON.stringify(value)) + ".";
-  return buf
-}
-
-var Vue; // bind on install
-
-var Store = function Store (options) {
-  var this$1 = this;
-  if ( options === void 0 ) options = {};
-
-  // Auto install if it is not done yet and `window` has `Vue`.
-  // To allow users to avoid auto-installation in some cases,
-  // this code should be placed here. See #731
-  if (!Vue && typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
-  }
-
-  if (true) {
-    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
-    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
-    assert(this instanceof Store, "Store must be called with the new operator.");
-  }
-
-  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
-  var strict = options.strict; if ( strict === void 0 ) strict = false;
-
-  var state = options.state; if ( state === void 0 ) state = {};
-  if (typeof state === 'function') {
-    state = state() || {};
-  }
-
-  // store internal state
-  this._committing = false;
-  this._actions = Object.create(null);
-  this._actionSubscribers = [];
-  this._mutations = Object.create(null);
-  this._wrappedGetters = Object.create(null);
-  this._modules = new ModuleCollection(options);
-  this._modulesNamespaceMap = Object.create(null);
-  this._subscribers = [];
-  this._watcherVM = new Vue();
-
-  // bind commit and dispatch to self
-  var store = this;
-  var ref = this;
-  var dispatch = ref.dispatch;
-  var commit = ref.commit;
-  this.dispatch = function boundDispatch (type, payload) {
-    return dispatch.call(store, type, payload)
-  };
-  this.commit = function boundCommit (type, payload, options) {
-    return commit.call(store, type, payload, options)
-  };
-
-  // strict mode
-  this.strict = strict;
-
-  // init root module.
-  // this also recursively registers all sub-modules
-  // and collects all module getters inside this._wrappedGetters
-  installModule(this, state, [], this._modules.root);
-
-  // initialize the store vm, which is responsible for the reactivity
-  // (also registers _wrappedGetters as computed properties)
-  resetStoreVM(this, state);
-
-  // apply plugins
-  plugins.forEach(function (plugin) { return plugin(this$1); });
-
-  if (Vue.config.devtools) {
-    devtoolPlugin(this);
-  }
-};
-
-var prototypeAccessors = { state: { configurable: true } };
-
-prototypeAccessors.state.get = function () {
-  return this._vm._data.$$state
-};
-
-prototypeAccessors.state.set = function (v) {
-  if (true) {
-    assert(false, "Use store.replaceState() to explicit replace store state.");
-  }
-};
-
-Store.prototype.commit = function commit (_type, _payload, _options) {
-    var this$1 = this;
-
-  // check object-style commit
-  var ref = unifyObjectStyle(_type, _payload, _options);
-    var type = ref.type;
-    var payload = ref.payload;
-    var options = ref.options;
-
-  var mutation = { type: type, payload: payload };
-  var entry = this._mutations[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown mutation type: " + type));
-    }
-    return
-  }
-  this._withCommit(function () {
-    entry.forEach(function commitIterator (handler) {
-      handler(payload);
-    });
-  });
-  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
-
-  if (
-    "development" !== 'production' &&
-    options && options.silent
-  ) {
-    console.warn(
-      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
-      'Use the filter functionality in the vue-devtools'
-    );
-  }
-};
-
-Store.prototype.dispatch = function dispatch (_type, _payload) {
-    var this$1 = this;
-
-  // check object-style dispatch
-  var ref = unifyObjectStyle(_type, _payload);
-    var type = ref.type;
-    var payload = ref.payload;
-
-  var action = { type: type, payload: payload };
-  var entry = this._actions[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown action type: " + type));
-    }
-    return
-  }
-
-  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
-
-  return entry.length > 1
-    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
-    : entry[0](payload)
-};
-
-Store.prototype.subscribe = function subscribe (fn) {
-  return genericSubscribe(fn, this._subscribers)
-};
-
-Store.prototype.subscribeAction = function subscribeAction (fn) {
-  return genericSubscribe(fn, this._actionSubscribers)
-};
-
-Store.prototype.watch = function watch (getter, cb, options) {
-    var this$1 = this;
-
-  if (true) {
-    assert(typeof getter === 'function', "store.watch only accepts a function.");
-  }
-  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
-};
-
-Store.prototype.replaceState = function replaceState (state) {
-    var this$1 = this;
-
-  this._withCommit(function () {
-    this$1._vm._data.$$state = state;
-  });
-};
-
-Store.prototype.registerModule = function registerModule (path, rawModule, options) {
-    if ( options === void 0 ) options = {};
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-    assert(path.length > 0, 'cannot register the root module by using registerModule.');
-  }
-
-  this._modules.register(path, rawModule);
-  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
-  // reset store to update getters...
-  resetStoreVM(this, this.state);
-};
-
-Store.prototype.unregisterModule = function unregisterModule (path) {
-    var this$1 = this;
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-  }
-
-  this._modules.unregister(path);
-  this._withCommit(function () {
-    var parentState = getNestedState(this$1.state, path.slice(0, -1));
-    Vue.delete(parentState, path[path.length - 1]);
-  });
-  resetStore(this);
-};
-
-Store.prototype.hotUpdate = function hotUpdate (newOptions) {
-  this._modules.update(newOptions);
-  resetStore(this, true);
-};
-
-Store.prototype._withCommit = function _withCommit (fn) {
-  var committing = this._committing;
-  this._committing = true;
-  fn();
-  this._committing = committing;
-};
-
-Object.defineProperties( Store.prototype, prototypeAccessors );
-
-function genericSubscribe (fn, subs) {
-  if (subs.indexOf(fn) < 0) {
-    subs.push(fn);
-  }
-  return function () {
-    var i = subs.indexOf(fn);
-    if (i > -1) {
-      subs.splice(i, 1);
-    }
-  }
-}
-
-function resetStore (store, hot) {
-  store._actions = Object.create(null);
-  store._mutations = Object.create(null);
-  store._wrappedGetters = Object.create(null);
-  store._modulesNamespaceMap = Object.create(null);
-  var state = store.state;
-  // init all modules
-  installModule(store, state, [], store._modules.root, true);
-  // reset vm
-  resetStoreVM(store, state, hot);
-}
-
-function resetStoreVM (store, state, hot) {
-  var oldVm = store._vm;
-
-  // bind store public getters
-  store.getters = {};
-  var wrappedGetters = store._wrappedGetters;
-  var computed = {};
-  forEachValue(wrappedGetters, function (fn, key) {
-    // use computed to leverage its lazy-caching mechanism
-    computed[key] = function () { return fn(store); };
-    Object.defineProperty(store.getters, key, {
-      get: function () { return store._vm[key]; },
-      enumerable: true // for local getters
-    });
-  });
-
-  // use a Vue instance to store the state tree
-  // suppress warnings just in case the user has added
-  // some funky global mixins
-  var silent = Vue.config.silent;
-  Vue.config.silent = true;
-  store._vm = new Vue({
-    data: {
-      $$state: state
-    },
-    computed: computed
-  });
-  Vue.config.silent = silent;
-
-  // enable strict mode for new vm
-  if (store.strict) {
-    enableStrictMode(store);
-  }
-
-  if (oldVm) {
-    if (hot) {
-      // dispatch changes in all subscribed watchers
-      // to force getter re-evaluation for hot reloading.
-      store._withCommit(function () {
-        oldVm._data.$$state = null;
-      });
-    }
-    Vue.nextTick(function () { return oldVm.$destroy(); });
-  }
-}
-
-function installModule (store, rootState, path, module, hot) {
-  var isRoot = !path.length;
-  var namespace = store._modules.getNamespace(path);
-
-  // register in namespace map
-  if (module.namespaced) {
-    store._modulesNamespaceMap[namespace] = module;
-  }
-
-  // set state
-  if (!isRoot && !hot) {
-    var parentState = getNestedState(rootState, path.slice(0, -1));
-    var moduleName = path[path.length - 1];
-    store._withCommit(function () {
-      Vue.set(parentState, moduleName, module.state);
-    });
-  }
-
-  var local = module.context = makeLocalContext(store, namespace, path);
-
-  module.forEachMutation(function (mutation, key) {
-    var namespacedType = namespace + key;
-    registerMutation(store, namespacedType, mutation, local);
-  });
-
-  module.forEachAction(function (action, key) {
-    var type = action.root ? key : namespace + key;
-    var handler = action.handler || action;
-    registerAction(store, type, handler, local);
-  });
-
-  module.forEachGetter(function (getter, key) {
-    var namespacedType = namespace + key;
-    registerGetter(store, namespacedType, getter, local);
-  });
-
-  module.forEachChild(function (child, key) {
-    installModule(store, rootState, path.concat(key), child, hot);
-  });
-}
-
-/**
- * make localized dispatch, commit, getters and state
- * if there is no namespace, just use root ones
- */
-function makeLocalContext (store, namespace, path) {
-  var noNamespace = namespace === '';
-
-  var local = {
-    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ("development" !== 'production' && !store._actions[type]) {
-          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      return store.dispatch(type, payload)
-    },
-
-    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ("development" !== 'production' && !store._mutations[type]) {
-          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      store.commit(type, payload, options);
-    }
-  };
-
-  // getters and state object must be gotten lazily
-  // because they will be changed by vm update
-  Object.defineProperties(local, {
-    getters: {
-      get: noNamespace
-        ? function () { return store.getters; }
-        : function () { return makeLocalGetters(store, namespace); }
-    },
-    state: {
-      get: function () { return getNestedState(store.state, path); }
-    }
-  });
-
-  return local
-}
-
-function makeLocalGetters (store, namespace) {
-  var gettersProxy = {};
-
-  var splitPos = namespace.length;
-  Object.keys(store.getters).forEach(function (type) {
-    // skip if the target getter is not match this namespace
-    if (type.slice(0, splitPos) !== namespace) { return }
-
-    // extract local getter type
-    var localType = type.slice(splitPos);
-
-    // Add a port to the getters proxy.
-    // Define as getter property because
-    // we do not want to evaluate the getters in this time.
-    Object.defineProperty(gettersProxy, localType, {
-      get: function () { return store.getters[type]; },
-      enumerable: true
-    });
-  });
-
-  return gettersProxy
-}
-
-function registerMutation (store, type, handler, local) {
-  var entry = store._mutations[type] || (store._mutations[type] = []);
-  entry.push(function wrappedMutationHandler (payload) {
-    handler.call(store, local.state, payload);
-  });
-}
-
-function registerAction (store, type, handler, local) {
-  var entry = store._actions[type] || (store._actions[type] = []);
-  entry.push(function wrappedActionHandler (payload, cb) {
-    var res = handler.call(store, {
-      dispatch: local.dispatch,
-      commit: local.commit,
-      getters: local.getters,
-      state: local.state,
-      rootGetters: store.getters,
-      rootState: store.state
-    }, payload, cb);
-    if (!isPromise(res)) {
-      res = Promise.resolve(res);
-    }
-    if (store._devtoolHook) {
-      return res.catch(function (err) {
-        store._devtoolHook.emit('vuex:error', err);
-        throw err
-      })
-    } else {
-      return res
-    }
-  });
-}
-
-function registerGetter (store, type, rawGetter, local) {
-  if (store._wrappedGetters[type]) {
-    if (true) {
-      console.error(("[vuex] duplicate getter key: " + type));
-    }
-    return
-  }
-  store._wrappedGetters[type] = function wrappedGetter (store) {
-    return rawGetter(
-      local.state, // local state
-      local.getters, // local getters
-      store.state, // root state
-      store.getters // root getters
-    )
-  };
-}
-
-function enableStrictMode (store) {
-  store._vm.$watch(function () { return this._data.$$state }, function () {
-    if (true) {
-      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
-    }
-  }, { deep: true, sync: true });
-}
-
-function getNestedState (state, path) {
-  return path.length
-    ? path.reduce(function (state, key) { return state[key]; }, state)
-    : state
-}
-
-function unifyObjectStyle (type, payload, options) {
-  if (isObject(type) && type.type) {
-    options = payload;
-    payload = type;
-    type = type.type;
-  }
-
-  if (true) {
-    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
-  }
-
-  return { type: type, payload: payload, options: options }
-}
-
-function install (_Vue) {
-  if (Vue && _Vue === Vue) {
-    if (true) {
-      console.error(
-        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
-      );
-    }
-    return
-  }
-  Vue = _Vue;
-  applyMixin(Vue);
-}
-
-var mapState = normalizeNamespace(function (namespace, states) {
-  var res = {};
-  normalizeMap(states).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedState () {
-      var state = this.$store.state;
-      var getters = this.$store.getters;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
-        if (!module) {
-          return
-        }
-        state = module.context.state;
-        getters = module.context.getters;
-      }
-      return typeof val === 'function'
-        ? val.call(this, state, getters)
-        : state[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-var mapMutations = normalizeNamespace(function (namespace, mutations) {
-  var res = {};
-  normalizeMap(mutations).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedMutation () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var commit = this.$store.commit;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
-        if (!module) {
-          return
-        }
-        commit = module.context.commit;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [commit].concat(args))
-        : commit.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var mapGetters = normalizeNamespace(function (namespace, getters) {
-  var res = {};
-  normalizeMap(getters).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    val = namespace + val;
-    res[key] = function mappedGetter () {
-      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
-        return
-      }
-      if ("development" !== 'production' && !(val in this.$store.getters)) {
-        console.error(("[vuex] unknown getter: " + val));
-        return
-      }
-      return this.$store.getters[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-var mapActions = normalizeNamespace(function (namespace, actions) {
-  var res = {};
-  normalizeMap(actions).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedAction () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var dispatch = this.$store.dispatch;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
-        if (!module) {
-          return
-        }
-        dispatch = module.context.dispatch;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [dispatch].concat(args))
-        : dispatch.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var createNamespacedHelpers = function (namespace) { return ({
-  mapState: mapState.bind(null, namespace),
-  mapGetters: mapGetters.bind(null, namespace),
-  mapMutations: mapMutations.bind(null, namespace),
-  mapActions: mapActions.bind(null, namespace)
-}); };
-
-function normalizeMap (map) {
-  return Array.isArray(map)
-    ? map.map(function (key) { return ({ key: key, val: key }); })
-    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
-}
-
-function normalizeNamespace (fn) {
-  return function (namespace, map) {
-    if (typeof namespace !== 'string') {
-      map = namespace;
-      namespace = '';
-    } else if (namespace.charAt(namespace.length - 1) !== '/') {
-      namespace += '/';
-    }
-    return fn(namespace, map)
-  }
-}
-
-function getModuleByNamespace (store, helper, namespace) {
-  var module = store._modulesNamespaceMap[namespace];
-  if ("development" !== 'production' && !module) {
-    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
-  }
-  return module
-}
-
-var index_esm = {
-  Store: Store,
-  install: install,
-  version: '3.0.1',
-  mapState: mapState,
-  mapMutations: mapMutations,
-  mapGetters: mapGetters,
-  mapActions: mapActions,
-  createNamespacedHelpers: createNamespacedHelpers
-};
-
-
-/* harmony default export */ __webpack_exports__["a"] = (index_esm);
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 57 */,
-/* 58 */
 /***/ (function(module, exports) {
 
 /*
@@ -18235,15 +20844,1655 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(57)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			active: false
+		};
+	},
+
+	components: {
+		'account-tabs': __webpack_require__(2)
+	}
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "listing-controls" }, [
+              _c(
+                "div",
+                { staticClass: "layout-controls" },
+                [
+                  _c("router-link", { attrs: { to: "/orders" } }, [
+                    _c("span", { staticClass: "is-active" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-grid",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "3", y: "3", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "14", y: "3", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "14", y: "14", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "3", y: "14", width: "7", height: "7" }
+                          })
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: "/orders-list" } }, [
+                    _c("span", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-list",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "8", y1: "6", x2: "21", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "8", y1: "12", x2: "21", y2: "12" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "8", y1: "18", x2: "21", y2: "18" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "6", x2: "3", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "12", x2: "3", y2: "12" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "18", x2: "3", y2: "18" }
+                          })
+                        ]
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _c("div", { staticClass: "order-info" }, [
+                      _c(
+                        "span",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: { to: "/invoice", onclick: "return true" }
+                            },
+                            [_vm._v("ORDER-46895")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-primary" }, [
+                        _vm._v("Shipping")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#0023ff",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "66,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-truck",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("rect", {
+                              attrs: {
+                                x: "1",
+                                y: "3",
+                                width: "15",
+                                height: "13"
+                              }
+                            }),
+                            _c("polygon", {
+                              attrs: {
+                                points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                              }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                            }),
+                            _c("circle", {
+                              attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(6)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flat-card order-card has-popover-top",
+                    attrs: { "data-target": "webuiPopover1" }
+                  },
+                  [
+                    _c("div", { staticClass: "order-info" }, [
+                      _c(
+                        "span",
+                        [
+                          _c("router-link", { attrs: { to: "/invoice" } }, [
+                            _vm._v("ORDER-46878")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-success" }, [
+                        _vm._v("Preparing")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#00b289",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "33,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-package",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"
+                              }
+                            }),
+                            _c("polyline", {
+                              attrs: { points: "2.32 6.16 12 11 21.68 6.16" }
+                            }),
+                            _c("line", {
+                              attrs: {
+                                x1: "12",
+                                y1: "22.76",
+                                x2: "12",
+                                y2: "11"
+                              }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "7", y1: "3.5", x2: "17", y2: "8.5" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(7)
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flat-card order-card has-popover-top",
+                    attrs: { "data-target": "webuiPopover2" }
+                  },
+                  [
+                    _c("div", { staticClass: "order-info" }, [
+                      _c(
+                        "span",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "is-disable",
+                              attrs: { to: "/invoice" }
+                            },
+                            [_vm._v("ORDER-42135")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-warning" }, [
+                        _vm._v("Pending")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#eda514",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "10,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-dollar-sign",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("line", {
+                              attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(8)
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flat-card order-card has-popover-top" },
+                  [
+                    _c("div", { staticClass: "order-info" }, [
+                      _c(
+                        "span",
+                        [
+                          _c("router-link", { attrs: { to: "/invoice" } }, [
+                            _vm._v("ORDER-39456")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-danger" }, [
+                        _vm._v("Has issue")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#FF7273",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "40,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-alert-octagon",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("polygon", {
+                              attrs: {
+                                points:
+                                  "7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"
+                              }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "12", y1: "8", x2: "12", y2: "12" }
+                            }),
+                            _c("line", {
+                              attrs: { x1: "12", y1: "16", x2: "12", y2: "16" }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(9)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "webui-popover-content" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-clock",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            attrs: { cx: "12", cy: "12", r: "10" }
+                          }),
+                          _c("polyline", {
+                            attrs: { points: "12 6 12 12 16 14" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(11)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-dollar-sign",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                          }),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(12)
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "popover-flex-block" }, [
+                    _c("div", { staticClass: "icon-block" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-truck",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "1", y: "3", width: "15", height: "13" }
+                          }),
+                          _c("polygon", {
+                            attrs: {
+                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
+                            }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
+                          }),
+                          _c("circle", {
+                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(13)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flat-card order-card has-popover-top",
+                    attrs: { "data-target": "webuiPopover4" }
+                  },
+                  [
+                    _c("div", { staticClass: "order-info" }, [
+                      _c(
+                        "span",
+                        [
+                          _c("router-link", { attrs: { to: "/invoice" } }, [
+                            _vm._v("ORDER-38246")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-primary" }, [
+                        _vm._v("Complete")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "circle-chart-wrapper" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "circle-chart",
+                          attrs: {
+                            viewBox: "0 0 33.83098862 33.83098862",
+                            width: "140",
+                            height: "140",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("circle", {
+                            staticClass: "circle-chart-background",
+                            attrs: {
+                              stroke: "#efefef",
+                              "stroke-width": "2",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("circle", {
+                            staticClass: "circle-chart-circle",
+                            attrs: {
+                              stroke: "#0023ff",
+                              "stroke-width": "2",
+                              "stroke-dasharray": "100,100",
+                              "stroke-linecap": "round",
+                              fill: "none",
+                              cx: "16.91549431",
+                              cy: "16.91549431",
+                              r: "15.91549431"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "chart-icon" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-award",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "12", cy: "8", r: "7" }
+                            }),
+                            _c("polyline", {
+                              attrs: {
+                                points:
+                                  "8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(14)
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("MY ORDERS")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sort-box" }, [
+      _c("div", { staticClass: "sort-box-select" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
+            staticStyle: { width: "100%" },
+            attrs: { title: "" }
+          },
+          [
+            _c(
+              "select",
+              {
+                staticClass:
+                  "chosen-single chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
+                attrs: { "data-placeholder": "Default order" }
+              },
+              [
+                _c("optgroup", { staticClass: "chosen-results" }, [
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("All Orders")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("Pending")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("In Progress")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("Complete")
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("66% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Jane Smith")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("mar 23th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$378,85")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("UPS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("33% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("10% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("40% Complete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "popover-flex-block" }, [
+      _c("img", {
+        staticClass: "staff-avatar",
+        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content-block" }, [
+        _c("label", [_vm._v("Order handled by")]),
+        _vm._v(" "),
+        _c("span", [_vm._v("Janet Smith")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Ordered on")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("feb 19th 2018")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Order Total")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("$219,22")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-block" }, [
+      _c("label", [_vm._v("Shipping Method")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("FedEx")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ring-title has-text-centered" }, [
+      _c("span", [_vm._v("100% Complete")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e4699d64", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(61)
 /* template */
 var __vue_template__ = __webpack_require__(62)
 /* template functional */
@@ -18262,7 +22511,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\views\\Home.vue"
+Component.options.__file = "resources\\assets\\js\\views\\shop\\OrderList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -18271,9 +22520,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-11c5acec", Component.options)
+    hotAPI.createRecord("data-v-093c9db3", Component.options)
   } else {
-    hotAPI.reload("data-v-11c5acec", Component.options)
+    hotAPI.reload("data-v-093c9db3", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -18284,6 +22533,547 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	components: {
+		'account-tabs': __webpack_require__(2)
+	}
+});
+
+/***/ }),
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18291,85 +23081,1094 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns account-header" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("account-tabs"),
+            _vm._v(" "),
+            _c("div", { staticClass: "listing-controls" }, [
+              _c(
+                "div",
+                { staticClass: "layout-controls" },
+                [
+                  _c("router-link", { attrs: { to: "/orders" } }, [
+                    _c("span", [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-grid",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("rect", {
+                            attrs: { x: "3", y: "3", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "14", y: "3", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "14", y: "14", width: "7", height: "7" }
+                          }),
+                          _c("rect", {
+                            attrs: { x: "3", y: "14", width: "7", height: "7" }
+                          })
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("router-link", { attrs: { to: "/orders-list" } }, [
+                    _c("span", { staticClass: "is-active" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-list",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("line", {
+                            attrs: { x1: "8", y1: "6", x2: "21", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "8", y1: "12", x2: "21", y2: "12" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "8", y1: "18", x2: "21", y2: "18" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "6", x2: "3", y2: "6" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "12", x2: "3", y2: "12" }
+                          }),
+                          _c("line", {
+                            attrs: { x1: "3", y1: "18", x2: "3", y2: "18" }
+                          })
+                        ]
+                      )
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "column is-8" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flat-card is-auto order-list-card animated preFadeInUp fadeInUp",
+                    attrs: { id: "46895" }
+                  },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._m(6),
+                    _vm._v(" "),
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "button-block has-text-right" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "button feather-button is-small primary-button is-bold raised",
+                            attrs: { to: "/invoice" }
+                          },
+                          [_vm._v("invoice")]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flat-card is-auto order-list-card animated preFadeInUp fadeInUp is-hidden",
+                    attrs: { id: "46878" }
+                  },
+                  [
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _vm._m(10),
+                    _vm._v(" "),
+                    _vm._m(11),
+                    _vm._v(" "),
+                    _vm._m(12),
+                    _vm._v(" "),
+                    _vm._m(13),
+                    _vm._v(" "),
+                    _vm._m(14),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "button-block has-text-right" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "button feather-button is-small primary-button is-bold raised",
+                            attrs: { to: "/invoice" }
+                          },
+                          [_vm._v("invoice")]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(15),
+                _vm._v(" "),
+                _vm._m(16),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flat-card is-auto order-list-card animated preFadeInUp fadeInUp is-hidden",
+                    attrs: { id: "38246" }
+                  },
+                  [
+                    _vm._m(17),
+                    _vm._v(" "),
+                    _vm._m(18),
+                    _vm._v(" "),
+                    _vm._m(19),
+                    _vm._v(" "),
+                    _vm._m(20),
+                    _vm._v(" "),
+                    _vm._m(21),
+                    _vm._v(" "),
+                    _vm._m(22),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "button-block has-text-right" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "button feather-button is-small primary-button is-bold raised",
+                            attrs: { to: "/invoice" }
+                          },
+                          [_vm._v("invoice")]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "shop-wrapper has-background-image" }, [
-        _c("div", { staticClass: "search-overlay" }),
-        _vm._v(" "),
+    return _c("div", { staticClass: "account-title" }, [
+      _c("h2", [_vm._v("MY ORDERS")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "brand-filigrane",
+        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sort-box" }, [
+      _c("div", { staticClass: "sort-box-select" }, [
         _c(
           "div",
-          { staticClass: "search-input-wrapper is-desktop is-hidden" },
+          {
+            staticClass:
+              "chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
+            staticStyle: { width: "100%" },
+            attrs: { title: "" }
+          },
           [
-            _c("div", { staticClass: "field" }, [
-              _c("div", { staticClass: "control" }, [
-                _c("input", {
-                  attrs: {
-                    type: "text",
-                    name: "search",
-                    autofocus: "",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { attrs: { id: "clear-search", role: "button" } }, [
-                  _c("i", { attrs: { "data-feather": "x" } })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "search-help" }, [
-                  _vm._v("Type the name of the product you are looking for")
+            _c(
+              "select",
+              {
+                staticClass:
+                  "chosen-single chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
+                attrs: { "data-placeholder": "Default order" }
+              },
+              [
+                _c("optgroup", { staticClass: "chosen-results" }, [
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("All Orders")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("Pending")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("In Progress")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { staticClass: "active-result" }, [
+                    _vm._v("Complete")
+                  ])
                 ])
-              ])
-            ])
+              ]
+            )
           ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "background-caption" }, [
-          _c("h1", [_vm._v("NEPHOS")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "hero-caption" }, [
-          _c("h1", [_vm._v("NEPHOS")]),
-          _vm._v(" "),
-          _c("h2", [_vm._v("MODERN SHOP TEMPLATE")]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "button big-button primary-button upper-button rounded raised",
-              attrs: { href: "shop.html" }
-            },
-            [_vm._v("Start shopping")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column is-4" }, [
+      _c("div", { staticClass: "flat-card is-auto list-card" }, [
+        _c("div", { staticClass: "list-card-header" }, [
+          _vm._v(
+            "\n                                            Orders List\n                                        "
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "slider-wrapper" }, [
-          _c("div", { staticClass: "fullscreen-slick" }, [
-            _c("div", {
-              staticClass: "full-slide has-background-image",
-              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-            }),
+        _c("ul", [
+          _c(
+            "li",
+            { staticClass: "is-active", attrs: { "data-order": "46895" } },
+            [
+              _c("span", [_vm._v("ORDER 46895")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "order-indicator is-progress" })
+            ]
+          ),
+          _vm._v(" "),
+          _c("li", { attrs: { "data-order": "46878" } }, [
+            _c("span", [_vm._v("ORDER 46878")]),
             _vm._v(" "),
-            _c("div", {
-              staticClass: "full-slide has-background-image",
-              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-            }),
+            _c("span", { staticClass: "order-indicator is-preparing" })
+          ]),
+          _vm._v(" "),
+          _c("li", { attrs: { "data-order": "42135" } }, [
+            _c("span", [_vm._v("ORDER 42135")]),
             _vm._v(" "),
-            _c("div", {
-              staticClass: "full-slide has-background-image",
-              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-            }),
+            _c("span", { staticClass: "order-indicator is-warning" })
+          ]),
+          _vm._v(" "),
+          _c("li", { attrs: { "data-order": "39456" } }, [
+            _c("span", [_vm._v("ORDER 39456")]),
             _vm._v(" "),
-            _c("div", {
-              staticClass: "full-slide has-background-image",
-              attrs: { "data-background": "assets/images/bg/main-bg.jpg" }
-            })
+            _c("span", { staticClass: "order-indicator is-issue" })
+          ]),
+          _vm._v(" "),
+          _c("li", { attrs: { "data-order": "38246" } }, [
+            _c("span", [_vm._v("ORDER 38246")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "order-indicator is-progress" })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "progress-block" }, [
+      _c("h3", [_vm._v("ORDER 46895")]),
+      _vm._v(" "),
+      _c(
+        "progress",
+        {
+          staticClass: "progress primary-progress is-small has-simple-popover",
+          attrs: {
+            value: "66",
+            max: "100",
+            "data-content": "66% Complete",
+            "data-placement": "top"
+          }
+        },
+        [_vm._v("66%")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("img", { attrs: { src: "assets/images/avatars/janet.jpg", alt: "" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "handled-by" }, [
+        _c("div", [_vm._v("Handled by")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Janet Smith")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "info" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status" }, [
+        _c("div", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("span", { staticClass: "tag primary-tag" }, [_vm._v("Shipping")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "clock" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "date" }, [
+        _c("div", [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-date" }, [_vm._v("mar 23 2018")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "dollar-sign" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "total" }, [
+        _c("div", [_vm._v("Order total")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-price" }, [
+          _vm._v("683,99 "),
+          _c("span", { staticClass: "tag success-tag" }, [_vm._v("Paid")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-block" }, [
+      _c("table", [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Product")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("SKU")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Shipping A1")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("-")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$39,00")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Conqueror")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("587")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$295,00")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Gentleman")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("029")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$349,99")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "progress-block" }, [
+      _c("h3", [_vm._v("ORDER 46878")]),
+      _vm._v(" "),
+      _c(
+        "progress",
+        {
+          staticClass: "progress success-progress is-small has-simple-popover",
+          attrs: {
+            value: "33",
+            max: "100",
+            "data-content": "33% Complete",
+            "data-placement": "top"
+          }
+        },
+        [_vm._v("33%")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("img", { attrs: { src: "assets/images/avatars/marc.jpg", alt: "" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "handled-by" }, [
+        _c("div", [_vm._v("Handled by")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Mark Korsky")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "info" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status" }, [
+        _c("div", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("span", { staticClass: "tag success-tag" }, [_vm._v("Preparing")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "clock" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "date" }, [
+        _c("div", [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-date" }, [_vm._v("mar 15 2018")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "dollar-sign" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "total" }, [
+        _c("div", [_vm._v("Order total")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-price" }, [
+          _vm._v("58,49 "),
+          _c("span", { staticClass: "tag success-tag" }, [_vm._v("Paid")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-block" }, [
+      _c("table", [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Product")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("SKU")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Shipping")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("-")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("Free")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Styled Lamp")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("482")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$30,00")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Rabbit Lamp")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("391")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$28,49")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flat-card is-auto order-list-card animated preFadeInUp fadeInUp is-hidden",
+        attrs: { id: "42135" }
+      },
+      [
+        _c("div", { staticClass: "progress-block" }, [
+          _c("h3", [_vm._v("ORDER 42135")]),
+          _vm._v(" "),
+          _c(
+            "progress",
+            {
+              staticClass:
+                "progress warning-progress is-small has-simple-popover",
+              attrs: {
+                value: "11",
+                max: "100",
+                "data-content": "11% Complete",
+                "data-placement": "top"
+              }
+            },
+            [_vm._v("11%")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("img", {
+            attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "handled-by" }, [
+            _c("div", [_vm._v("Handled by")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Janet Smith")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "info" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "status" }, [
+            _c("div", [_vm._v("Status")]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", { staticClass: "tag warning-tag" }, [
+                _vm._v("Pending")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "clock" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "date" }, [
+            _c("div", [_vm._v("Date")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "is-date" }, [_vm._v("feb 26 2018")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "dollar-sign" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "total" }, [
+            _c("div", [_vm._v("Order total")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "is-price" }, [
+              _vm._v("188,00 "),
+              _c("span", { staticClass: "tag warning-tag" }, [_vm._v("Unpaid")])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "table-block" }, [
+          _c("table", [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Product")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("SKU")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("Shipping")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("1")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("Free")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("Book Shelf")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("278")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("2")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [
+                  _vm._v("$55,00")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("TV Furniture")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("695")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("1")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [
+                  _vm._v("$78,49")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "button-block has-text-right" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flat-card is-auto order-list-card animated preFadeInUp fadeInUp is-hidden",
+        attrs: { id: "39456" }
+      },
+      [
+        _c("div", { staticClass: "progress-block" }, [
+          _c("h3", [_vm._v("ORDER 39456")]),
+          _vm._v(" "),
+          _c(
+            "progress",
+            {
+              staticClass:
+                "progress danger-progress is-small has-simple-popover",
+              attrs: {
+                value: "40",
+                max: "100",
+                "data-content": "40% Complete",
+                "data-placement": "top"
+              }
+            },
+            [_vm._v("40%")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("img", {
+            attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "handled-by" }, [
+            _c("div", [_vm._v("Handled by")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Janet Smith")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "info" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "status" }, [
+            _c("div", [_vm._v("Status")]),
+            _vm._v(" "),
+            _c("div", [
+              _c("span", { staticClass: "tag danger-tag" }, [
+                _vm._v("Has issue")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "clock" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "date" }, [
+            _c("div", [_vm._v("Date")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "is-date" }, [_vm._v("feb 26 2018")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "order-block" }, [
+          _c("div", { staticClass: "order-icon" }, [
+            _c("i", { attrs: { "data-feather": "dollar-sign" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "total" }, [
+            _c("div", [_vm._v("Order total")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "is-price" }, [
+              _vm._v("219,22 "),
+              _c("span", { staticClass: "tag success-tag" }, [_vm._v("Paid")])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "table-block" }, [
+          _c("table", [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Product")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("SKU")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("Shipping")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("-")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("1")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("Free")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("Toy Box")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("784")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("3")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$120")])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { "data-label": "Product" } }, [
+                  _vm._v("Child Desk")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("721")]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Quantity" } }, [
+                  _vm._v("1")
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-label": "Total" } }, [
+                  _vm._v("$99,22")
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "button-block has-text-right" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "progress-block" }, [
+      _c("h3", [_vm._v("ORDER 38246")]),
+      _vm._v(" "),
+      _c(
+        "progress",
+        {
+          staticClass: "progress primary-progress is-small has-simple-popover",
+          attrs: {
+            value: "100",
+            max: "100",
+            "data-content": "100% Complete",
+            "data-placement": "top"
+          }
+        },
+        [_vm._v("100%")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("img", { attrs: { src: "assets/images/avatars/marc.jpg", alt: "" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "handled-by" }, [
+        _c("div", [_vm._v("Handled by")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Marc Korsky")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "info" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "status" }, [
+        _c("div", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("span", { staticClass: "tag primary-tag" }, [_vm._v("Complete")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "clock" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "date" }, [
+        _c("div", [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-date" }, [_vm._v("feb 15 2018")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "order-block" }, [
+      _c("div", { staticClass: "order-icon" }, [
+        _c("i", { attrs: { "data-feather": "dollar-sign" } })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "total" }, [
+        _c("div", [_vm._v("Order total")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-price" }, [
+          _vm._v("412,00 "),
+          _c("span", { staticClass: "tag success-tag" }, [_vm._v("Paid")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-block" }, [
+      _c("table", [
+        _c("thead", [
+          _c("tr", [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Product")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("SKU")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantity")]),
+            _vm._v(" "),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Shipping A3")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("-")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$92,00")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Lazy Boy")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("111")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("2")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$240,00")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", { attrs: { "data-label": "Product" } }, [
+              _vm._v("Low Table")
+            ]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "SKU" } }, [_vm._v("097")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Quantity" } }, [_vm._v("1")]),
+            _vm._v(" "),
+            _c("td", { attrs: { "data-label": "Total" } }, [_vm._v("$80,00")])
           ])
         ])
       ])
@@ -18381,7 +24180,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-11c5acec", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-093c9db3", module.exports)
   }
 }
 
@@ -18392,9 +24191,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = __webpack_require__(64)
+var __vue_template__ = __webpack_require__(65)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -18434,6 +24233,185 @@ module.exports = Component.exports
 
 /***/ }),
 /* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(2)
+    }
+});
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18802,7 +24780,7 @@ if (false) {
 }
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -18810,7 +24788,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(67)
 /* template */
-var __vue_template__ = __webpack_require__(66)
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -18849,7 +24827,758 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 66 */
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'account-tabs': __webpack_require__(2)
+    }
+});
+
+/***/ }),
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -21479,758 +28208,7 @@ if (false) {
 }
 
 /***/ }),
-/* 67 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        'account-tabs': __webpack_require__(68)
-    }
-});
-
-/***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -22238,7 +28216,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(69)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -22255,7 +28233,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\views\\auth\\AccountTabs.vue"
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Shop.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -22264,9 +28242,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-757c0938", Component.options)
+    hotAPI.createRecord("data-v-9e4ecdc2", Component.options)
   } else {
-    hotAPI.reload("data-v-757c0938", Component.options)
+    hotAPI.reload("data-v-9e4ecdc2", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -22277,271 +28255,284 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs account-tabs" }, [
-    _c(
-      "ul",
-      [
-        _c("router-link", { attrs: { tag: "li", to: "/account" } }, [
-          _c("a", [_vm._v("\n         \tAccount")])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { tag: "li", to: "/wishlist" } }, [
-          _c("a", [_vm._v("Wishlist")])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { tag: "li", to: "/cart" } }, [
-          _c("a", [_vm._v("Cart")])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { tag: "li", to: "/orders" } }, [
-          _c("a", [_vm._v("Orders")])
-        ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-757c0938", module.exports)
-  }
-}
-
-/***/ }),
 /* 70 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        'account-tabs': __webpack_require__(68)
-    }
-});
-
-/***/ }),
-/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "section" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "columns account-header" }, [
-        _c(
-          "div",
-          {
-            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("account-tabs"),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
-              _c("div", { staticClass: "column is-4" }, [
-                _c("div", { staticClass: "flat-card is-auto menu-card" }, [
-                  _c("div", { staticClass: "card-title" }, [
-                    _c("h3", [_vm._v("Add Wishlist")]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "edit-account" }, [
+  return _c("div", { staticClass: "columns category-header" }, [
+    _c(
+      "div",
+      { staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "is-categories-grid" }, [
+          _c("div", { staticClass: "tile is-ancestor" }, [
+            _c("div", { staticClass: "tile is-vertical is-8" }, [
+              _c("div", { staticClass: "tile" }, [
+                _c("div", { staticClass: "tile is-parent is-vertical" }, [
+                  _c(
+                    "article",
+                    {
+                      staticClass: "tile is-child has-background-image",
+                      staticStyle: {
+                        "background-image":
+                          'url("assets/images/bg/accessories.jpeg")'
+                      },
+                      attrs: {
+                        "data-background": "assets/images/bg/accessories.jpeg",
+                        onclick: "return true"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "tile-content is-small" }, [
+                        _c("h2", { staticClass: "shop-category is-small" }, [
+                          _vm._v("Accessories")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "divider" }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Inner Comfort")]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "is-italic" }, [
+                          _vm._v(
+                            "Finest products collected amongst the countrie's best artisans."
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "action",
+                            attrs: { href: "products.html" }
+                          },
+                          [
+                            _c("span", [_vm._v("Discover")]),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-chevron-right",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("polyline", {
+                                  attrs: { points: "9 18 15 12 9 6" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "tile-overlay" })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "article",
+                    {
+                      staticClass: "tile is-child has-background-image",
+                      staticStyle: {
+                        "background-image":
+                          'url("assets/images/bg/kitchen.jpeg")'
+                      },
+                      attrs: {
+                        "data-background": "assets/images/bg/kitchen.jpeg",
+                        onclick: "return true"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "tile-content is-small" }, [
+                        _c("h2", { staticClass: "shop-category is-small" }, [
+                          _vm._v("Kitchen")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "divider" }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Inner Comfort")]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "is-italic" }, [
+                          _vm._v(
+                            "Finest products collected amongst the countrie's best artisans."
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "action",
+                            attrs: { href: "products.html" }
+                          },
+                          [
+                            _c("span", [_vm._v("Discover")]),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-chevron-right",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("polyline", {
+                                  attrs: { points: "9 18 15 12 9 6" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "tile-overlay" })
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "tile is-parent" }, [
+                  _c(
+                    "article",
+                    {
+                      staticClass:
+                        "tile is-child has-min-height has-background-image",
+                      staticStyle: {
+                        "background-image": 'url("assets/images/bg/house.jpeg")'
+                      },
+                      attrs: {
+                        "data-background": "assets/images/bg/house.jpeg",
+                        onclick: "return true"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "tile-content" }, [
+                        _c("h2", { staticClass: "shop-category" }, [
+                          _vm._v("House")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "divider" }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Inner Comfort")]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "is-italic" }, [
+                          _vm._v(
+                            "Finest products collected amongst the countrie's best artisans."
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "action",
+                            attrs: { href: "products.html" }
+                          },
+                          [
+                            _c("span", [_vm._v("Discover")]),
+                            _vm._v(" "),
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "feather feather-chevron-right",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "24",
+                                  height: "24",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round"
+                                }
+                              },
+                              [
+                                _c("polyline", {
+                                  attrs: { points: "9 18 15 12 9 6" }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "tile-overlay" })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "tile is-parent" }, [
+                _c(
+                  "article",
+                  {
+                    staticClass:
+                      "tile is-child is-danger has-min-height has-background-image",
+                    staticStyle: {
+                      "background-image": 'url("assets/images/bg/kids.jpg")'
+                    },
+                    attrs: {
+                      "data-background": "assets/images/bg/kids.jpg",
+                      onclick: "return true"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "tile-content" }, [
+                      _c("h2", { staticClass: "shop-category" }, [
+                        _vm._v("For kids")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "divider" }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Their Playground")]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "is-italic" }, [
+                        _vm._v(
+                          "Finest products collected amongst the countrie's best artisans."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
                       _c(
                         "a",
                         {
-                          staticClass: "modal-trigger has-simple-popover",
-                          attrs: {
-                            href: "javascript:void(0);",
-                            "data-modal": "new-wishlist",
-                            "data-content": "Add a New Wishlist",
-                            "data-placement": "top",
-                            "data-target": "webuiPopover4"
-                          }
+                          staticClass: "action",
+                          attrs: { href: "products.html" }
                         },
                         [
+                          _c("span", [_vm._v("Discover")]),
+                          _vm._v(" "),
                           _c(
                             "svg",
                             {
-                              staticClass: "feather feather-plus feather-icons",
+                              staticClass: "feather feather-chevron-right",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 width: "24",
@@ -22555,1551 +28546,95 @@ var render = function() {
                               }
                             },
                             [
-                              _c("line", {
-                                attrs: { x1: "12", y1: "5", x2: "12", y2: "19" }
-                              }),
-                              _c("line", {
-                                attrs: { x1: "5", y1: "12", x2: "19", y2: "12" }
+                              _c("polyline", {
+                                attrs: { points: "9 18 15 12 9 6" }
                               })
                             ]
                           )
                         ]
                       )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column is-8" }, [
-                _c("div", { staticClass: "flat-card wishlist-card is-auto" }, [
-                  _c("ul", { staticClass: "wishlist" }, [
-                    _c(
-                      "li",
-                      {
-                        staticClass: "wishlist-item",
-                        attrs: { onclick: "return true" }
-                      },
-                      [
-                        _c("div", { staticClass: "item-wrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/products/office6.png",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "action" }, [
-                            _c("div", { staticClass: "dropdown is-right" }, [
-                              _c("span", { staticClass: "dropdown-trigger" }, [
-                                _c("span", { staticClass: "dropdown-button" }, [
-                                  _c(
-                                    "a",
-                                    { attrs: { href: "javascript:void(0);" } },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "feather feather-chevron-down feather-icons",
-                                          attrs: {
-                                            xmlns: "http://www.w3.org/2000/svg",
-                                            width: "24",
-                                            height: "24",
-                                            viewBox: "0 0 24 24",
-                                            fill: "none",
-                                            stroke: "currentColor",
-                                            "stroke-width": "2",
-                                            "stroke-linecap": "round",
-                                            "stroke-linejoin": "round"
-                                          }
-                                        },
-                                        [
-                                          _c("polyline", {
-                                            attrs: { points: "6 9 12 15 18 9" }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { role: "menu" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "dropdown-content" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-list feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "6",
-                                                  x2: "21",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "12",
-                                                  x2: "21",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "18",
-                                                  x2: "21",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "6",
-                                                  x2: "3",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "12",
-                                                  x2: "3",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "18",
-                                                  x2: "3",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Move to List")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        { staticClass: "dropdown-item" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-eye feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "12",
-                                                  cy: "12",
-                                                  r: "3"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("View Product")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-shopping-cart feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "9",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "20",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Add to Cart")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("hr", {
-                                        staticClass: "dropdown-divider"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-x feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "18",
-                                                  y1: "6",
-                                                  x2: "6",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "6",
-                                                  y1: "6",
-                                                  x2: "18",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Remove")])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ]
-                    ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "tile-overlay" })
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tile is-parent" }, [
+              _c(
+                "article",
+                {
+                  staticClass: "tile is-child has-background-image",
+                  staticStyle: {
+                    "background-image": 'url("assets/images/bg/office.jpeg")'
+                  },
+                  attrs: {
+                    "data-background": "assets/images/bg/office.jpeg",
+                    onclick: "return true"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "tile-content" }, [
+                    _c("h2", { staticClass: "shop-category" }, [
+                      _vm._v("Office")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "divider" }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Premium Office furniture")]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "is-italic" }, [
+                      _vm._v(
+                        "Finest products collected amongst the countrie's best artisans."
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5),
                     _vm._v(" "),
                     _c(
-                      "li",
+                      "a",
                       {
-                        staticClass: "wishlist-item",
-                        attrs: { onclick: "return true" }
+                        staticClass: "action",
+                        attrs: { href: "products.html" }
                       },
                       [
-                        _c("div", { staticClass: "item-wrapper" }, [
-                          _c("img", {
+                        _c("span", [_vm._v("Discover")]),
+                        _vm._v(" "),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "feather feather-chevron-right",
                             attrs: {
-                              src: "assets/images/products/office7.gif",
-                              alt: ""
+                              xmlns: "http://www.w3.org/2000/svg",
+                              width: "24",
+                              height: "24",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
                             }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "action" }, [
-                            _c("div", { staticClass: "dropdown is-right" }, [
-                              _c("span", { staticClass: "dropdown-trigger" }, [
-                                _c("span", { staticClass: "dropdown-button" }, [
-                                  _c(
-                                    "a",
-                                    { attrs: { href: "javascript:void(0);" } },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "feather feather-chevron-down feather-icons",
-                                          attrs: {
-                                            xmlns: "http://www.w3.org/2000/svg",
-                                            width: "24",
-                                            height: "24",
-                                            viewBox: "0 0 24 24",
-                                            fill: "none",
-                                            stroke: "currentColor",
-                                            "stroke-width": "2",
-                                            "stroke-linecap": "round",
-                                            "stroke-linejoin": "round"
-                                          }
-                                        },
-                                        [
-                                          _c("polyline", {
-                                            attrs: { points: "6 9 12 15 18 9" }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { role: "menu" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "dropdown-content" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-list feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "6",
-                                                  x2: "21",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "12",
-                                                  x2: "21",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "18",
-                                                  x2: "21",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "6",
-                                                  x2: "3",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "12",
-                                                  x2: "3",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "18",
-                                                  x2: "3",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Move to List")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        { staticClass: "dropdown-item" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-eye feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "12",
-                                                  cy: "12",
-                                                  r: "3"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("View Product")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-shopping-cart feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "9",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "20",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Add to Cart")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("hr", {
-                                        staticClass: "dropdown-divider"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-x feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "18",
-                                                  y1: "6",
-                                                  x2: "6",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "6",
-                                                  y1: "6",
-                                                  x2: "18",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Remove")])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "wishlist-item",
-                        attrs: { onclick: "return true" }
-                      },
-                      [
-                        _c("div", { staticClass: "item-wrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/products/access1.jpg",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(4),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "action" }, [
-                            _c("div", { staticClass: "dropdown is-right" }, [
-                              _c("span", { staticClass: "dropdown-trigger" }, [
-                                _c("span", { staticClass: "dropdown-button" }, [
-                                  _c(
-                                    "a",
-                                    { attrs: { href: "javascript:void(0);" } },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "feather feather-chevron-down feather-icons",
-                                          attrs: {
-                                            xmlns: "http://www.w3.org/2000/svg",
-                                            width: "24",
-                                            height: "24",
-                                            viewBox: "0 0 24 24",
-                                            fill: "none",
-                                            stroke: "currentColor",
-                                            "stroke-width": "2",
-                                            "stroke-linecap": "round",
-                                            "stroke-linejoin": "round"
-                                          }
-                                        },
-                                        [
-                                          _c("polyline", {
-                                            attrs: { points: "6 9 12 15 18 9" }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { role: "menu" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "dropdown-content" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-list feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "6",
-                                                  x2: "21",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "12",
-                                                  x2: "21",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "18",
-                                                  x2: "21",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "6",
-                                                  x2: "3",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "12",
-                                                  x2: "3",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "18",
-                                                  x2: "3",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Move to List")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        { staticClass: "dropdown-item" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-eye feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "12",
-                                                  cy: "12",
-                                                  r: "3"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("View Product")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-shopping-cart feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "9",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "20",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Add to Cart")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("hr", {
-                                        staticClass: "dropdown-divider"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-x feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "18",
-                                                  y1: "6",
-                                                  x2: "6",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "6",
-                                                  y1: "6",
-                                                  x2: "18",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Remove")])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "wishlist-item",
-                        attrs: { onclick: "return true" }
-                      },
-                      [
-                        _c("div", { staticClass: "item-wrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/products/kids5.jpg",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(5),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "action" }, [
-                            _c("div", { staticClass: "dropdown is-right" }, [
-                              _c("span", { staticClass: "dropdown-trigger" }, [
-                                _c("span", { staticClass: "dropdown-button" }, [
-                                  _c(
-                                    "a",
-                                    { attrs: { href: "javascript:void(0);" } },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "feather feather-chevron-down feather-icons",
-                                          attrs: {
-                                            xmlns: "http://www.w3.org/2000/svg",
-                                            width: "24",
-                                            height: "24",
-                                            viewBox: "0 0 24 24",
-                                            fill: "none",
-                                            stroke: "currentColor",
-                                            "stroke-width": "2",
-                                            "stroke-linecap": "round",
-                                            "stroke-linejoin": "round"
-                                          }
-                                        },
-                                        [
-                                          _c("polyline", {
-                                            attrs: { points: "6 9 12 15 18 9" }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { role: "menu" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "dropdown-content" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-list feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "6",
-                                                  x2: "21",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "12",
-                                                  x2: "21",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "18",
-                                                  x2: "21",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "6",
-                                                  x2: "3",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "12",
-                                                  x2: "3",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "18",
-                                                  x2: "3",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Move to List")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        { staticClass: "dropdown-item" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-eye feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "12",
-                                                  cy: "12",
-                                                  r: "3"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("View Product")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-shopping-cart feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "9",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "20",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Add to Cart")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("hr", {
-                                        staticClass: "dropdown-divider"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-x feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "18",
-                                                  y1: "6",
-                                                  x2: "6",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "6",
-                                                  y1: "6",
-                                                  x2: "18",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Remove")])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "wishlist-item",
-                        attrs: { onclick: "return true" }
-                      },
-                      [
-                        _c("div", { staticClass: "item-wrapper" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/products/modern-bed.jpg",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm._m(6),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "action" }, [
-                            _c("div", { staticClass: "dropdown is-right" }, [
-                              _c("span", { staticClass: "dropdown-trigger" }, [
-                                _c("span", { staticClass: "dropdown-button" }, [
-                                  _c(
-                                    "a",
-                                    { attrs: { href: "javascript:void(0);" } },
-                                    [
-                                      _c(
-                                        "svg",
-                                        {
-                                          staticClass:
-                                            "feather feather-chevron-down feather-icons",
-                                          attrs: {
-                                            xmlns: "http://www.w3.org/2000/svg",
-                                            width: "24",
-                                            height: "24",
-                                            viewBox: "0 0 24 24",
-                                            fill: "none",
-                                            stroke: "currentColor",
-                                            "stroke-width": "2",
-                                            "stroke-linecap": "round",
-                                            "stroke-linejoin": "round"
-                                          }
-                                        },
-                                        [
-                                          _c("polyline", {
-                                            attrs: { points: "6 9 12 15 18 9" }
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "dropdown-menu",
-                                  attrs: { role: "menu" }
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "dropdown-content" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-list feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "6",
-                                                  x2: "21",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "12",
-                                                  x2: "21",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "8",
-                                                  y1: "18",
-                                                  x2: "21",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "6",
-                                                  x2: "3",
-                                                  y2: "6"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "12",
-                                                  x2: "3",
-                                                  y2: "12"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "3",
-                                                  y1: "18",
-                                                  x2: "3",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Move to List")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        { staticClass: "dropdown-item" },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-eye feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "12",
-                                                  cy: "12",
-                                                  r: "3"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("View Product")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-shopping-cart feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "9",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("circle", {
-                                                attrs: {
-                                                  cx: "20",
-                                                  cy: "21",
-                                                  r: "1"
-                                                }
-                                              }),
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Add to Cart")])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("hr", {
-                                        staticClass: "dropdown-divider"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "dropdown-item",
-                                          attrs: { href: "#" }
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-x feather-icons",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24",
-                                                height: "24",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "18",
-                                                  y1: "6",
-                                                  x2: "6",
-                                                  y2: "18"
-                                                }
-                                              }),
-                                              _c("line", {
-                                                attrs: {
-                                                  x1: "6",
-                                                  y1: "6",
-                                                  x2: "18",
-                                                  y2: "18"
-                                                }
-                                              })
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("span", [_vm._v("Remove")])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
+                          },
+                          [
+                            _c("polyline", {
+                              attrs: { points: "9 18 15 12 9 6" }
+                            })
+                          ]
+                        )
                       ]
                     )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(7)
-              ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "tile-overlay" })
+                ]
+              )
             ])
-          ],
-          1
-        )
-      ])
-    ])
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -24107,8 +28642,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "account-title" }, [
-      _c("h2", [_vm._v("WISHLIST")]),
+    return _c("div", { staticClass: "category-title no-border is-padded" }, [
+      _c("h2", [_vm._v("SHOP")]),
       _vm._v(" "),
       _c("img", {
         staticClass: "brand-filigrane",
@@ -24120,80 +28655,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "wishlists" }, [
-      _c("li", { staticClass: "is-active" }, [_c("a", [_vm._v("Main List")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", [_vm._v("Couches")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", [_vm._v("Tables")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", [_vm._v("Accessories")])])
+    return _c("div", { staticClass: "products is-absolute" }, [
+      _vm._v("\n                                            119 "),
+      _c("span", [_vm._v("Products")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("The Conqueror")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Office")])
+    return _c("div", { staticClass: "products is-absolute" }, [
+      _vm._v("\n                                            187 "),
+      _c("span", [_vm._v("Products")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("The Gentleman")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Office")])
+    return _c("div", { staticClass: "products" }, [
+      _vm._v("\n                                            268 "),
+      _c("span", [_vm._v("Products")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("Styled Lamp")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Accessories")])
+    return _c("div", { staticClass: "products" }, [
+      _vm._v("\n                                        376 "),
+      _c("span", [_vm._v("Products")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("Treasure Chest")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("For Kids")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("Modern Bed")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("House")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wishlist-pagination" }, [
-      _c("ul", [
-        _c("li", { staticClass: "is-active" }, [_c("span", [_vm._v("1")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("2")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("3")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("4")])])
-      ])
+    return _c("div", { staticClass: "products" }, [
+      _vm._v("\n                                    391 "),
+      _c("span", [_vm._v("Products")])
     ])
   }
 ]
@@ -24202,292 +28702,1014 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4b9ec3ee", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9e4ecdc2", module.exports)
   }
 }
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */]);
+
+var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
+	state: {
+		products: []
+	},
+	getters: {
+		products: function products(state) {
+			return state.products;
+		}
+	},
+	mutations: {
+		setProducts: function setProducts(state, products) {
+			state.products = products;
+		}
+	},
+	actions: {
+		fetchProducts: function fetchProducts(_ref) {
+			var commit = _ref.commit;
+
+			axios.get('/api/products').then(function (response) {
+				commit('setProducts', response.data);
+			}).catch(function (error) {
+				return console.log(error.response);
+			});
+		}
+	}
+});
 
 /***/ }),
 /* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* unused harmony export Store */
+/* unused harmony export install */
+/* unused harmony export mapState */
+/* unused harmony export mapMutations */
+/* unused harmony export mapGetters */
+/* unused harmony export mapActions */
+/* unused harmony export createNamespacedHelpers */
+/**
+ * vuex v3.0.1
+ * (c) 2017 Evan You
+ * @license MIT
+ */
+var applyMixin = function (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-	components: {
-		'account-tabs': __webpack_require__(68)
-	}
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+};
+
+var devtoolHook =
+  typeof window !== 'undefined' &&
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+/**
+ * Deep copy the given object considering circular structure.
+ * This function caches all nested objects and its copies.
+ * If it detects circular structure, use cached copy to avoid infinite loop.
+ *
+ * @param {*} obj
+ * @param {Array<Object>} cache
+ * @return {*}
+ */
+
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  this._children = Object.create(null);
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors$1 = { namespaced: { configurable: true } };
+
+prototypeAccessors$1.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors$1 );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (true) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (true) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (true) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (true) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "Store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  if (typeof state === 'function') {
+    state = state() || {};
+  }
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  if (Vue.config.devtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors = { state: { configurable: true } };
+
+prototypeAccessors.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors.state.set = function (v) {
+  if (true) {
+    assert(false, "Use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+    "development" !== 'production' &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
+
+  return entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  return genericSubscribe(fn, this._subscribers)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn) {
+  return genericSubscribe(fn, this._actionSubscribers)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (true) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors );
+
+function genericSubscribe (fn, subs) {
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    computed[key] = function () { return fn(store); };
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ("development" !== 'production' && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ("development" !== 'production' && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (true) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (true) {
+      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (true) {
+    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (true) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
 });
+
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if ("development" !== 'production' && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if ("development" !== 'production' && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '3.0.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+
+/* harmony default export */ __webpack_exports__["a"] = (index_esm);
+
 
 /***/ }),
 /* 73 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(75)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -24504,7 +29726,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\views\\shop\\Cart.vue"
+Component.options.__file = "resources\\assets\\js\\views\\shop\\Invoice.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -24513,9 +29735,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-745dd76e", Component.options)
+    hotAPI.createRecord("data-v-64354b14", Component.options)
   } else {
-    hotAPI.reload("data-v-745dd76e", Component.options)
+    hotAPI.reload("data-v-64354b14", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -24526,349 +29748,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        'account-tabs': __webpack_require__(68)
-    }
-});
-
-/***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -24878,2833 +29758,294 @@ var render = function() {
   return _c("div", { staticClass: "section" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "columns account-header" }, [
-        _c(
-          "div",
-          {
-            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("account-tabs"),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
-              _c("div", { staticClass: "column is-12" }, [
-                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
-                  _c("ul", { staticClass: "cart-content" }, [
-                    _c("li", [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/products/office6.png",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "action" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-like has-simple-popover",
-                            attrs: {
-                              "data-content": "Add to Wishlist",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-heart feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-remove has-simple-popover",
-                            attrs: {
-                              "data-content": "Remove from Cart",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-x feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "18",
-                                      y1: "6",
-                                      x2: "6",
-                                      y2: "18"
-                                    }
-                                  }),
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "6",
-                                      y1: "6",
-                                      x2: "18",
-                                      y2: "18"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
-                  _c("ul", { staticClass: "cart-content" }, [
-                    _c("li", [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/products/office7.gif",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _vm._m(6),
-                      _vm._v(" "),
-                      _vm._m(7),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "action" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-like has-simple-popover",
-                            attrs: {
-                              "data-content": "Add to Wishlist",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-heart feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-remove has-simple-popover",
-                            attrs: {
-                              "data-content": "Remove from Cart",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-x feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "18",
-                                      y1: "6",
-                                      x2: "6",
-                                      y2: "18"
-                                    }
-                                  }),
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "6",
-                                      y1: "6",
-                                      x2: "18",
-                                      y2: "18"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
-                  _c("ul", { staticClass: "cart-content" }, [
-                    _c("li", [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/products/kids7.jpg",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _vm._m(10),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "action" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-like has-simple-popover",
-                            attrs: {
-                              "data-content": "Add to Wishlist",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-heart feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-remove has-simple-popover",
-                            attrs: {
-                              "data-content": "Remove from Cart",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-x feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "18",
-                                      y1: "6",
-                                      x2: "6",
-                                      y2: "18"
-                                    }
-                                  }),
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "6",
-                                      y1: "6",
-                                      x2: "18",
-                                      y2: "18"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flat-card is-auto cart-card" }, [
-                  _c("ul", { staticClass: "cart-content" }, [
-                    _c("li", [
-                      _c("img", {
-                        attrs: {
-                          src: "assets/images/products/access4.jpg",
-                          alt: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(11),
-                      _vm._v(" "),
-                      _vm._m(12),
-                      _vm._v(" "),
-                      _vm._m(13),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "action" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-like has-simple-popover",
-                            attrs: {
-                              "data-content": "Add to Wishlist",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-heart feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "action-link is-remove has-simple-popover",
-                            attrs: {
-                              "data-content": "Remove from Cart",
-                              "data-placement": "top"
-                            }
-                          },
-                          [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _c(
-                                "svg",
-                                {
-                                  staticClass:
-                                    "feather feather-x feather-icons",
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    width: "24",
-                                    height: "24",
-                                    viewBox: "0 0 24 24",
-                                    fill: "none",
-                                    stroke: "currentColor",
-                                    "stroke-width": "2",
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round"
-                                  }
-                                },
-                                [
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "18",
-                                      y1: "6",
-                                      x2: "6",
-                                      y2: "18"
-                                    }
-                                  }),
-                                  _c("line", {
-                                    attrs: {
-                                      x1: "6",
-                                      y1: "6",
-                                      x2: "18",
-                                      y2: "18"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "columns category-header low-padding" }, [
-        _c(
-          "div",
-          {
-            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
-          },
-          [
-            _vm._m(14),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "columns no-controls is-product-grid is-multiline"
-              },
-              [
-                _c("div", { staticClass: "column is-9" }, [
-                  _c("div", { staticClass: "flat-card is-long" }, [
-                    _vm._m(15),
-                    _vm._v(" "),
-                    _vm._m(16),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-3" }, [
-                  _c("div", { staticClass: "flat-card" }, [
-                    _vm._m(17),
-                    _vm._v(" "),
-                    _vm._m(18),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-3" }, [
-                  _c("div", { staticClass: "flat-card" }, [
-                    _vm._m(19),
-                    _vm._v(" "),
-                    _vm._m(20),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-3" }, [
-                  _c("div", { staticClass: "flat-card" }, [
-                    _vm._m(21),
-                    _vm._v(" "),
-                    _vm._m(22),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column" }, [
-                  _c("div", { staticClass: "flat-card is-long" }, [
-                    _vm._m(23),
-                    _vm._v(" "),
-                    _vm._m(24),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-6" }, [
-                  _c("div", { staticClass: "flat-card is-long" }, [
-                    _vm._m(25),
-                    _vm._v(" "),
-                    _vm._m(26),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-6" }, [
-                  _c("div", { staticClass: "flat-card is-long" }, [
-                    _vm._m(27),
-                    _vm._v(" "),
-                    _vm._m(28),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "actions" }, [
-                      _c("div", { staticClass: "add" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-shopping-cart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "9", cy: "21", r: "1" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "20", cy: "21", r: "1" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "like" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-heart",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(29)
-          ]
-        )
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "account-title" }, [
-      _c("h2", [_vm._v("MY CART")]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "brand-filigrane",
-        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cart-summary" }, [
-      _c("span", { staticClass: "cart-total" }, [
-        _vm._v("\r\n                        1521,94 "),
-        _c("small", [_vm._v("5 "), _c("span", [_vm._v("items in cart")])])
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "button feather-button is-bold primary-button raised",
-          attrs: { href: "checkout-step1.html" }
-        },
-        [_vm._v("\r\n                        CHECKOUT\r\n                    ")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("The Conqueror")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Office")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-price" }, [
-      _c("span", [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("385,00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-quantity" }, [
-      _c("span", [_vm._v("Qty")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "control" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "number", value: "1" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("The Gentleman")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Office")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-price" }, [
-      _c("span", [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("329,00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-quantity" }, [
-      _c("span", [_vm._v("Qty")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "control" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "number", value: "1" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("Child Desk")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Kids")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-price" }, [
-      _c("span", [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("278,00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-quantity" }, [
-      _c("span", [_vm._v("Qty")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "control" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "number", value: "1" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-info" }, [
-      _c("span", [_vm._v("Design Shelf")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("House")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-price" }, [
-      _c("span", [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("529,00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "product-quantity" }, [
-      _c("span", [_vm._v("Qty")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "control" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: { type: "number", value: "1" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "category-title" }, [
-      _c("h2", { staticClass: "is-small" }, [_vm._v("RECENTLY VIEWED")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left-image is-md" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/red-seat.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name featured" }, [
-          _vm._v("Red Alcove")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    90,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/cosy-red-seat.png", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info has-text-centered" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name" }, [_vm._v("Red Seat")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    75,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/office4.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info has-text-centered" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name" }, [_vm._v("Executive")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    125,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/office5.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info has-text-centered" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name" }, [_vm._v("Cosy chair")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    88,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left-image is-md" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/office3.jpg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name featured-md" }, [
-          _vm._v("Ambassador")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    480,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left-image is-md" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/office6.png", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name featured-md" }, [
-          _vm._v("Conqueror")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    590,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left-image is-md" }, [
-      _c("img", {
-        attrs: { src: "assets/images/products/office7.gif", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-info" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("h3", { staticClass: "product-name featured-md" }, [
-          _vm._v("Gentleman")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-description" }, [
-        _vm._v("Lorem ipsum sit dolor amet")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-price" }, [
-        _vm._v(
-          "\r\n                                    375,00\r\n                                "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "show-more" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Show more products")])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-745dd76e", module.exports)
-  }
-}
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "section" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "columns account-header" }, [
-        _c(
-          "div",
-          {
-            staticClass: "column is-10 is-offset-1 is-tablet-landscape-padded"
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("account-tabs"),
-            _vm._v(" "),
-            _c("div", { staticClass: "listing-controls" }, [
-              _c("div", { staticClass: "layout-controls" }, [
-                _c("a", { attrs: { href: "orders.html" } }, [
-                  _c("span", { staticClass: "is-active" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-grid",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("rect", {
-                          attrs: { x: "3", y: "3", width: "7", height: "7" }
-                        }),
-                        _c("rect", {
-                          attrs: { x: "14", y: "3", width: "7", height: "7" }
-                        }),
-                        _c("rect", {
-                          attrs: { x: "14", y: "14", width: "7", height: "7" }
-                        }),
-                        _c("rect", {
-                          attrs: { x: "3", y: "14", width: "7", height: "7" }
-                        })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "orders-list.html" } }, [
-                  _c("span", [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-list",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("line", {
-                          attrs: { x1: "8", y1: "6", x2: "21", y2: "6" }
-                        }),
-                        _c("line", {
-                          attrs: { x1: "8", y1: "12", x2: "21", y2: "12" }
-                        }),
-                        _c("line", {
-                          attrs: { x1: "8", y1: "18", x2: "21", y2: "18" }
-                        }),
-                        _c("line", {
-                          attrs: { x1: "3", y1: "6", x2: "3", y2: "6" }
-                        }),
-                        _c("line", {
-                          attrs: { x1: "3", y1: "12", x2: "3", y2: "12" }
-                        }),
-                        _c("line", {
-                          attrs: { x1: "3", y1: "18", x2: "3", y2: "18" }
-                        })
-                      ]
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(1)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns is-account-grid is-multiline" }, [
-              _c("div", { staticClass: "column is-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "flat-card order-card has-popover-top" },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "circle-chart-wrapper" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "circle-chart",
-                          attrs: {
-                            viewBox: "0 0 33.83098862 33.83098862",
-                            width: "140",
-                            height: "140",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            staticClass: "circle-chart-background",
-                            attrs: {
-                              stroke: "#efefef",
-                              "stroke-width": "2",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", {
-                            staticClass: "circle-chart-circle",
-                            attrs: {
-                              stroke: "#0023ff",
-                              "stroke-width": "2",
-                              "stroke-dasharray": "66,100",
-                              "stroke-linecap": "round",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chart-icon" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-truck",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("rect", {
-                              attrs: {
-                                x: "1",
-                                y: "3",
-                                width: "15",
-                                height: "13"
-                              }
-                            }),
-                            _c("polygon", {
-                              attrs: {
-                                points: "16 8 20 8 23 11 23 16 16 16 16 8"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
-                            }),
-                            _c("circle", {
-                              attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(3)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "webui-popover-content" }, [
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-clock",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "12", r: "10" }
-                          }),
-                          _c("polyline", {
-                            attrs: { points: "12 6 12 12 16 14" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-dollar-sign",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("line", {
-                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(6)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-truck",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: { x: "1", y: "3", width: "15", height: "13" }
-                          }),
-                          _c("polygon", {
-                            attrs: {
-                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
-                            }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(7)
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column is-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "flat-card order-card has-popover-top" },
-                  [
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "circle-chart-wrapper" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "circle-chart",
-                          attrs: {
-                            viewBox: "0 0 33.83098862 33.83098862",
-                            width: "140",
-                            height: "140",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            staticClass: "circle-chart-background",
-                            attrs: {
-                              stroke: "#efefef",
-                              "stroke-width": "2",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", {
-                            staticClass: "circle-chart-circle",
-                            attrs: {
-                              stroke: "#00b289",
-                              "stroke-width": "2",
-                              "stroke-dasharray": "33,100",
-                              "stroke-linecap": "round",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chart-icon" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-package",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"
-                              }
-                            }),
-                            _c("polyline", {
-                              attrs: { points: "2.32 6.16 12 11 21.68 6.16" }
-                            }),
-                            _c("line", {
-                              attrs: {
-                                x1: "12",
-                                y1: "22.76",
-                                x2: "12",
-                                y2: "11"
-                              }
-                            }),
-                            _c("line", {
-                              attrs: { x1: "7", y1: "3.5", x2: "17", y2: "8.5" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(9)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "webui-popover-content" }, [
-                  _vm._m(10),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-clock",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "12", r: "10" }
-                          }),
-                          _c("polyline", {
-                            attrs: { points: "12 6 12 12 16 14" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(11)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-dollar-sign",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("line", {
-                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(12)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-truck",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: { x: "1", y: "3", width: "15", height: "13" }
-                          }),
-                          _c("polygon", {
-                            attrs: {
-                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
-                            }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(13)
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column is-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "flat-card order-card has-popover-top" },
-                  [
-                    _vm._m(14),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "circle-chart-wrapper" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "circle-chart",
-                          attrs: {
-                            viewBox: "0 0 33.83098862 33.83098862",
-                            width: "140",
-                            height: "140",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            staticClass: "circle-chart-background",
-                            attrs: {
-                              stroke: "#efefef",
-                              "stroke-width": "2",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", {
-                            staticClass: "circle-chart-circle",
-                            attrs: {
-                              stroke: "#eda514",
-                              "stroke-width": "2",
-                              "stroke-dasharray": "10,100",
-                              "stroke-linecap": "round",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chart-icon" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-dollar-sign",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("line", {
-                              attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
-                            }),
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(15)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "webui-popover-content" }, [
-                  _vm._m(16),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-clock",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "12", r: "10" }
-                          }),
-                          _c("polyline", {
-                            attrs: { points: "12 6 12 12 16 14" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(17)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-dollar-sign",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("line", {
-                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(18)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-truck",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: { x: "1", y: "3", width: "15", height: "13" }
-                          }),
-                          _c("polygon", {
-                            attrs: {
-                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
-                            }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(19)
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column is-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "flat-card order-card has-popover-top",
-                    attrs: { "data-target": "webuiPopover3" }
-                  },
-                  [
-                    _vm._m(20),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "circle-chart-wrapper" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "circle-chart",
-                          attrs: {
-                            viewBox: "0 0 33.83098862 33.83098862",
-                            width: "140",
-                            height: "140",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            staticClass: "circle-chart-background",
-                            attrs: {
-                              stroke: "#efefef",
-                              "stroke-width": "2",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", {
-                            staticClass: "circle-chart-circle",
-                            attrs: {
-                              stroke: "#FF7273",
-                              "stroke-width": "2",
-                              "stroke-dasharray": "40,100",
-                              "stroke-linecap": "round",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chart-icon" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-alert-octagon",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("polygon", {
-                              attrs: {
-                                points:
-                                  "7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"
-                              }
-                            }),
-                            _c("line", {
-                              attrs: { x1: "12", y1: "8", x2: "12", y2: "12" }
-                            }),
-                            _c("line", {
-                              attrs: { x1: "12", y1: "16", x2: "12", y2: "16" }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(21)
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "column is-4" }, [
-                _c(
-                  "div",
-                  { staticClass: "flat-card order-card has-popover-top" },
-                  [
-                    _vm._m(22),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "circle-chart-wrapper" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "circle-chart",
-                          attrs: {
-                            viewBox: "0 0 33.83098862 33.83098862",
-                            width: "140",
-                            height: "140",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            staticClass: "circle-chart-background",
-                            attrs: {
-                              stroke: "#efefef",
-                              "stroke-width": "2",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("circle", {
-                            staticClass: "circle-chart-circle",
-                            attrs: {
-                              stroke: "#0023ff",
-                              "stroke-width": "2",
-                              "stroke-dasharray": "100,100",
-                              "stroke-linecap": "round",
-                              fill: "none",
-                              cx: "16.91549431",
-                              cy: "16.91549431",
-                              r: "15.91549431"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "chart-icon" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "feather feather-award",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              width: "24",
-                              height: "24",
-                              viewBox: "0 0 24 24",
-                              fill: "none",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
-                            }
-                          },
-                          [
-                            _c("circle", {
-                              attrs: { cx: "12", cy: "8", r: "7" }
-                            }),
-                            _c("polyline", {
-                              attrs: {
-                                points:
-                                  "8.21 13.89 7 23 12 20 17 23 15.79 13.88"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(23)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "webui-popover-content" }, [
-                  _vm._m(24),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-clock",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "12", r: "10" }
-                          }),
-                          _c("polyline", {
-                            attrs: { points: "12 6 12 12 16 14" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(25)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-dollar-sign",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("line", {
-                            attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(26)
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "popover-flex-block" }, [
-                    _c("div", { staticClass: "icon-block" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-truck",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("rect", {
-                            attrs: { x: "1", y: "3", width: "15", height: "13" }
-                          }),
-                          _c("polygon", {
-                            attrs: {
-                              points: "16 8 20 8 23 11 23 16 16 16 16 8"
-                            }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "5.5", cy: "18.5", r: "2.5" }
-                          }),
-                          _c("circle", {
-                            attrs: { cx: "18.5", cy: "18.5", r: "2.5" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(27)
-                  ])
-                ])
-              ])
-            ])
-          ],
-          1
-        )
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "account-title" }, [
-      _c("h2", [_vm._v("MY ORDERS")]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "brand-filigrane",
-        attrs: { src: "assets/images/logo/nephos-greyscale.svg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sort-box" }, [
-      _c("div", { staticClass: "sort-box-select" }, [
-        _c(
-          "select",
-          {
-            staticClass: "chosen-select-no-single",
-            staticStyle: { display: "none" },
-            attrs: { "data-placeholder": "Default order" }
-          },
-          [
-            _c("option", [_vm._v("All Orders")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Pending")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("In Progress")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("Complete")])
-          ]
-        ),
         _c(
           "div",
           {
             staticClass:
-              "chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active",
-            staticStyle: { width: "100%" },
-            attrs: { title: "" }
+              "column is-8 is-offset-2 invoice-wrap is-invoice-landscape-padded"
           },
           [
-            _c("a", { staticClass: "chosen-single" }, [
-              _c("input", {
-                staticClass: "chosen-search-input",
-                attrs: { type: "text", autocomplete: "off", readonly: "" }
-              }),
-              _vm._v(" "),
-              _c("span", [_vm._v("All Orders")]),
-              _vm._v(" "),
-              _c("div", [_c("b")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "chosen-drop" }, [
-              _c("div", { staticClass: "chosen-search" }),
-              _vm._v(" "),
-              _c("ul", { staticClass: "chosen-results" }, [
+            _c(
+              "div",
+              { staticClass: "invoice-controls" },
+              [
                 _c(
-                  "li",
+                  "router-link",
                   {
-                    staticClass: "active-result result-selected",
-                    attrs: { "data-option-array-index": "0" }
+                    staticClass:
+                      "button feather-button is-bold primary-button raised",
+                    attrs: { to: "/orders" }
                   },
-                  [_vm._v("All Orders")]
+                  [_vm._v("Back")]
                 ),
+                _vm._v(" "),
                 _c(
-                  "li",
+                  "a",
                   {
-                    staticClass: "active-result",
-                    attrs: { "data-option-array-index": "1" }
+                    staticClass:
+                      "button feather-button is-bold secondary-button raised",
+                    attrs: { href: "javascript:void(0);" }
                   },
-                  [_vm._v("Pending")]
-                ),
-                _c(
-                  "li",
-                  {
-                    staticClass: "active-result",
-                    attrs: { "data-option-array-index": "2" }
-                  },
-                  [_vm._v("In Progress")]
-                ),
-                _c(
-                  "li",
-                  {
-                    staticClass: "active-result result-selected",
-                    attrs: { "data-option-array-index": "3" }
-                  },
-                  [_vm._v("Complete")]
+                  [_vm._v("Download")]
                 )
-              ])
-            ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(0)
           ]
         )
       ])
     ])
-  },
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order-info" }, [
-      _c("span", [
-        _c("a", { attrs: { href: "invoice.html", onclick: "return true" } }, [
-          _vm._v("ORDER-46895")
+    return _c("div", { staticClass: "invoice" }, [
+      _c("div", { staticClass: "columns is-flex-mobile" }, [
+        _c("div", { staticClass: "column is-7" }, [
+          _c("img", {
+            staticClass: "logo",
+            attrs: { src: "assets/images/logo/nephos.svg", alt: "" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-5" }, [
+          _c("p", { staticClass: "invoice-meta has-text-right" }, [
+            _c("span", [
+              _vm._v("Invoice N° "),
+              _c("small", [_vm._v("2018/754")])
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [_vm._v("Order N° "), _c("small", [_vm._v("48771")])])
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "tag is-primary" }, [_vm._v("Shipping")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ring-title has-text-centered" }, [
-      _c("span", [_vm._v("66% Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "popover-flex-block" }, [
-      _c("img", {
-        staticClass: "staff-avatar",
-        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "content-block" }, [
-        _c("label", [_vm._v("Order handled by")]),
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-7" }, [
+          _c("p", { staticClass: "seller" }, [
+            _c("span", [_vm._v("Nephos Ltd.")]),
+            _c("br"),
+            _vm._v(
+              "\n                                168, Church Street, Brenning DC"
+            ),
+            _c("br"),
+            _vm._v(
+              "\n                                48506 NY City\n                            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("p", { staticClass: "invoice-meta has-text-left" }, [
+            _c("span", [
+              _vm._v("Issued on : "),
+              _c("small", { staticClass: "date" }, [_vm._v("mar 23 2018")])
+            ])
+          ])
+        ]),
         _vm._v(" "),
-        _c("span", [_vm._v("Jane Smith")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Ordered on")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("mar 23th 2018")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Order Total")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("$378,85")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Shipping Method")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("UPS")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order-info" }, [
-      _c("span", [
-        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-46878")])
+        _c("div", { staticClass: "column is-5" }, [
+          _c("p", { staticClass: "buyer has-text-right" }, [
+            _c("span", [_vm._v("Elie Daniels")]),
+            _c("br"),
+            _vm._v("\n                                eliedaniels@gmail.com"),
+            _c("br"),
+            _vm._v("\n                                12, Armory Street"),
+            _c("br"),
+            _vm._v(
+              "\n                                54250 Seattle\n                            "
+            )
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "tag is-success" }, [_vm._v("Preparing")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ring-title has-text-centered" }, [
-      _c("span", [_vm._v("33% Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "popover-flex-block" }, [
-      _c("img", {
-        staticClass: "staff-avatar",
-        attrs: { src: "assets/images/avatars/marc.jpg", alt: "" }
-      }),
+      _c("br"),
       _vm._v(" "),
-      _c("div", { staticClass: "content-block" }, [
-        _c("label", [_vm._v("Order handled by")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("Marc Korsky")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Ordered on")]),
+      _c("br"),
       _vm._v(" "),
-      _c("span", [_vm._v("mar 15th 2018")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Order Total")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("$58,49")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Shipping Method")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Drone")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order-info" }, [
-      _c("span", [
-        _c(
-          "a",
-          { staticClass: "is-disabled", attrs: { href: "invoice.html" } },
-          [_vm._v("ORDER-42135")]
-        )
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("table", { staticClass: "table table-striped responsive-table" }, [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Product")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "has-text-centered" }, [
+                  _vm._v("Quantity")
+                ]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Price")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Total")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [
+                  _c("span", { staticClass: "product" }, [_vm._v("Shipping")]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sku" }, [_vm._v("UPS Delivery")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "has-text-centered" }, [
+                  _c("span", { staticClass: "quantity" }, [_vm._v("1")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "unit-price" }, [_vm._v("80,00")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "total-price" }, [_vm._v("80,00")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("span", { staticClass: "product" }, [
+                    _vm._v("The Conqueror")
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sku" }, [_vm._v("SKU-778")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "has-text-centered" }, [
+                  _c("span", { staticClass: "quantity" }, [_vm._v("1")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "unit-price" }, [_vm._v("395,00")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "total-price" }, [_vm._v("395,00")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("span", { staticClass: "product" }, [
+                    _vm._v("The Gentleman")
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sku" }, [_vm._v("SKU-429")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "has-text-centered" }, [
+                  _c("span", { staticClass: "quantity" }, [_vm._v("1")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "unit-price" }, [_vm._v("285,00")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "total-price" }, [_vm._v("285,00")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("span", { staticClass: "product" }, [
+                    _vm._v("Styled Lamp")
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "sku" }, [_vm._v("SKU-117")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "has-text-centered" }, [
+                  _c("span", { staticClass: "quantity" }, [_vm._v("2")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "unit-price" }, [_vm._v("43,45")])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-right" }, [
+                  _c("span", { staticClass: "total-price" }, [_vm._v("86,90")])
+                ])
+              ])
+            ])
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "tag is-warning" }, [_vm._v("Pending")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ring-title has-text-centered" }, [
-      _c("span", [_vm._v("10% Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "popover-flex-block" }, [
-      _c("img", {
-        staticClass: "staff-avatar",
-        attrs: { src: "assets/images/avatars/janet.jpg", alt: "" }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "content-block" }, [
-        _c("label", [_vm._v("Order handled by")]),
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column is-7" }),
         _vm._v(" "),
-        _c("span", [_vm._v("Janet Smith")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Ordered on")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("feb 26th 2018")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Order Total")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("$188,00")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Shipping Method")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("FedEx")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order-info" }, [
-      _c("span", [
-        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-39456")])
+        _c("div", { staticClass: "column is-5" }, [
+          _c("table", { staticClass: "table table-sm sub-table text-right" }, [
+            _c("tr", [
+              _c("td", [
+                _c("span", { staticClass: "subtotal" }, [_vm._v("Subtotal")])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-right" }, [
+                _c("span", { staticClass: "subtotal-value" }, [
+                  _vm._v("481,90")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _c("span", { staticClass: "vat" }, [_vm._v("VAT (20%)")])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-right" }, [
+                _c("span", { staticClass: "vat-value" }, [_vm._v("96,38")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [
+                _c("span", { staticClass: "total" }, [_vm._v("Total")])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-right" }, [
+                _c("span", { staticClass: "total-value" }, [_vm._v("578,28")])
+              ])
+            ])
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "tag is-danger" }, [_vm._v("Has issue")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ring-title has-text-centered" }, [
-      _c("span", [_vm._v("40% Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "order-info" }, [
-      _c("span", [
-        _c("a", { attrs: { href: "invoice.html" } }, [_vm._v("ORDER-38246")])
-      ]),
+      _c("br"),
       _vm._v(" "),
-      _c("span", { staticClass: "tag is-primary" }, [_vm._v("Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ring-title has-text-centered" }, [
-      _c("span", [_vm._v("100% Complete")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "popover-flex-block" }, [
-      _c("img", {
-        staticClass: "staff-avatar",
-        attrs: { src: "assets/images/avatars/nicole.jpg", alt: "" }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "content-block" }, [
-        _c("label", [_vm._v("Order handled by")]),
+      _c("p", { staticClass: "bottom-page has-text-right" }, [
+        _c("span", { staticClass: "company" }, [_vm._v("NEPHOS LTD")]),
         _vm._v(" "),
-        _c("span", [_vm._v("Nicole Rogers")])
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "id" }, [_vm._v("ID° 80897753200015 NY")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "url" }, [_vm._v("nephos.com/customers")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "code" }, [
+          _vm._v("IBAN FR76 1470 7034 0031 4211 7882 825")
+        ]),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", { staticClass: "code" }, [_vm._v("SWIFT CCBPFRPPMTZ")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Ordered on")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("feb 5th 2018")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Order Total")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("$29,22")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-block" }, [
-      _c("label", [_vm._v("Shipping Method")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("UPS")])
     ])
   }
 ]
@@ -27713,687 +30054,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e4699d64", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-64354b14", module.exports)
   }
 }
-
-/***/ }),
-/* 77 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			active: false
-		};
-	},
-
-	components: {
-		'account-tabs': __webpack_require__(68)
-	}
-});
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(79);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(80)("03cd34e7", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e4699d64\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Orders.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(58)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.display:{\n\tdisplay: block;\n}\n.hidden{\n\tdisplay: none;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(81)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-var options = null
-var ssrIdKey = 'data-vue-ssr-id'
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction, _options) {
-  isProduction = _isProduction
-
-  options = _options || {}
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-  if (options.ssrId) {
-    styleElement.setAttribute(ssrIdKey, obj.id)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
 
 /***/ })
 /******/ ]);
