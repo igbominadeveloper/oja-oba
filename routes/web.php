@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('/{route}', function() {
-    return redirect('/');
-})->where('route','[A-Za-z]+');
+    return view('welcome');
+})->where('route','.*');
 
 Route::post('login', 'SessionsController@store');

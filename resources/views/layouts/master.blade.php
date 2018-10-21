@@ -8,7 +8,6 @@
     <title>Nephos :: Modern Bulma Ecommerce App and Dashboard</title>
 
     <link rel="icon" type="image/png" href="/nephos/images/favicon.png" />
-    <link rel="stylesheet" href="{{ asset('/css/vendor.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <!-- Fonts -->
      <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
@@ -16,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.main')
+        <app-header></app-header>
         <router-view></router-view>
     </div>
 <script src="{{ asset('js/app.js') }}"></script>

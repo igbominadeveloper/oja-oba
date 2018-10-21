@@ -76,21 +76,27 @@
 
                               <!-- Register Form -->
                               <div id="register" class="navtab-content" :class="{'is-active' : !isActive}">
-                                  <form>
+                                  <form @submit.prevent="register" @keydown="form.errors.clear($event.target.name)">
                                       <!-- Form Control -->
                                       <div class="control">
                                           <label class="auth-label">Email*</label>
-                                          <input type="email" class="input" placeholder="">
+                                          <input type="email" class="input" v-model="form.email">
+                                          <span class="help is-danger" v-if="form.errors.hasAny('email')" v-text="form.errors.get('mail')"></span>
+
                                       </div>
                                       <!-- Form Control -->
                                       <div class="control">
                                           <label class="auth-label">Password*</label>
-                                          <input type="password" class="input" placeholder="">
+                                          <input type="password" class="input" v-model="form.password">
+                                          <span class="help is-danger" v-if="form.errors.hasAny('password')" v-text="form.errors.get('password')"></span>
+
                                       </div>
                                       <!-- Form Control -->
                                       <div class="control">
                                           <label class="auth-label">Confirm Password*</label>
-                                          <input type="password" class="input" placeholder="">
+                                          <input type="password" class="input" v-model="form.password_confirmation">
+                                          <span class="help is-danger" v-if="form.errors.hasAny('password_confirmation')" v-text="form.errors.get('password_confirmation')"></span>
+
                                       </div>
                                       <!-- Form Submit -->
                                       <div class="button-wrapper">
@@ -121,13 +127,28 @@ import Form from '../../Form.js'
         isActive: true,
         form: new Form({
           email:'',
-          password:''
+          password:'',
+          password_confirmation:''
         })
       }
     },
     methods:{
       login(){
         this.form.submit()
+      },
+      register(){
+        this.form.submit()
+      },
+    },
+    computed:{
+      confirmPassword(){
+        if (this.form.password !== this.form.password_confirmation){
+          let error = {'password_confirmation':{
+            '0' : "Passwords don't match"
+          }
+        }; 
+          return this.form.errors.record(error);
+        }
       }
     }
   }

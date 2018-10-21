@@ -21,9 +21,8 @@ mix.styles([
     'resources/assets/nephos/js/jpcard/card.css',
     'resources/assets/nephos/css/chosen/chosen.css',
     'resources/assets/nephos/css/icons.min.css'
-],'public/css/vendor.css')
-    .scripts(['resources/assets/nephos/js/app.js','resources/assets/nephos/js/nephos.js'],'public/js/bulma.js')
-
+],'public/css/app.css')
+.scripts(['resources/assets/nephos/js/app.js','resources/assets/nephos/js/nephos.js'],'public/js/bulma.js');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

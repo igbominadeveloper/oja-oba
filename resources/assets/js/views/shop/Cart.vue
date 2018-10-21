@@ -19,9 +19,9 @@
                     <span class="cart-total">
                         1521,94 <small>5 <span>items in cart</span></small>
                     </span>
-                    <a href="checkout-step1.html" class="button feather-button is-bold primary-button raised">
+                    <router-link to="/checkout-1" class="button feather-button is-bold primary-button raised">
                         CHECKOUT
-                    </a>
+                    </router-link>
                 </div>
 
                 <!-- Cart Layout -->
@@ -34,7 +34,7 @@
                                 <li>
                                     <img src="assets/images/products/office6.png" alt="">
                                     <span class="product-info">
-                                        <span>The Conqueror</span>
+                                        <span>The Conqchceckourueror</span>
                                         <span>Office</span>
                                     </span>
                                     <span class="product-price">

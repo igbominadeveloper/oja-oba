@@ -286,7 +286,7 @@
 			}
 		},
 		components:{
-			'account-tabs': require('../auth/AccountTabs.vue')
+			'account-tabs': require('../../auth/AccountTabs.vue')
 		},
 	}
 </script>

@@ -24,10 +24,11 @@
 
 	        <!-- User account -->
 	        <ul class="bottom-menu is-hidden-mobile">
-	        
-            <router-link to="/auth" tag="li">
-                <i data-feather="user"></i>
-            </router-link>        
+    	        <li>   
+                    <router-link to="/auth">
+                        <i data-feather="user"></i>
+                    </router-link>        
+                </li>
 	        </ul>
 	    </div>
 	</div>
